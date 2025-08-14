@@ -1091,18 +1091,7 @@
             background: rgba(255, 255, 255, 0.1);
             opacity: 1;
         }
-        
-        .subtasks {
-            margin-left: var(--space-lg);
-            padding-left: var(--space-md);
-            border-left: 2px solid rgba(255, 255, 255, 0.2);
-            display: none;
-        }
-        
-        .subtasks.expanded {
-            display: block;
-        }
-        
+          
         .subtask-item {
             display: flex;
             align-items: center;
@@ -1151,26 +1140,41 @@
         }
         
         .subtask-input {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: var(--radius-sm);
-            padding: var(--space-sm);
-            color: white;
-            font-size: var(--text-sm);
-            margin-top: var(--space-sm);
-            width: 100%;
+            background: rgba(255, 255, 255, 0.1) !important;
+            border: 1px solid rgba(255, 255, 255, 0.3) !important;
+            border-radius: var(--radius-sm) !important;
+            padding: var(--space-sm) !important;
+            color: white !important;
+            font-size: var(--text-sm) !important;
+            margin-top: var(--space-sm) !important;
+            width: 100% !important;
+            position: relative !important;
+            z-index: 10 !important;
+            min-height: 32px !important;
         }
         
         .subtask-input:focus {
-            outline: none;
-            border-color: var(--secondary-color);
-            background: rgba(255, 255, 255, 0.2);
+            outline: none !important;
+            border-color: var(--secondary-color) !important;
+            background: rgba(255, 255, 255, 0.2) !important;
         }
         
         .subtask-input::placeholder {
-            color: rgba(255, 255, 255, 0.5);
+            color: rgba(255, 255, 255, 0.5) !important;
         }
-
+        
+        /* Make sure the subtasks container is visible */
+        .subtasks {
+            margin-left: var(--space-lg) !important;
+            padding-left: var(--space-md) !important;
+            border-left: 2px solid rgba(255, 255, 255, 0.2) !important;
+            display: none !important;
+            margin-top: var(--space-sm) !important;
+        }
+        
+        .subtasks.expanded {
+            display: block !important;
+        }
         /* Emergency Button */
         .emergency-btn {
             position: absolute;
