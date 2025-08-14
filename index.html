@@ -11,579 +11,491 @@
     <title>Hazel - Mental Health Support</title>
     
     <!-- PWA Manifest -->
-    <link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogIkhhemVsIC0gTWVudGFsIEhlYWx0aCBTdXBwb3J0IiwKICAic2hvcnRfbmFtZSI6ICJIYXplbCIsCiAgImRlc2NyaXB0aW9uIjogIk1lbnRhbCBoZWFsdGggc3VwcG9ydCBhcHAgd2l0aCBqb3VybmFsaW5nLCByZXNvdXJjZXMsIGFuZCBjcmlzaXMgc3VwcG9ydCIsCiAgInN0YXJ0X3VybCI6ICIuLyIsCiAgImRpc3BsYXkiOiAic3RhbmRhbG9uZSIsCiAgIm9yaWVudGF0aW9uIjogInBvcnRyYWl0IiwKICAiYmFja2dyb3VuZF9jb2xvciI6ICIjQTJBRTgzIiwKICAidGhlbWVfY29sb3IiOiAiI0EyQUU4MyIsCiAgImljb25zIjogWwogICAgewogICAgICAic3JjIjogImRhdGE6aW1hZ2Uvc3ZnK3htbDtiYXNlNjQsUEhOMlp5QjRiV3h1Y3owaWFIUjBjRG92TDNkM2R5NTNNeTV2Y21jdk1qQXdNQzl6ZG1jaUlIZHBaSFJvUFNJeE9USmNJaUJvWldsbmFIUTlJakU1TW5jaUlIWnBaWGRDYjNnOUlqQWdNQ0F4T1RJZ01UazJYQ0krUEhKbFkzUWdkMmxrZEdnOUlqRTVNaUlnYUdWcFoyaDBQU0l4T1RJaUlHWnBiR3c5SWlOQk1rRkZPRE5jSWk4K1BIUmxlSFFnZUQwaU9UWWlJSGs5SWpFeE1DSUJHWEJ1ZEMxemFYcGxQU0k0TkNJZ2RHVjRkQzFoYm1Ob2IzSTlJbTFwWkdSc1pTSStxS2FzOERBdmRHVjRkRDQ4TDNOMlp6ND0iLAogICAgICAidHlwZSI6ICJpbWFnZS9zdmcreG1sIiwKICAgICAgInNpemVzIjogIjE5MngxOTIiLAogICAgICAicHVycG9zZSI6ICJhbnkgbWFza2FibGUiCiAgICB9LAogICAgewogICAgICAic3JjIjogImRhdGE6aW1hZ2Uvc3ZnK3htbDtiYXNlNjQsUEhOMlp5QjRiV3h1Y3owaWFIUjBjRG92TDNkM2R5NTNNeTV2Y21jdk1qQXdNQzl6ZG1jaUlIZHBaSFJvUFNJMU1USndlQ0lnYUdWcFoyaDBQU0kxTVRKd2VDSWdkbWxsZDBKdmVEMGlNQ0F3SURRNU1UZ3dYQ0krUEhKbFkzUWdkMmxrZEdnOUlqVXhNaUlnYUdWcFoyaDBQU0kxTVRJaUlHWnBiR3c5SWlOQk1rRkZPRE5jSWk4K1BIUmxlSFFnZUQwaU1qVTJJaUJaUFNJek1EQWlJR1p2Ym5RdGMybDZaVDBpTWpBd0lpQjBaWGgwTFdGdVkyaHZjajBpYldsa1pHeGxYQ0krcUthczhEQXZkR1Y0ZEQ0OEwzTjJaejQ9IiwKICAgICAgInR5cGUiOiAiaW1hZ2Uvc3ZnK3htbCIsCiAgICAgICJzaXplcyI6ICI1MTJ4NTEyIiwKICAgICAgInB1cnBvc2UiOiAiYW55IG1hc2thYmxlIgogICAgfQogIF0sCiAgInNob3J0Y3V0cyI6IFsKICAgIHsKICAgICAgIm5hbWUiOiAiTmV3IEpvdXJuYWwgRW50cnkiLAogICAgICAic2hvcnRfbmFtZSI6ICJKb3VybmFsIiwKICAgICAgInVybCI6ICIvP2FjdGlvbj1uZXctam91cm5hbCIKICAgIH0sCiAgICB7CiAgICAgICJuYW1lIjogIkNyaXNpcyBTdXBwb3J0IiwKICAgICAgInNob3J0X25hbWUiOiAiQ3Jpc2lzIiwKICAgICAgInVybCI6ICIvP2FjdGlvbj1jcmlzaXMiCiAgICB9CiAgXQp9">
+    <link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogIkhhemVsIC0gTWVudGFsIEhlYWx0aCBTdXBwb3J0IiwKICAic2hvcnRfbmFtZSI6ICJIYXplbCIsCiAgImRlc2NyaXB0aW9uIjogIk1lbnRhbCBoZWFsdGggc3VwcG9ydCBhcHAgd2l0aCBqb3VybmFsaW5nLCByZXNvdXJjZXMsIGFuZCBjcmlzaXMgc3VwcG9ydCIsCiAgInN0YXJ0X3VybCI6ICIuLyIsCiAgImRpc3BsYXkiOiAic3RhbmRhbG9uZSIsCiAgIm9yaWVudGF0aW9uIjogInBvcnRyYWl0IiwKICAiYmFja2dyb3VuZF9jb2xvciI6ICIjQTJBRTgzIiwKICAidGhlbWVfY29sb3IiOiAiI0EyQUU4MyIsCiAgImljb25zIjogWwogICAgewogICAgICAic3JjIjogImRhdGE6aW1hZ2Uvc3ZnK3htbDtiYXNlNjQsUEhOMlp5QjRiV3h1Y3owaWFIUjBjRG92TDNkM2R5NTNNeTV2Y21jdk1qQXdNQzl6ZG1jaUlIZHBaSFJvUFNJeE9USmNJaUJvWldsbmFIUTlJakU1TW5jaUlIWnBaWGRDYjNnOUlqQWdNQ0F4T1RJZ01UazJYQ0krUEhKbFkzUWdkMmxrZEdnOUlqRTVNaUlnYUdWcFoyaDBQU0l4T1RJaUlHWnBiR3c5SWlOQk1rRkZPRE5jSWk4K1BIUmxlSFFnZUQwaU9UWWlJSGs5SWpFeE1DSUJHYIUZ1ZEMxemFYcGxQU0k0TkNJZ2RHVjRkQzFoYm1Ob2IzSTlJbTFwWkdSc1pTSStxS2FzOERBdmRHVjRkRDQ4TDNOMlp6ND0iLAogICAgICAidHlwZSI6ICJpbWFnZS9zdmcreG1sIiwKICAgICAgInNpemVzIjogIjE5MngxOTIiLAogICAgICAicHVycG9zZSI6ICJhbnkgbWFza2FibGUiCiAgICB9LAogICAgewogICAgICAic3JjIjogImRhdGE6aW1hZ2Uvc3ZnK3htbDtiYXNlNjQsUEhOMlp5QjRiV3h1Y3owaWFIUjBjRG92TDNkM2R5NTNNeTV2Y21jdk1qQXdNQzl6ZG1jaUlIZHBaSFJvUFNJMU1USndlQ0lnYUdWcFoyaDBQU0kxTVRKd2VDSWdkbWxsZDBKdmVEMGlNQ0F3SURRNU1UZ3dYQ0krUEhKbFkzUWdkMmxrZEdnOUlqVXhNaUlnYUdWcFoyaDBQU0kxTVRJaUlHWnBiR3c5SWlOQk1rRkZPRE5jSWk4K1BIUmxlSFFnZUQwaU1qVTJJaUJaUFNJek1EQWlJR1p2Ym5RdGMybDZaVDBpTWpBd0lpQjBaWGgwTFdGdVkyaHZjajBpYldsa1pHeGxYQ0lrcUthczhEQXZkR1Y0ZEQ0OEwzTjJaejQ9IiwKICAgICAgInR5cGUiOiAiaW1hZ2Uvc3ZnK3htbCIsCiAgICAgICJzaXplcyI6ICI1MTJ4NTEyIiwKICAgICAgInB1cnBvc2UiOiAiYW55IG1hc2thYmxlIgogICAgfQogIF0sCiAgInNob3J0Y3V0cyI6IFsKICAgIHsKICAgICAgIm5hbWUiOiAiTmV3IEpvdXJuYWwgRW50cnkiLAogICAgICAic2hvcnRfbmFtZSI6ICJKb3VybmFsIiwKICAgICAgInVybCI6ICIvP2FjdGlvbj1uZXctam91cm5hbCIKICAgIH0sCiAgICB7CiAgICAgICJuYW1lIjogIkNyaXNpcyBTdXBwb3J0IiwKICAgICAgInNob3J0X25hbWUiOiAiQ3Jpc2lzIiwKICAgICAgInVybCI6ICIvP2FjdGlvbj1jcmlzaXMiCiAgICB9CiAgXQp9">
 
     <!-- Apple Touch Icons for iOS PWA -->
-    <link rel="apple-touch-icon" sizes="180x180" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgwIiBoZWlnaHQ9IjE4MCIgdmlld0JveD0iMCAwIDE4MCAyMTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjE4MCIgaGVpZ2h0PSIxODAiIGZpbGw9IiNBMkFFODMiLz48dGV4dCB4PSI5MCIgeT0iMTA4IiB0ZXh0LXNpemU9IjEwNCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+8J+MsDwvdGV4dD48L3N2Zz4=">
+    <link rel="apple-touch-icon" sizes="180x180" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgwIiBoZWlnaHQ9IjE4MCIgdmlld0JveD0iMCAwIDE4MCAxODAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjE4MCIgaGVpZ2h0PSIxODAiIGZpbGw9IiNBMkFFODMiLz48dGV4dCB4PSI5MCIgeT0iMTEwIiBmb250LXNpemU9IjEwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFwcGxlIENvbG9yIEVtb2ppLCBTZWdvZSBVSSBFbW9qaSwgTm90byBDb2xvciBFbW9qaSwgc2Fucy1zZXJpZiI+8J+MsDwvdGV4dD48L3N2Zz4=">
+    <link rel="apple-touch-icon" sizes="152x152" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUyIiBoZWlnaHQ9IjE1MiIgdmlld0JveD0iMCAwIDE1MiAxNTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjE1MiIgaGVpZ2h0PSIxNTIiIGZpbGw9IiNBMkFFODMiLz48dGV4dCB4PSI3NiIgeT0iOTIiIGZvbnQtc2l6ZT0iODQiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcHBsZSBDb2xvciBFbW9qaSwgU2Vnb2UgVUkgRW1vamksIE5vdG8gQ29sb3IgRW1vamksIHNhbnMtc2VyaWYiPvCfjLA8L3RleHQ+PC9zdmc+">
+    <link rel="apple-touch-icon" sizes="120x120" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjEyMCIgdmlld0JveD0iMCAwIDEyMCAxMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEyMCIgaGVpZ2h0PSIxMjAiIGZpbGw9IiNBMkFFODMiLz48dGV4dCB4PSI2MCIgeT0iNzMiIGZvbnQtc2l6ZT0iNjYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcHBsZSBDb2xvciBFbW9qaSwgU2Vnb2UgVUkgRW1vamksIE5vdG8gQ29sb3IgRW1vamksIHNhbnMtc2VyaWYiPvCfjLA8L3RleHQ+PC9zdmc+">
+    <!-- Fallback Apple Touch Icon (catches all other sizes) -->
+    <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgwIiBoZWlnaHQ9IjE4MCIgdmlld0JveD0iMCAwIDE4MCAxODAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjE4MCIgaGVpZ2h0PSIxODAiIGZpbGw9IiNBMkFFODMiLz48dGV4dCB4PSI5MCIgeT0iMTEwIiBmb250LXNpemU9IjEwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFwcGxlIENvbG9yIEVtb2ppLCBTZWdvZSBVSSBFbW9qaSwgTm90byBDb2xvciBFbW9qaSwgc2Fucy1zZXJpZiI+8J+MsDwvdGV4dD48L3N2Zz4=">
 
     <style>
-        /* CSS Variables for consistent theming */
+        /* CSS Custom Properties for Mobile-First Design */
         :root {
+            /* Color System */
             --primary-color: #A2AE83;
-            --secondary-color: #C2ABF9;
-            --surface-color: #F4F1DE;
-            --background-gradient: linear-gradient(135deg, #CEE5D0, #A2AE83, #8A9B68);
-            --text-primary: #435334;
-            --text-secondary: #5A6B4D;
-            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.1);
-            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
-            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
-            --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
-            --radius-sm: 0.375rem;
-            --radius-md: 0.5rem;
-            --radius-lg: 0.75rem;
-            --radius-xl: 1rem;
+            --primary-dark: #8B956C;
+            --primary-light: #B8C19D;
+            --secondary-color: #B088F9;
+            --accent-color: #BA6464;
+            --background-color: #A2AE83;
+            --surface-color: #FFFFFF;
+            --text-primary: #333333;
+            --text-secondary: #666666;
+            --text-on-primary: #FFFFFF;
+            --success-color: #4CAF50;
+            --warning-color: #FF9800;
+            --error-color: #F44336;
+            
+            /* Fluid Typography */
+            --text-xs: clamp(0.75rem, 1.5vw + 0.5rem, 0.875rem);
+            --text-sm: clamp(0.875rem, 2vw + 0.5rem, 1rem);
+            --text-base: clamp(1rem, 2.5vw + 0.5rem, 1.125rem);
+            --text-lg: clamp(1.125rem, 3vw + 0.5rem, 1.25rem);
+            --text-xl: clamp(1.25rem, 4vw + 0.5rem, 1.5rem);
+            --text-2xl: clamp(1.5rem, 5vw + 0.5rem, 2rem);
+            --text-3xl: clamp(2rem, 6vw + 0.5rem, 3rem);
+            --text-4xl: clamp(2.5rem, 8vw + 0.5rem, 4rem);
+            
+            /* Responsive Spacing */
+            --space-xs: clamp(0.25rem, 1vw, 0.5rem);
+            --space-sm: clamp(0.5rem, 2vw, 1rem);
+            --space-md: clamp(1rem, 3vw, 1.5rem);
+            --space-lg: clamp(1.5rem, 4vw, 2rem);
+            --space-xl: clamp(2rem, 5vw, 3rem);
+            --space-2xl: clamp(3rem, 6vw, 4rem);
+            
+            /* Border Radius */
+            --radius-sm: 0.5rem;
+            --radius-md: 1rem;
+            --radius-lg: 1.5rem;
+            --radius-xl: 2rem;
             --radius-full: 9999px;
-            --space-xs: 0.25rem;
-            --space-sm: 0.5rem;
-            --space-md: 0.75rem;
-            --space-lg: 1rem;
-            --space-xl: 1.5rem;
-            --space-2xl: 2rem;
-            --text-xs: 0.75rem;
-            --text-sm: 0.875rem;
-            --text-base: 1rem;
-            --text-lg: 1.125rem;
-            --text-xl: 1.25rem;
-            --text-2xl: 1.5rem;
-            --text-3xl: 1.875rem;
-            --z-modal: 1000;
-            --z-tooltip: 1001;
+            
+            /* Shadows */
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+            --shadow-xl: 0 20px 25px rgba(0,0,0,0.1);
+            
+            /* Z-index Scale */
+            --z-dropdown: 1000;
+            --z-sticky: 1020;
+            --z-fixed: 1030;
+            --z-modal-backdrop: 1040;
+            --z-modal: 1050;
+            --z-popover: 1060;
+            --z-tooltip: 1070;
+            
+            /* Safe Areas */
             --safe-area-inset-top: env(safe-area-inset-top);
+            --safe-area-inset-right: env(safe-area-inset-right);
             --safe-area-inset-bottom: env(safe-area-inset-bottom);
+            --safe-area-inset-left: env(safe-area-inset-left);
         }
 
-        /* Global Resets and Base Styles */
+        /* Reset and Base Styles */
         *, *::before, *::after {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
+            -moz-text-size-adjust: 100%;
+            text-size-adjust: 100%;
+            height: 100%;
+            height: 100dvh;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Open Sans', 'Helvetica Neue', sans-serif;
-            background: var(--background-gradient);
-            min-height: 100vh;
-            min-height: 100dvh;
-            overflow-x: hidden;
-            user-select: none;
-            -webkit-user-select: none;
-            -webkit-touch-callout: none;
-            -webkit-tap-highlight-color: transparent;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow: hidden;
+            height: 100%;
+            height: 100dvh;
             padding-top: var(--safe-area-inset-top);
+            padding-left: var(--safe-area-inset-left);
+            padding-right: var(--safe-area-inset-right);
             padding-bottom: var(--safe-area-inset-bottom);
+            font-size: var(--text-base);
+            position: relative;
         }
 
-        .app-container {
-            max-width: 430px;
-            margin: 0 auto;
-            min-height: 100vh;
-            min-height: 100dvh;
+        /* Enhanced Container System */
+        /* UPDATED WITH iOS FIX */
+        .container {
+            width: 100%;
+            min-height: 100vh !important;
+            height: 100vh !important;
+            position: relative;
+            display: flex !important;
+            flex-direction: column !important;
+            overflow: hidden;
+        }
+
+        /* Mobile-First Navigation Bar */
+        .nav-bar {
+            position: relative;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            padding: var(--space-sm) 0;
+            box-shadow: 0 -2px 20px rgba(0,0,0,0.1);
+            z-index: var(--z-fixed);
+            border-top: 1px solid rgba(0,0,0,0.1);
+            flex-shrink: 0 !important;
+            margin-top: auto !important;
+        }
+
+        .nav-item {
             display: flex;
             flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-sm);
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: var(--radius-sm);
+            margin: 0 var(--space-xs);
+            min-height: 44px;
+            text-decoration: none;
+            color: inherit;
             position: relative;
-            background: var(--background-gradient);
-            box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
         }
 
-        /* Pages */
+        .nav-item::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: 50%;
+            width: 20px;
+            height: 3px;
+            background: var(--primary-color);
+            border-radius: 2px;
+            transform: translateX(-50%) scaleX(0);
+            transition: transform 0.2s ease;
+        }
+
+        .nav-item.active::before {
+            transform: translateX(-50%) scaleX(1);
+        }
+
+        .nav-item.active {
+            color: var(--primary-color);
+        }
+
+        .nav-icon {
+            font-size: 1.5rem;
+            margin-bottom: var(--space-xs);
+            transition: transform 0.2s ease;
+        }
+
+        .nav-item.active .nav-icon {
+            transform: scale(1.1);
+        }
+
+        .nav-text {
+            font-size: var(--text-xs);
+            font-weight: 600;
+            text-align: center;
+        }
+
+        /* Enhanced Page System */
+        /* UPDATED WITH iOS FIX */
         .page {
-            flex: 1;
-            padding: var(--space-lg);
-            padding-bottom: calc(80px + var(--space-lg));
             display: none;
-            flex-direction: column;
-            overflow-y: auto;
+            flex: 1 !important;
+            padding: var(--space-md);
+            overflow-y: auto !important;
+            overflow-x: hidden;
             -webkit-overflow-scrolling: touch;
-            min-height: 0;
+            width: 100%;
+            flex-direction: column !important;
         }
 
         .page.active {
-            display: flex;
-        }
-
-        /* Home Page */
-        .home-container {
-            display: flex;
+            display: flex !important;
             flex-direction: column;
-            flex: 1;
-            gap: var(--space-lg);
-            min-height: 0;
+            animation: fadeIn 0.3s ease;
         }
 
-        .welcome-section {
-            text-align: center;
-            padding: var(--space-xl);
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: var(--radius-xl);
-            box-shadow: var(--shadow-md);
-            margin-bottom: var(--space-lg);
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        .app-title {
-            font-size: clamp(2rem, 6vw, 3rem);
-            font-weight: 800;
-            color: var(--primary-color);
-            margin-bottom: var(--space-sm);
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .app-subtitle {
-            font-size: var(--text-lg);
-            color: var(--text-secondary);
-            margin-bottom: var(--space-lg);
-            line-height: 1.5;
-        }
-
-        .mood-section {
-            background: rgba(255, 255, 255, 0.9);
-            padding: var(--space-xl);
-            border-radius: var(--radius-xl);
-            box-shadow: var(--shadow-md);
+        /* Home Page Styles */
+        /* UPDATED WITH iOS FIX */
+        .home-header {
             text-align: center;
             margin-bottom: var(--space-lg);
+            display: flex !important;
+            flex-direction: column !important;
+            flex: 1 !important;
+            justify-content: space-around !important;
+            min-height: 0 !important;
         }
 
-        .mood-title {
-            font-size: var(--text-xl);
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: var(--space-lg);
-        }
-
-        .mood-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
-            gap: var(--space-md);
-            margin-bottom: var(--space-lg);
-        }
-
-        .emoji-btn {
-            background: var(--surface-color);
-            border: 3px solid transparent;
+        .logo {
+            width: clamp(80px, 20vw, 120px);
+            height: clamp(80px, 20vw, 120px);
+            background: linear-gradient(135deg, #556B2F, #6B7F3F);
             border-radius: var(--radius-lg);
-            padding: var(--space-md);
-            font-size: clamp(1.5rem, 4vw, 2rem);
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            min-height: 60px;
+            margin: 0 auto var(--space-lg);
             display: flex;
             align-items: center;
             justify-content: center;
-        }
-
-        .emoji-btn:hover,
-        .emoji-btn:focus {
-            transform: translateY(-4px) scale(1.05);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--secondary-color);
-        }
-
-        .emoji-btn.selected {
-            border-color: var(--secondary-color);
-            background: var(--secondary-color);
-            transform: scale(1.1);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .emergency-container {
-            position: fixed;
-            bottom: calc(80px + var(--space-lg));
-            right: var(--space-lg);
-            z-index: var(--z-tooltip);
-        }
-
-        .emergency-btn {
-            background: linear-gradient(135deg, #FF6B6B, #FF4757);
+            font-size: clamp(2rem, 8vw, 3rem);
             color: white;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+            transform: rotate(45deg);
+            animation: logoShine 3s ease-in-out infinite;
+        }
+
+        @keyframes logoShine {
+            0%, 100% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            50% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .feeling-text {
+            font-size: var(--text-xl);
+            font-weight: 700;
+            margin-bottom: var(--space-lg);
+            color: white;
+        }
+
+        .emoji-container {
+            display: flex;
+            justify-content: space-between;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-xl);
+            padding: 0 var(--space-lg);
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .emoji-btn {
+            background: rgba(255, 255, 255, 0.9);
             border: none;
             border-radius: var(--radius-full);
-            padding: var(--space-lg);
-            font-size: var(--text-sm);
-            font-weight: 700;
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            padding: var(--space-md);
             cursor: pointer;
-            box-shadow: var(--shadow-lg);
-            transition: all 0.3s ease;
-            animation: pulse 2s infinite;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: var(--shadow-md);
             min-height: 60px;
             min-width: 60px;
             display: flex;
             align-items: center;
             justify-content: center;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        .emergency-btn:hover,
-        .emergency-btn:focus {
-            transform: scale(1.1);
-            box-shadow: var(--shadow-xl);
-        }
-
-        .sobriety-tracker {
-            background: rgba(255, 255, 255, 0.95);
-            padding: var(--space-xl);
-            border-radius: var(--radius-xl);
-            box-shadow: var(--shadow-md);
-            text-align: center;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
             position: relative;
             overflow: hidden;
         }
 
-        .sobriety-tracker::before {
+        .emoji-btn::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255,255,255,0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.3s ease;
         }
 
-        .tracker-title {
-            font-size: var(--text-xl);
-            font-weight: 600;
-            color: var(--text-primary);
+        .emoji-btn:hover::before,
+        .emoji-btn:focus::before {
+            width: 100px;
+            height: 100px;
+        }
+
+        .emoji-btn:hover,
+        .emoji-btn:focus {
+            transform: scale(1.1);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .emoji-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* Sobriety Tracker */
+        .sobriety-tracker {
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: var(--radius-xl);
+            padding: var(--space-lg);
+            color: white;
+            backdrop-filter: blur(10px);
             margin-bottom: var(--space-lg);
+            position: relative;
+            overflow: hidden;
         }
 
-        .days-count {
-            font-size: clamp(2.5rem, 8vw, 4rem);
-            font-weight: 800;
-            color: var(--primary-color);
-            margin-bottom: var(--space-sm);
-            line-height: 1;
+        .sobriety-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-md);
         }
 
-        .days-label {
+        .sobriety-title {
             font-size: var(--text-lg);
-            color: var(--text-secondary);
-            margin-bottom: var(--space-lg);
+            font-weight: 600;
         }
 
-        .milestone-message {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        .edit-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: var(--text-lg);
+            cursor: pointer;
+            padding: var(--space-xs);
+            border-radius: var(--radius-sm);
+            transition: background 0.2s ease;
+        }
+
+        .edit-btn:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .days-counter {
+            text-align: center;
+            margin-bottom: var(--space-md);
+        }
+
+        .days-number {
+            font-size: var(--text-4xl);
+            font-weight: 700;
+            line-height: 1;
+            background: linear-gradient(135deg, #fff, #ccc);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            font-weight: 600;
+        }
+
+        .days-text {
+            font-size: var(--text-base);
+            opacity: 0.8;
+        }
+
+        .motivation-text {
+            text-align: center;
+            font-style: italic;
+            opacity: 0.9;
             margin-bottom: var(--space-md);
         }
 
         .progress-bar {
-            background: rgba(162, 174, 131, 0.2);
-            border-radius: var(--radius-full);
-            height: 8px;
-            margin-bottom: var(--space-md);
+            height: 6px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 3px;
             overflow: hidden;
+            margin-bottom: var(--space-sm);
         }
 
         .progress-fill {
-            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
             height: 100%;
-            border-radius: var(--radius-full);
-            transition: width 0.5s ease;
+            background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+            transition: width 0.3s ease;
         }
 
         .milestone-text {
-            font-size: var(--text-sm);
-            color: var(--text-secondary);
-            margin-bottom: var(--space-md);
-        }
-
-        .edit-date-btn {
-            background: var(--secondary-color);
-            color: white;
-            border: none;
-            padding: var(--space-sm) var(--space-lg);
-            border-radius: var(--radius-full);
-            font-size: var(--text-sm);
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .edit-date-btn:hover,
-        .edit-date-btn:focus {
-            transform: translateY(-1px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .streak-container {
-            display: flex;
-            justify-content: center;
-            gap: var(--space-sm);
-            margin-top: var(--space-lg);
-        }
-
-        .streak-day {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(162, 174, 131, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .streak-day.active {
-            background: var(--primary-color);
-            transform: scale(1.2);
-        }
-
-        /* Support Panel Styles */
-        .support-panel {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: white;
-            padding: var(--space-xl);
-            border-radius: var(--radius-xl);
-            box-shadow: var(--shadow-xl);
-            z-index: var(--z-modal);
-            max-width: 90vw;
-            width: 350px;
-            display: none;
-        }
-
-        .support-panel.active {
-            display: block;
-        }
-
-        .support-title {
-            font-size: var(--text-xl);
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: var(--space-lg);
             text-align: center;
-        }
-
-        .support-btn {
-            display: block;
-            width: 100%;
-            padding: var(--space-md);
-            margin-bottom: var(--space-md);
-            background: var(--primary-color);
-            color: white;
-            border: none;
-            border-radius: var(--radius-md);
-            font-size: var(--text-base);
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            text-decoration: none;
-            text-align: center;
-        }
-
-        .support-btn:hover,
-        .support-btn:focus {
-            background: #8A9B68;
-            transform: translateY(-1px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .close-panel-btn {
-            background: var(--secondary-color) !important;
-        }
-
-        /* Modal Styles */
-        .modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: var(--z-modal);
-            display: none;
-            padding: var(--space-lg);
-        }
-
-        .modal.active {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-content {
-            background: white;
-            padding: var(--space-xl);
-            border-radius: var(--radius-xl);
-            max-width: 90vw;
-            max-height: 80vh;
-            overflow-y: auto;
-            -webkit-overflow-scrolling: touch;
-            width: 350px;
-        }
-
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: var(--space-lg);
-        }
-
-        .modal-title {
-            font-size: var(--text-xl);
-            font-weight: 700;
-            color: var(--text-primary);
-        }
-
-        .close-btn {
-            background: none;
-            border: none;
-            font-size: var(--text-xl);
-            cursor: pointer;
-            padding: var(--space-sm);
-            border-radius: var(--radius-full);
-            transition: background 0.2s ease;
-        }
-
-        .close-btn:hover,
-        .close-btn:focus {
-            background: rgba(0, 0, 0, 0.1);
-        }
-
-        .hotlines-list {
-            display: flex;
-            flex-direction: column;
-            gap: var(--space-md);
-        }
-
-        .hotline-item {
-            background: var(--surface-color);
-            padding: var(--space-lg);
-            border-radius: var(--radius-lg);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .hotline-info {
-            flex: 1;
-        }
-
-        .hotline-name {
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: var(--space-xs);
-        }
-
-        .hotline-number {
             font-size: var(--text-sm);
-            color: var(--text-secondary);
-            margin-bottom: var(--space-xs);
+            opacity: 0.8;
         }
 
-        .hotline-hours {
-            font-size: var(--text-xs);
-            color: var(--text-secondary);
-        }
-
-        .hotline-actions {
-            display: flex;
-            gap: var(--space-sm);
-        }
-
-        .hotline-call,
-        .hotline-info-btn {
-            padding: var(--space-sm) var(--space-md);
-            border: none;
-            border-radius: var(--radius-md);
-            font-size: var(--text-sm);
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            text-decoration: none;
-            display: inline-block;
-            text-align: center;
-        }
-
-        .hotline-call {
-            background: var(--primary-color);
-            color: white;
-        }
-
-        .hotline-info-btn {
-            background: var(--secondary-color);
-            color: white;
-        }
-
-        .hotline-call:hover,
-        .hotline-info-btn:hover {
-            transform: translateY(-1px);
-            box-shadow: var(--shadow-sm);
-        }
-
-        /* Dashboard Styles */
+        /* Enhanced Dashboard Layout */
         .dashboard-container {
             display: flex;
             flex: 1;
-            gap: var(--space-lg);
-            min-height: 0;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            max-height: 100%;
         }
 
         .tab-sidebar {
-            background: rgba(0, 0, 0, 0.8);
-            border-radius: var(--radius-xl);
-            padding: var(--space-lg);
+            width: 80px;
+            background: #000;
             display: flex;
             flex-direction: column;
-            gap: var(--space-sm);
-            min-width: 100px;
-            backdrop-filter: blur(10px);
+            flex-shrink: 0;
         }
 
         .tab-item {
-            background: transparent;
-            color: white;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            padding: var(--space-md);
-            border-radius: var(--radius-lg);
-            font-size: var(--text-sm);
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-align: center;
-            writing-mode: vertical-rl;
-            text-orientation: mixed;
-            min-height: 80px;
+            flex: 1;
             display: flex;
             align-items: center;
             justify-content: center;
-        }
-
-        .tab-item:hover,
-        .tab-item:focus {
-            border-color: var(--secondary-color);
-            background: rgba(194, 171, 249, 0.2);
-        }
-
-        .tab-item.active {
-            background: var(--secondary-color);
-            border-color: var(--secondary-color);
             color: white;
+            cursor: pointer;
+            font-size: var(--text-xs);
+            font-weight: 700;
+            text-align: center;
+            line-height: 1.2;
+            transition: all 0.2s ease;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            padding: var(--space-sm);
+            position: relative;
+            min-height: 60px;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
         }
+
+        .tab-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--primary-color);
+            transform: scaleY(0);
+            transition: transform 0.2s ease;
+        }
+
+        .tab-item.active::before {
+            transform: scaleY(1);
+        }
+
+        .tab-item:nth-child(1) { background: #FFFFFF; color: #000; }
+        .tab-item:nth-child(2) { background: #8FAE79; }
+        .tab-item:nth-child(3) { background: #678553; }
+        .tab-item:nth-child(4) { background: #45582F; }
 
         .tab-content {
-            background: rgba(0, 0, 0, 0.8);
-            border-radius: var(--radius-xl);
-            padding: var(--space-xl);
-            color: white;
-            backdrop-filter: blur(10px);
             flex: 1;
+            background: #A9B189;
+            padding: var(--space-lg);
             overflow-y: auto;
             -webkit-overflow-scrolling: touch;
         }
 
-        .tab-content h3 {
+        .section-title {
+            color: white;
             font-size: var(--text-xl);
             font-weight: 700;
-            margin-bottom: var(--space-lg);
-            color: white;
+            text-align: center;
+            margin-bottom: var(--space-sm);
         }
 
         .section-divider {
@@ -679,96 +591,100 @@
             color: #435334;
         }
 
-        /* Food Items View */
-        .food-items {
+        /* Support Panel */
+        .support-panel {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            padding: var(--space-2xl);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-xl);
+            z-index: var(--z-modal);
             display: none;
-            flex-direction: column;
-            gap: var(--space-md);
-            margin-top: var(--space-lg);
+            max-width: min(90vw, 320px);
+            width: 100%;
+            backdrop-filter: blur(10px);
         }
 
-        .food-items.active {
-            display: flex;
+        .support-panel.show {
+            display: block;
+            animation: supportPanelSlideIn 0.3s ease;
         }
 
-        .back-btn {
-            background: var(--secondary-color);
+        @keyframes supportPanelSlideIn {
+            from { transform: translate(-50%, -50%) scale(0.8); opacity: 0; }
+            to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+        }
+
+        .support-panel h3 {
             color: white;
-            border: none;
-            padding: var(--space-sm) var(--space-lg);
-            border-radius: var(--radius-full);
-            font-size: var(--text-sm);
-            font-weight: 600;
-            cursor: pointer;
+            text-align: center;
             margin-bottom: var(--space-lg);
-            transition: all 0.2s ease;
-            align-self: flex-start;
-        }
-
-        .back-btn:hover,
-        .back-btn:focus {
-            transform: translateY(-1px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .food-item {
-            background: var(--surface-color);
-            border-radius: var(--radius-lg);
-            padding: var(--space-lg);
-            box-shadow: var(--shadow-md);
-            transition: all 0.2s ease;
-        }
-
-        .food-item:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .food-name {
             font-size: var(--text-lg);
             font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: var(--space-sm);
         }
 
-        .food-description {
-            font-size: var(--text-sm);
-            color: var(--text-secondary);
-            line-height: 1.5;
-            margin-bottom: var(--space-sm);
-        }
-
-        .food-calories {
-            font-size: var(--text-xs);
-            color: var(--primary-color);
+        .support-btn {
+            display: block;
+            width: 100%;
+            padding: var(--space-md);
+            margin-bottom: var(--space-md);
+            border: none;
+            border-radius: var(--radius-full);
+            font-size: var(--text-base);
             font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            min-height: 48px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .support-btn.primary {
+            background: var(--secondary-color);
+            color: white;
+        }
+
+        .support-btn.danger {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        .support-btn.secondary {
+            background: white;
+            color: var(--text-primary);
         }
 
         /* Journal Styles */
         .journal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: var(--space-lg);
+            text-align: center;
+            margin-bottom: var(--space-xl);
+            flex-shrink: 0;
         }
 
         .journal-title {
-            font-size: var(--text-2xl);
+            font-size: var(--text-3xl);
             font-weight: 700;
-            color: white;
+            color: #435334;
+            margin-bottom: var(--space-lg);
         }
 
         .new-entry-btn {
-            background: var(--secondary-color);
-            color: white;
+            background: var(--surface-color);
+            color: #435334;
             border: none;
-            padding: var(--space-md) var(--space-lg);
+            padding: var(--space-lg) var(--space-xl);
             border-radius: var(--radius-full);
-            font-size: var(--text-sm);
+            font-size: var(--text-base);
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.2s ease;
+            width: 100%;
+            margin: var(--space-lg) 0;
+            min-height: 48px;
             box-shadow: var(--shadow-md);
+            transition: all 0.2s ease;
         }
 
         .new-entry-btn:hover,
@@ -915,7 +831,7 @@
 
         .task-item {
             display: flex;
-            align-items: flex-start;
+            align-items: center;
             gap: var(--space-md);
             padding: var(--space-md) 0;
             border-bottom: 1px solid rgba(255,255,255,0.2);
@@ -937,7 +853,6 @@
             justify-content: center;
             transition: all 0.3s ease;
             flex-shrink: 0;
-            margin-top: 2px;
         }
 
         .task-checkbox.completed {
@@ -951,20 +866,6 @@
             font-size: 14px;
         }
 
-        .task-content {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: var(--space-sm);
-        }
-
-        .task-header {
-            display: flex;
-            align-items: center;
-            gap: var(--space-sm);
-            width: 100%;
-        }
-
         .task-text {
             flex: 1;
             transition: all 0.3s ease;
@@ -976,109 +877,6 @@
             opacity: 0.6;
         }
 
-        .task-actions {
-            display: flex;
-            gap: var(--space-xs);
-            opacity: 0.7;
-        }
-
-        .task-expand-btn,
-        .add-subtask-btn {
-            background: none;
-            border: none;
-            color: white;
-            font-size: var(--text-sm);
-            cursor: pointer;
-            padding: var(--space-xs);
-            border-radius: var(--radius-sm);
-            transition: all 0.2s ease;
-        }
-
-        .task-expand-btn:hover,
-        .add-subtask-btn:hover {
-            background: rgba(255, 255, 255, 0.1);
-            opacity: 1;
-        }
-
-        .subtasks {
-            margin-left: var(--space-lg);
-            padding-left: var(--space-md);
-            border-left: 2px solid rgba(255, 255, 255, 0.2);
-            display: none;
-        }
-
-        .subtasks.expanded {
-            display: block;
-        }
-
-        .subtask-item {
-            display: flex;
-            align-items: center;
-            gap: var(--space-sm);
-            padding: var(--space-sm) 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .subtask-item:last-child {
-            border-bottom: none;
-        }
-
-        .subtask-checkbox {
-            width: 16px;
-            height: 16px;
-            border: 2px solid rgba(255, 255, 255, 0.7);
-            border-radius: 3px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            flex-shrink: 0;
-        }
-
-        .subtask-checkbox.completed {
-            background: var(--secondary-color);
-            border-color: var(--secondary-color);
-        }
-
-        .subtask-checkbox.completed::after {
-            content: '✓';
-            color: white;
-            font-size: 10px;
-        }
-
-        .subtask-text {
-            flex: 1;
-            font-size: var(--text-sm);
-            transition: all 0.3s ease;
-        }
-
-        .subtask-text.completed {
-            text-decoration: line-through;
-            opacity: 0.6;
-        }
-
-        .subtask-input {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: var(--radius-sm);
-            padding: var(--space-sm);
-            color: white;
-            font-size: var(--text-sm);
-            margin-top: var(--space-sm);
-            width: 100%;
-        }
-
-        .subtask-input:focus {
-            outline: none;
-            border-color: var(--secondary-color);
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        .subtask-input::placeholder {
-            color: rgba(255, 255, 255, 0.5);
-        }
-
         /* Form Styles */
         .entry-form {
             background: var(--surface-color);
@@ -1088,6 +886,7 @@
             box-shadow: var(--shadow-md);
             max-height: 100%;
             overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
         }
 
         .form-group {
@@ -1096,40 +895,36 @@
 
         .form-label {
             display: block;
-            font-size: var(--text-sm);
             font-weight: 600;
-            color: var(--text-primary);
+            color: #435334;
             margin-bottom: var(--space-sm);
+            font-size: var(--text-base);
         }
 
-        .form-input,
-        .form-textarea {
+        .form-input, .form-textarea {
             width: 100%;
             padding: var(--space-md);
-            border: 2px solid rgba(67, 83, 52, 0.2);
+            border: 2px solid #ddd;
             border-radius: var(--radius-md);
             font-size: var(--text-base);
+            transition: border-color 0.2s ease;
             font-family: inherit;
-            transition: all 0.2s ease;
-            background: white;
-        }
-
-        .form-input:focus,
-        .form-textarea:focus {
-            outline: none;
-            border-color: var(--secondary-color);
-            box-shadow: 0 0 0 3px rgba(194, 171, 249, 0.1);
         }
 
         .form-textarea {
-            resize: vertical;
             min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-input:focus, .form-textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
         }
 
         .form-actions {
             display: flex;
             gap: var(--space-md);
-            justify-content: flex-end;
+            justify-content: space-between;
         }
 
         .btn {
@@ -1140,7 +935,13 @@
             font-weight: 600;
             cursor: pointer;
             transition: all 0.2s ease;
-            min-height: 44px;
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
         }
 
         .btn-primary {
@@ -1149,137 +950,280 @@
         }
 
         .btn-secondary {
-            background: var(--secondary-color);
-            color: white;
-        }
-
-        .btn-outline {
-            background: transparent;
+            background: var(--surface-color);
             color: var(--text-primary);
-            border: 2px solid var(--primary-color);
+            border: 2px solid #ddd;
         }
 
-        .btn:hover,
-        .btn:focus {
+        .btn:hover, .btn:focus {
             transform: translateY(-1px);
             box-shadow: var(--shadow-md);
         }
 
-        .btn-primary:hover,
-        .btn-primary:focus {
-            background: #8A9B68;
-        }
-
-        .btn-secondary:hover,
-        .btn-secondary:focus {
-            background: #B088F5;
-        }
-
-        .btn-outline:hover,
-        .btn-outline:focus {
-            background: var(--primary-color);
-            color: white;
-        }
-
-        /* Navigation */
-        .bottom-nav {
+        /* Modal Styles */
+        .modal {
             position: fixed;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
+            top: 0;
+            left: 0;
             width: 100%;
-            max-width: 430px;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border-top: 1px solid rgba(162, 174, 131, 0.2);
-            padding: var(--space-sm) var(--space-lg);
-            padding-bottom: calc(var(--space-sm) + var(--safe-area-inset-bottom));
-            display: flex;
-            justify-content: space-around;
-            z-index: var(--z-tooltip);
-        }
-
-        .nav-item {
-            display: flex;
-            flex-direction: column;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(5px);
+            z-index: var(--z-modal);
+            display: none;
             align-items: center;
-            gap: var(--space-xs);
-            padding: var(--space-sm);
-            border-radius: var(--radius-md);
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            color: var(--text-secondary);
-            min-width: 60px;
+            justify-content: center;
+            padding: var(--space-lg);
+        }
+
+        .modal.show {
+            display: flex;
+            animation: modalFadeIn 0.3s ease;
+        }
+
+        @keyframes modalFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background: var(--surface-color);
+            border-radius: var(--radius-xl);
+            padding: var(--space-xl);
+            max-width: 400px;
+            width: 100%;
+            max-height: 80vh;
+            overflow-y: auto;
             position: relative;
+            animation: modalSlideIn 0.3s ease;
         }
 
-        .nav-item:hover,
-        .nav-item:focus {
-            color: var(--primary-color);
-            transform: translateY(-2px);
+        @keyframes modalSlideIn {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
 
-        .nav-item.active {
-            color: var(--primary-color);
-            background: rgba(162, 174, 131, 0.1);
-        }
-
-        .nav-item.active::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 20px;
-            height: 3px;
-            background: var(--primary-color);
-            border-radius: 0 0 var(--radius-full) var(--radius-full);
-        }
-
-        .nav-icon {
-            font-size: var(--text-xl);
-            transition: transform 0.2s ease;
-        }
-
-        .nav-item:hover .nav-icon,
-        .nav-item.active .nav-icon {
-            transform: scale(1.1);
-        }
-
-        .nav-text {
-            font-size: var(--text-xs);
-            font-weight: 600;
+        .hotline-card {
+            background: linear-gradient(135deg, var(--accent-color), #d67676);
+            color: white;
+            padding: var(--space-lg);
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--space-md);
             text-align: center;
         }
 
-        /* Responsive Design */
-        @media (max-width: 430px) {
-            .app-container {
-                max-width: 100%;
-            }
-
-            .bottom-nav {
-                max-width: 100%;
-            }
+        .hotline-title {
+            font-size: var(--text-lg);
+            font-weight: 600;
+            margin-bottom: var(--space-md);
         }
 
-        @media (max-height: 700px) {
+        .hotline-actions {
+            display: flex;
+            gap: var(--space-md);
+            justify-content: center;
+        }
+
+        .hotline-call, .hotline-info {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: var(--space-sm) var(--space-md);
+            border-radius: var(--radius-md);
+            font-size: var(--text-sm);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            min-height: 44px;
+        }
+
+        .hotline-call:hover, .hotline-info:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        .close-modal {
+            width: 100%;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: var(--space-md);
+            border-radius: var(--radius-md);
+            font-size: var(--text-base);
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: var(--space-lg);
+            min-height: 48px;
+        }
+
+        /* Emergency Button */
+        .emergency-btn {
+            position: absolute;
+            top: calc(20px + var(--safe-area-inset-top));
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff4444, #cc0000);
+            color: white;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: var(--z-tooltip);
+            box-shadow: 0 4px 12px rgba(255, 68, 68, 0.4);
+            transition: all 0.2s ease;
+            display: none;
+            animation: pulse 2s infinite;
+        }
+
+        .emergency-btn.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 4px 12px rgba(255, 68, 68, 0.4); }
+            50% { box-shadow: 0 4px 20px rgba(255, 68, 68, 0.8); }
+            100% { box-shadow: 0 4px 12px rgba(255, 68, 68, 0.4); }
+        }
+
+        /* Updated Responsive Design - KEEPS VERTICAL TABS */
+        @media (max-width: 768px) {
+            /* Keep dashboard container as horizontal flex (vertical tabs) */
+            .dashboard-container {
+                /* Keep default flex-direction: row */
+                /* Keep default height: 100% */
+            }
+            
+            /* Make tab-sidebar narrower on mobile but keep vertical */
+            .tab-sidebar {
+                width: 60px; /* Narrower than desktop (80px) */
+                /* Keep flex-direction: column (default) */
+                /* Keep default order */
+                flex-shrink: 0;
+            }
+            
+            /* Make tab items smaller but keep vertical orientation */
+            .tab-item {
+                font-size: 10px; /* Smaller text for mobile */
+                padding: 4px; /* Less padding */
+                /* Keep writing-mode: vertical-rl (default) */
+                /* Keep text-orientation: mixed (default) */
+                min-height: 50px; /* Slightly smaller min-height */
+            }
+            
+            /* Keep tab content layout */
+            .tab-content {
+                flex: 1;
+                min-height: 0;
+                overflow-y: auto;
+            }
+            
+            /* Keep vertical indicator positioning */
+            .tab-item::before {
+                left: 0;
+                top: 0;
+                bottom: 0;
+                width: 3px;
+                transform: scaleY(0); /* Keep Y scale for vertical indicator */
+            }
+            
+            .tab-item.active::before {
+                transform: scaleY(1); /* Keep Y scale for vertical indicator */
+            }
+
+            /* Keep all other responsive functionality */
+            .form-actions {
+                flex-direction: column;
+            }
+
+            .hotline-actions {
+                flex-direction: column;
+            }
+
             .page {
+                padding: var(--space-sm);
+            }
+        }
+
+        @media (max-width: 480px) {
+            /* Make tabs even narrower on very small screens but still vertical */
+            .tab-sidebar {
+                width: 50px;
+            }
+            
+            .tab-item {
+                font-size: 9px;
+                padding: 2px;
+                min-height: 45px;
+            }
+            
+            .page {
+                padding: var(--space-xs);
+            }
+            
+            .emoji-container {
                 padding: var(--space-md);
-                padding-bottom: calc(80px + var(--space-md));
+                gap: var(--space-xs);
+            }
+            
+            .emoji-btn {
+                min-height: 50px;
+                min-width: 50px;
+                font-size: clamp(1.5rem, 5vw, 2rem);
+                padding: var(--space-sm);
+            }
+            
+            .sobriety-tracker {
+                padding: var(--space-md);
+                margin: var(--space-sm) 0;
+            }
+
+            .home-header {
+                margin-bottom: var(--space-sm);
+            }
+
+            .days-number {
+                font-size: var(--text-3xl);
+            }
+
+            .entry-form {
+                padding: var(--space-md);
+            }
+
+            .modal-content {
+                padding: var(--space-md);
+                max-width: 95vw;
             }
         }
 
-        /* Dark mode support */
-        @media (prefers-color-scheme: dark) {
-            body {
-                background: linear-gradient(135deg, #2D3436, #636E72, #2D3436);
+        /* Accessibility */
+        .nav-item:focus,
+        .emoji-btn:focus,
+        .btn:focus,
+        .edit-btn:focus,
+        .task-checkbox:focus,
+        .mood-btn:focus {
+            outline: 3px solid var(--primary-color);
+            outline-offset: 2px;
+        }
+
+        /* Touch feedback for mobile */
+        @media (hover: none) and (pointer: coarse) {
+            .nav-item:active,
+            .emoji-btn:active,
+            .btn:active,
+            .task-checkbox:active,
+            .mood-btn:active {
+                transform: scale(0.98);
             }
         }
 
-        /* Reduce motion for accessibility */
+        /* Reduced motion */
         @media (prefers-reduced-motion: reduce) {
-            * {
+            *,
+            *::before,
+            *::after {
                 animation-duration: 0.01ms !important;
                 animation-iteration-count: 1 !important;
                 transition-duration: 0.01ms !important;
@@ -1288,78 +1232,115 @@
 
         /* High contrast mode */
         @media (prefers-contrast: high) {
-            .emoji-btn,
-            .menu-category,
-            .task-item {
-                border: 2px solid var(--text-primary);
+            .nav-item.active {
+                background: var(--primary-color);
+                color: white;
+            }
+            
+            .btn {
+                border: 2px solid currentColor;
             }
         }
 
-        /* Fullscreen mode adjustments */
-        .fullscreen-mode .bottom-nav {
-            padding-bottom: var(--space-sm);
+        /* Loading state */
+        .loading {
+            pointer-events: none;
+            opacity: 0.7;
         }
 
-        /* Offline indicator */
-        .offline::before {
-            content: 'Offline';
-            position: fixed;
-            top: calc(var(--safe-area-inset-top) + 10px);
+        .loading::after {
+            content: '';
+            position: absolute;
+            top: 50%;
             left: 50%;
-            transform: translateX(-50%);
-            background: #FF6B6B;
-            color: white;
-            padding: var(--space-xs) var(--space-md);
-            border-radius: var(--radius-full);
-            font-size: var(--text-xs);
-            z-index: var(--z-tooltip);
+            width: 20px;
+            height: 20px;
+            border: 2px solid transparent;
+            border-top: 2px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            transform: translate(-50%, -50%);
         }
 
-        /* Performance optimizations */
-        .page {
-            will-change: transform;
+        @keyframes spin {
+            to { transform: translate(-50%, -50%) rotate(360deg); }
         }
 
-        .nav-item,
-        .emoji-btn,
-        .menu-category {
-            will-change: transform;
+        /* Fullscreen PWA Styles */
+        .fullscreen-mode {
+            position: relative;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            height: 100dvh;
+            overflow: hidden;
+        }
+
+        /* Hide address bar on mobile when in fullscreen */
+        @media (display-mode: fullscreen) {
+            body {
+                padding-top: 0;
+            }
+        }
+
+        /* Standalone display mode */
+        @media (display-mode: standalone) {
+            body {
+                padding-top: 0;
+            }
+            
+            .emergency-btn {
+                top: 20px;
+            }
+        }
+
+        /* iOS Safari fullscreen adjustments */
+        /* iOS-specific safe area handling */
+        @supports (-webkit-touch-callout: none) {
+            .container {
+                height: -webkit-fill-available;
+                padding-top: env(safe-area-inset-top);
+                padding-bottom: env(safe-area-inset-bottom);
+            }
         }
     </style>
 </head>
 <body>
-    <div class="app-container">
+    <div class="container">
+        <!-- Emergency Button -->
+        <button id="emergencyBtn" class="emergency-btn" aria-label="Emergency crisis support">🆘</button>
+
         <!-- Home Page -->
         <div id="home" class="page active">
-            <div class="home-container">
-                <div class="welcome-section">
-                    <h1 class="app-title">Hazel</h1>
-                    <p class="app-subtitle">Your personal mental health companion</p>
+            <div class="home-header">
+                <div class="logo">🌰</div>
+                <div class="feeling-text">How are you feeling?</div>
+                <div class="emoji-container">
+                    <button class="emoji-btn" data-mood="very-sad" aria-label="Very sad">😢</button>
+                    <button class="emoji-btn" data-mood="sad" aria-label="Sad">😔</button>
+                    <button class="emoji-btn" data-mood="neutral" aria-label="Neutral">😐</button>
+                    <button class="emoji-btn" data-mood="happy" aria-label="Happy">😊</button>
+                    <button class="emoji-btn" data-mood="very-happy" aria-label="Very happy">😄</button>
                 </div>
 
-                <div class="mood-section">
-                    <h2 class="mood-title">How are you feeling today?</h2>
-                    <div class="mood-grid">
-                        <button class="emoji-btn" data-mood="very-happy" aria-label="Very happy">😄</button>
-                        <button class="emoji-btn" data-mood="happy" aria-label="Happy">😊</button>
-                        <button class="emoji-btn" data-mood="neutral" aria-label="Neutral">😐</button>
-                        <button class="emoji-btn" data-mood="sad" aria-label="Sad">😔</button>
-                        <button class="emoji-btn" data-mood="very-sad" aria-label="Very sad">😢</button>
-                    </div>
-                </div>
-
+                <!-- Sobriety Tracker -->
                 <div class="sobriety-tracker">
-                    <h3 class="tracker-title">Sobriety Progress</h3>
-                    <div class="days-count" id="sobrietyDays">0</div>
-                    <div class="days-label">days clean</div>
-                    <div class="milestone-message" id="milestoneMessage">
-                        Your journey starts now.
+                    <div class="sobriety-header">
+                        <div class="sobriety-title">Sobriety Tracker</div>
+                        <button class="edit-btn" id="editSobrietyBtn" aria-label="Edit sobriety date">✏️</button>
+                    </div>
+                    <div class="days-counter">
+                        <div class="days-number" id="sobrietyDays">0</div>
+                        <div class="days-text">days</div>
+                    </div>
+                    <div class="motivation-text" id="motivationText">
+                        Every day is a victory! Your journey starts now.
                     </div>
                     <div class="progress-bar">
                         <div class="progress-fill" id="progressFill"></div>
                     </div>
                     <div class="milestone-text" id="milestoneText">Next milestone: 7 days</div>
-                    <button class="edit-date-btn" id="editSobrietyBtn">Edit Start Date</button>
                 </div>
 
                 <!-- Streak Display -->
@@ -1396,8 +1377,7 @@
         <!-- Menus Page -->
         <div id="menus" class="page">
             <h2 style="text-align: center; margin-bottom: var(--space-lg); font-size: var(--text-2xl); font-weight: 700;">Food Menus</h2>
-            
-            <div class="menu-categories" id="menuCategories">
+            <div class="menu-categories">
                 <div class="menu-category" data-category="breakfast">
                     <div class="category-icon">🥞</div>
                     <div class="category-title">Breakfasts</div>
@@ -1414,12 +1394,6 @@
                     <div class="category-icon">🍪</div>
                     <div class="category-title">Snacks</div>
                 </div>
-            </div>
-
-            <!-- Food Items View -->
-            <div class="food-items" id="foodItems">
-                <button class="back-btn" id="backToCategories">← Back to Categories</button>
-                <div id="foodItemsList"></div>
             </div>
         </div>
 
@@ -1441,31 +1415,48 @@
 
         <!-- Support Panel -->
         <div class="support-panel" id="supportPanel">
-            <h3 class="support-title">Need Support?</h3>
-            <button class="support-btn" data-action="hotlines">Crisis Hotlines</button>
-            <button class="support-btn" data-action="breathing">Breathing Exercise</button>
-            <button class="support-btn" data-action="grounding">Grounding Technique</button>
-            <button class="support-btn close-panel-btn" onclick="document.getElementById('supportPanel').classList.remove('active')">Close</button>
+            <h3>We're here to help</h3>
+            <button class="support-btn primary" data-action="journal">Write in Journal</button>
+            <button class="support-btn danger" data-action="hotlines">Emergency Hotlines</button>
+            <button class="support-btn secondary" data-action="dashboard">Find Resources</button>
+            <button class="support-btn secondary" data-action="close">I'm OK for now</button>
         </div>
 
-        <!-- Emergency Button -->
-        <button class="emergency-btn" id="emergencyBtn" aria-label="Emergency support">🆘</button>
-
-        <!-- Modal -->
-        <div class="modal" id="modal">
+        <!-- Hotlines Modal -->
+        <div class="modal" id="hotlinesModal">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h3 class="modal-title" id="modalTitle">Crisis Support</h3>
-                    <button class="close-btn" id="closeModalBtn" aria-label="Close">×</button>
+                <h3 style="text-align: center; margin-bottom: var(--space-lg); color: #435334;">Crisis Support</h3>
+                
+                <div class="hotline-card">
+                    <div class="hotline-title">Samaritans</div>
+                    <div class="hotline-actions">
+                        <button class="hotline-call" data-number="116123">CALL FREE</button>
+                        <button class="hotline-info" data-url="https://www.samaritans.org">More Info</button>
+                    </div>
                 </div>
-                <div id="modalBody">
-                    <!-- Content will be populated by JavaScript -->
+
+                <div class="hotline-card">
+                    <div class="hotline-title">BodyWhys</div>
+                    <div class="hotline-actions">
+                        <button class="hotline-call" data-number="1890200444">CALL NOW</button>
+                        <button class="hotline-info" data-url="https://bodywhys.ie">More Info</button>
+                    </div>
                 </div>
+
+                <div class="hotline-card">
+                    <div class="hotline-title">Pieta House</div>
+                    <div class="hotline-actions">
+                        <button class="hotline-call" data-number="1800901234">CALL NOW</button>
+                        <button class="hotline-info" data-url="https://www.pieta.ie/how-we-can-help">More Info</button>
+                    </div>
+                </div>
+
+                <button class="close-modal" id="closeModalBtn">Back</button>
             </div>
         </div>
 
-        <!-- Bottom Navigation -->
-        <nav class="bottom-nav" role="tablist">
+        <!-- Navigation Bar -->
+        <nav class="nav-bar" role="navigation" aria-label="Main navigation">
             <div class="nav-item" data-page="menus" role="tab" aria-label="Food menus">
                 <div class="nav-icon">🍕</div>
                 <div class="nav-text">Menus</div>
@@ -1491,7 +1482,8 @@
         <!-- Live announcements for screen readers -->
         <div id="live-announcements" aria-live="polite" aria-atomic="true" style="position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden;"></div>
     </div>
-<script>
+
+    <script>
     // Generate proper hazelnut icons dynamically
     function createHazelnutIcon(size) {
         const canvas = document.createElement('canvas');
@@ -1567,1334 +1559,1021 @@
         newManifest.href = manifestURL;
         document.head.appendChild(newManifest);
     });
-    
-    // Enhanced PWA App with Mobile-First Features and Fullscreen Support
-    class HazelApp {
-        constructor() {
-            this.currentPage = 'home';
-            this.journalEntries = JSON.parse(localStorage.getItem('journalEntries') || '[]');
-            this.streak = parseInt(localStorage.getItem('streak') || '0');
-            this.lastLoginDate = localStorage.getItem('lastLoginDate');
-            this.sobrietyStartDate = localStorage.getItem('sobrietyStartDate');
-            this.tasks = JSON.parse(localStorage.getItem('tasks') || '[]');
-            this.nextTaskId = parseInt(localStorage.getItem('nextTaskId') || '1');
-            this.selectedMood = null;
-            this.currentFoodCategory = null;
-            
-            // Food menu data
-            this.foodMenus = {
-                breakfast: [
-                    {
-                        name: "Chocolate Chip Pancakes",
-                        description: "Fluffy, golden pancakes studded with melty chocolate chips. Served with a drizzle of maple syrup and a pat of butter.",
-                        calories: "450 cal"
-                    },
-                    {
-                        name: "Avocado Toast Supreme",
-                        description: "Multigrain bread topped with smashed avocado, cherry tomatoes, feta cheese, and a perfectly poached egg.",
-                        calories: "380 cal"
-                    },
-                    {
-                        name: "Berry Protein Smoothie Bowl",
-                        description: "Thick smoothie bowl topped with fresh berries, granola, coconut flakes, and a drizzle of honey.",
-                        calories: "320 cal"
-                    },
-                    {
-                        name: "Classic French Toast",
-                        description: "Thick-cut brioche dipped in vanilla custard, grilled to perfection, and dusted with powdered sugar.",
-                        calories: "520 cal"
-                    },
-                    {
-                        name: "Greek Yogurt Parfait",
-                        description: "Creamy Greek yogurt layered with homemade granola, fresh fruit, and a touch of maple syrup.",
-                        calories: "280 cal"
-                    }
-                ],
-                lunch: [
-                    {
-                        name: "Grilled Chicken Caesar Salad",
-                        description: "Crisp romaine lettuce, grilled chicken breast, parmesan cheese, croutons, and classic Caesar dressing.",
-                        calories: "420 cal"
-                    },
-                    {
-                        name: "Mediterranean Quinoa Bowl",
-                        description: "Fluffy quinoa with cucumber, tomatoes, olives, feta cheese, and lemon-herb dressing.",
-                        calories: "380 cal"
-                    },
-                    {
-                        name: "BBQ Pulled Pork Sandwich",
-                        description: "Slow-cooked pulled pork with tangy BBQ sauce on a brioche bun, served with coleslaw.",
-                        calories: "650 cal"
-                    },
-                    {
-                        name: "Asian Fusion Wrap",
-                        description: "Grilled chicken, crunchy vegetables, and peanut sauce wrapped in a spinach tortilla.",
-                        calories: "480 cal"
-                    },
-                    {
-                        name: "Caprese Panini",
-                        description: "Fresh mozzarella, tomatoes, basil, and balsamic glaze pressed between ciabatta bread.",
-                        calories: "390 cal"
-                    }
-                ],
-                dinner: [
-                    {
-                        name: "Herb-Crusted Salmon",
-                        description: "Atlantic salmon with herb crust, served with roasted vegetables and lemon butter sauce.",
-                        calories: "580 cal"
-                    },
-                    {
-                        name: "Ribeye Steak & Potatoes",
-                        description: "Perfectly grilled ribeye steak with garlic mashed potatoes and seasonal vegetables.",
-                        calories: "750 cal"
-                    },
-                    {
-                        name: "Vegetarian Pasta Primavera",
-                        description: "Fresh pasta tossed with seasonal vegetables, herbs, and a light cream sauce.",
-                        calories: "520 cal"
-                    },
-                    {
-                        name: "Thai Green Curry",
-                        description: "Coconut curry with vegetables and your choice of protein, served with jasmine rice.",
-                        calories: "480 cal"
-                    },
-                    {
-                        name: "BBQ Ribs Platter",
-                        description: "Fall-off-the-bone ribs with signature BBQ sauce, served with mac and cheese and cornbread.",
-                        calories: "820 cal"
-                    }
-                ],
-                snacks: [
-                    {
-                        name: "Loaded Nachos",
-                        description: "Crispy tortilla chips topped with melted cheese, jalapeños, guacamole, and sour cream.",
-                        calories: "540 cal"
-                    },
-                    {
-                        name: "Buffalo Chicken Wings",
-                        description: "Crispy wings tossed in spicy buffalo sauce, served with ranch dressing and celery sticks.",
-                        calories: "380 cal"
-                    },
-                    {
-                        name: "Chocolate Brownie Sundae",
-                        description: "Warm fudge brownie topped with vanilla ice cream, chocolate sauce, and whipped cream.",
-                        calories: "620 cal"
-                    },
-                    {
-                        name: "Fruit & Cheese Board",
-                        description: "Selection of artisanal cheeses, fresh fruits, nuts, and crackers.",
-                        calories: "320 cal"
-                    },
-                    {
-                        name: "Spinach Artichoke Dip",
-                        description: "Creamy spinach and artichoke dip served hot with tortilla chips and pita bread.",
-                        calories: "280 cal"
-                    }
-                ]
-            };
+        // Enhanced PWA App with Mobile-First Features and Fullscreen Support
+        class HazelApp {
+            constructor() {
+                this.currentPage = 'home';
+                this.journalEntries = JSON.parse(localStorage.getItem('journalEntries') || '[]');
+                this.streak = parseInt(localStorage.getItem('streak') || '0');
+                this.lastLoginDate = localStorage.getItem('lastLoginDate');
+                this.sobrietyStartDate = localStorage.getItem('sobrietyStartDate');
+                this.tasks = JSON.parse(localStorage.getItem('tasks') || '[]');
+                this.nextTaskId = parseInt(localStorage.getItem('nextTaskId') || '1');
+                this.selectedMood = null;
+                this.isEditingEntry = false;
+                this.editingEntryId = null;
 
-            this.init();
-        }
+                this.init();
+            }
 
-        init() {
-            this.setupEventListeners();
-            this.setupPWA();
-            this.loadInitialData();
-            this.setupTouchEnhancements();
-            this.setupAccessibility();
-            this.checkLoginStreak();
-            this.updateSobrietyTracker();
-            this.loadTasks();
-            this.loadJournalEntries();
-            this.showTabContent('self-harm');
-            this.adjustViewportHeight();
+            init() {
+                this.setupFullscreen();
+                this.setupEventListeners();
+                this.setupTouchEnhancements();
+                this.setupPWA();
+                this.updateStreak();
+                this.loadJournalEntries();
+                this.showTabContent('self-harm');
+                this.updateSobrietyDisplay();
+                this.loadTasks();
+                this.initSobrietyTracker();
+                this.setupAccessibility();
+                this.setupEmergencyButton();
+                this.preventZoom();
+            }
 
-            // Handle double-tap zoom prevention
-            let lastTouchEnd = 0;
-            document.addEventListener('touchend', (e) => {
-                const now = (new Date()).getTime();
-                if (now - lastTouchEnd <= 300) {
+            setupFullscreen() {
+                // Add fullscreen class to body
+                document.body.classList.add('fullscreen-mode');
+                
+                // Hide address bar on mobile devices
+                window.addEventListener('load', () => {
+                    setTimeout(() => {
+                        window.scrollTo(0, 1);
+                    }, 0);
+                });
+
+                // Prevent scrolling on the main container
+                document.addEventListener('touchmove', (e) => {
+                    if (e.target === document.body || e.target === document.documentElement) {
+                        e.preventDefault();
+                    }
+                }, { passive: false });
+
+                // Handle orientation changes
+                window.addEventListener('orientationchange', () => {
+                    setTimeout(() => {
+                        window.scrollTo(0, 1);
+                        this.adjustViewportHeight();
+                    }, 100);
+                });
+
+                // Set initial viewport height
+                this.adjustViewportHeight();
+            }
+
+            adjustViewportHeight() {
+                const vh = window.innerHeight * 0.01;
+                document.documentElement.style.setProperty('--vh', `${vh}px`);
+            }
+
+            preventZoom() {
+                // Prevent double-tap zoom
+                let lastTouchEnd = 0;
+                document.addEventListener('touchend', (event) => {
+                    const now = (new Date()).getTime();
+                    if (now - lastTouchEnd <= 300) {
+                        event.preventDefault();
+                    }
+                    lastTouchEnd = now;
+                }, false);
+
+                // Prevent pinch zoom
+                document.addEventListener('gesturestart', (e) => {
                     e.preventDefault();
-                }
-                lastTouchEnd = now;
-            }, false);
-
-            // Prevent pinch zoom
-            document.addEventListener('gesturestart', (e) => {
-                e.preventDefault();
-            });
-
-            document.addEventListener('gesturechange', (e) => {
-                e.preventDefault();
-            });
-
-            document.addEventListener('gestureend', (e) => {
-                e.preventDefault();
-            });
-        }
-setupEventListeners() {
-            // Navigation
-            document.querySelectorAll('.nav-item').forEach(item => {
-                item.addEventListener('click', (e) => {
-                    this.navigateTo(item.dataset.page);
-                    this.addHapticFeedback();
                 });
-            });
 
-            // Mood selection
-            document.querySelectorAll('.emoji-btn').forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    this.handleMoodSelect(btn.dataset.mood);
-                    this.addHapticFeedback();
+                document.addEventListener('gesturechange', (e) => {
+                    e.preventDefault();
                 });
-            });
 
-            // Support panel
-            document.querySelectorAll('.support-btn').forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    this.handleSupportAction(btn.dataset.action);
+                document.addEventListener('gestureend', (e) => {
+                    e.preventDefault();
                 });
-            });
-
-            // Dashboard tabs
-            document.querySelectorAll('.tab-item').forEach(tab => {
-                tab.addEventListener('click', (e) => {
-                    this.showTabContent(tab.dataset.tab);
-                    this.addHapticFeedback();
-                });
-            });
-
-            // Journal
-            document.getElementById('newEntryBtn').addEventListener('click', () => {
-                this.showNewEntryForm();
-            });
-
-            // Sobriety tracker
-            document.getElementById('editSobrietyBtn').addEventListener('click', () => {
-                this.editSobrietyDate();
-            });
-
-            // Tasks
-            document.getElementById('addTaskBtn').addEventListener('click', () => {
-                this.addTask();
-            });
-
-            document.getElementById('taskInput').addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') {
-                    this.addTask();
-                }
-            });
-
-            // Emergency button
-            document.getElementById('emergencyBtn').addEventListener('click', () => {
-                this.showHotlines();
-            });
-
-            // Modal
-            document.getElementById('closeModalBtn').addEventListener('click', () => {
-                this.hideModal();
-            });
-
-            // Hotlines
-            document.querySelectorAll('.hotline-call').forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    const number = btn.dataset.number;
-                    window.location.href = `tel:${number}`;
-                });
-            });
-
-            document.querySelectorAll('.hotline-info').forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    const url = btn.dataset.url;
-                    window.open(url, '_blank');
-                });
-            });
-
-            // Menu categories
-            document.querySelectorAll('.menu-category').forEach(category => {
-                category.addEventListener('click', (e) => {
-                    this.showFoodItems(category.dataset.category);
-                    this.addHapticFeedback();
-                });
-            });
-
-            // Back to categories button
-            document.getElementById('backToCategories').addEventListener('click', () => {
-                this.showMenuCategories();
-            });
-        }
-
-        setupTouchEnhancements() {
-            // Add touch ripple effects to buttons
-            document.querySelectorAll('.emoji-btn, .btn, .nav-item').forEach(el => {
-                el.addEventListener('touchstart', (e) => {
-                    el.style.transform = 'scale(0.98)';
-                });
-                
-                el.addEventListener('touchend', (e) => {
-                    setTimeout(() => {
-                        el.style.transform = '';
-                    }, 150);
-                });
-            });
-        }
-
-        setupAccessibility() {
-            // Keyboard navigation for tabs
-            document.addEventListener('keydown', (e) => {
-                if (e.target.classList.contains('nav-item')) {
-                    const navItems = Array.from(document.querySelectorAll('.nav-item'));
-                    const currentIndex = navItems.indexOf(e.target);
-                    let nextIndex;
-                    
-                    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
-                        nextIndex = currentIndex > 0 ? currentIndex - 1 : navItems.length - 1;
-                    } else if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
-                        nextIndex = currentIndex < navItems.length - 1 ? currentIndex + 1 : 0;
-                    } else if (e.key === 'Enter' || e.key === ' ') {
-                        e.preventDefault();
-                        this.navigateTo(e.target.dataset.page);
-                        return;
-                    }
-                    
-                    if (nextIndex !== undefined) {
-                        e.preventDefault();
-                        navItems[nextIndex].focus();
-                    }
-                }
-            });
-
-            // Screen reader announcements
-            this.announceElement = document.getElementById('live-announcements');
-        }
-
-        announce(message) {
-            if (this.announceElement) {
-                this.announceElement.textContent = message;
-                setTimeout(() => {
-                    this.announceElement.textContent = '';
-                }, 1000);
             }
-        }
 
-        addHapticFeedback() {
-            if ('vibrate' in navigator) {
-                navigator.vibrate(10);
-            }
-        }
-
-        adjustViewportHeight() {
-            const vh = window.innerHeight * 0.01;
-            document.documentElement.style.setProperty('--vh', `${vh}px`);
-        }
-
-        // Navigation
-        navigateTo(page) {
-            // Hide all pages
-            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-            
-            // Show target page
-            const targetPage = document.getElementById(page);
-            if (targetPage) {
-                targetPage.classList.add('active');
-                this.currentPage = page;
-                
-                // Update navigation state
+            setupEventListeners() {
+                // Navigation
                 document.querySelectorAll('.nav-item').forEach(item => {
-                    item.classList.remove('active');
-                });
-                document.querySelector(`[data-page="${page}"]`).classList.add('active');
-                
-                // Update browser history
-                history.pushState({ page }, '', `#${page}`);
-                
-                this.announce(`Navigated to ${page}`);
-            }
-        }
-
-        // Food Menu Functions
-        showFoodItems(category) {
-            this.currentFoodCategory = category;
-            const menuCategories = document.getElementById('menuCategories');
-            const foodItems = document.getElementById('foodItems');
-            const foodItemsList = document.getElementById('foodItemsList');
-            
-            // Hide categories, show food items
-            menuCategories.style.display = 'none';
-            foodItems.classList.add('active');
-            
-            // Populate food items
-            const items = this.foodMenus[category] || [];
-            foodItemsList.innerHTML = items.map(item => `
-                <div class="food-item">
-                    <div class="food-name">${item.name}</div>
-                    <div class="food-description">${item.description}</div>
-                    <div class="food-calories">${item.calories}</div>
-                </div>
-            `).join('');
-            
-            this.announce(`Showing ${category} menu`);
-        }
-
-        showMenuCategories() {
-            const menuCategories = document.getElementById('menuCategories');
-            const foodItems = document.getElementById('foodItems');
-            
-            // Show categories, hide food items
-            menuCategories.style.display = 'grid';
-            foodItems.classList.remove('active');
-            
-            this.currentFoodCategory = null;
-            this.announce('Back to menu categories');
-        }
-
-        // Mood Selection
-        handleMoodSelect(mood) {
-            // Remove previous selection
-            document.querySelectorAll('.emoji-btn').forEach(btn => {
-                btn.classList.remove('selected');
-            });
-            
-            // Add selection to clicked mood
-            document.querySelector(`[data-mood="${mood}"]`).classList.add('selected');
-            
-            this.selectedMood = mood;
-            localStorage.setItem('currentMood', mood);
-            localStorage.setItem('moodDate', new Date().toDateString());
-            
-            this.announce(`Mood set to ${mood.replace('-', ' ')}`);
-        }
-
-        // Task Management with Subtasks
-        loadTasks() {
-            const container = document.getElementById('tasksContainer');
-            
-            if (this.tasks.length === 0) {
-                container.innerHTML = '<div style="text-align: center; opacity: 0.7; padding: var(--space-xl);">No tasks yet. Add one above!</div>';
-                return;
-            }
-            
-            container.innerHTML = this.tasks.map(task => this.renderTask(task)).join('');
-            
-            // Add event listeners to all task elements
-            this.addTaskEventListeners();
-        }
-
-        renderTask(task) {
-            const subtasksExpanded = task.subtasksExpanded ? 'expanded' : '';
-            const subtasksHtml = (task.subtasks || []).map(subtask => `
-                <div class="subtask-item">
-                    <div class="subtask-checkbox ${subtask.completed ? 'completed' : ''}" 
-                         data-task-id="${task.id}" data-subtask-id="${subtask.id}"></div>
-                    <div class="subtask-text ${subtask.completed ? 'completed' : ''}">${subtask.text}</div>
-                </div>
-            `).join('');
-
-            return `
-                <div class="task-item" data-task-id="${task.id}">
-                    <div class="task-checkbox ${task.completed ? 'completed' : ''}" data-task-id="${task.id}"></div>
-                    <div class="task-content">
-                        <div class="task-header">
-                            <div class="task-text ${task.completed ? 'completed' : ''}">${task.text}</div>
-                            <div class="task-actions">
-                                ${(task.subtasks && task.subtasks.length > 0) ? 
-                                    `<button class="task-expand-btn" data-task-id="${task.id}">
-                                        ${task.subtasksExpanded ? '▼' : '▶'}
-                                    </button>` : ''
-                                }
-                                <button class="add-subtask-btn" data-task-id="${task.id}">+</button>
-                            </div>
-                        </div>
-                        ${(task.subtasks && task.subtasks.length > 0) ? 
-                            `<div class="subtasks ${subtasksExpanded}" data-task-id="${task.id}">
-                                ${subtasksHtml}
-                                <input type="text" class="subtask-input" data-task-id="${task.id}" 
-                                       placeholder="Add subtask..." style="display: none;">
-                            </div>` : 
-                            `<div class="subtasks" data-task-id="${task.id}">
-                                <input type="text" class="subtask-input" data-task-id="${task.id}" 
-                                       placeholder="Add subtask..." style="display: none;">
-                            </div>`
-                        }
-                    </div>
-                </div>
-            `;
-        }
-
-        addTaskEventListeners() {
-            // Main task checkboxes
-            document.querySelectorAll('.task-checkbox').forEach(checkbox => {
-                checkbox.addEventListener('click', () => {
-                    const taskId = parseInt(checkbox.dataset.taskId);
-                    if (!checkbox.dataset.subtaskId) {
-                        this.toggleTask(taskId);
-                    }
-                });
-            });
-
-            // Subtask checkboxes
-            document.querySelectorAll('.subtask-checkbox').forEach(checkbox => {
-                checkbox.addEventListener('click', () => {
-                    const taskId = parseInt(checkbox.dataset.taskId);
-                    const subtaskId = parseInt(checkbox.dataset.subtaskId);
-                    this.toggleSubtask(taskId, subtaskId);
-                });
-            });
-
-            // Expand/collapse buttons
-            document.querySelectorAll('.task-expand-btn').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    const taskId = parseInt(btn.dataset.taskId);
-                    this.toggleTaskExpansion(taskId);
-                });
-            });
-
-            // Add subtask buttons
-            document.querySelectorAll('.add-subtask-btn').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    const taskId = parseInt(btn.dataset.taskId);
-                    this.showSubtaskInput(taskId);
-                });
-            });
-
-            // Subtask inputs
-            document.querySelectorAll('.subtask-input').forEach(input => {
-                input.addEventListener('keypress', (e) => {
-                    if (e.key === 'Enter') {
-                        const taskId = parseInt(input.dataset.taskId);
-                        const text = input.value.trim();
-                        if (text) {
-                            this.addSubtask(taskId, text);
-                            input.value = '';
-                            input.style.display = 'none';
-                        }
-                    } else if (e.key === 'Escape') {
-                        input.style.display = 'none';
-                        input.value = '';
-                    }
-                });
-
-                input.addEventListener('blur', () => {
-                    setTimeout(() => {
-                        input.style.display = 'none';
-                        input.value = '';
-                    }, 150);
-                });
-            });
-        }
-
-        addTask() {
-            const input = document.getElementById('taskInput');
-            const text = input.value.trim();
-            
-            if (!text) return;
-            
-            const task = {
-                id: this.nextTaskId++,
-                text: text,
-                completed: false,
-                createdAt: new Date().toISOString(),
-                subtasks: [],
-                subtasksExpanded: false
-            };
-            
-            this.tasks.push(task);
-            localStorage.setItem('tasks', JSON.stringify(this.tasks));
-            localStorage.setItem('nextTaskId', this.nextTaskId.toString());
-            
-            input.value = '';
-            this.loadTasks();
-            this.announce('Task added');
-        }
-
-        toggleTask(id) {
-            const task = this.tasks.find(t => t.id === id);
-            if (task) {
-                task.completed = !task.completed;
-                // Also toggle all subtasks
-                if (task.subtasks) {
-                    task.subtasks.forEach(subtask => {
-                        subtask.completed = task.completed;
+                    item.addEventListener('click', (e) => {
+                        this.navigateTo(item.dataset.page);
+                        this.addHapticFeedback();
                     });
-                }
-                localStorage.setItem('tasks', JSON.stringify(this.tasks));
-                this.loadTasks();
-                this.announce(task.completed ? 'Task completed' : 'Task uncompleted');
-            }
-        }
+                });
 
-        toggleSubtask(taskId, subtaskId) {
-            const task = this.tasks.find(t => t.id === taskId);
-            if (task && task.subtasks) {
-                const subtask = task.subtasks.find(s => s.id === subtaskId);
-                if (subtask) {
-                    subtask.completed = !subtask.completed;
+                // Mood selection
+                document.querySelectorAll('.emoji-btn').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        this.handleMoodSelect(btn.dataset.mood);
+                        this.addHapticFeedback();
+                    });
+                });
+
+                // Support panel
+                document.querySelectorAll('.support-btn').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        this.handleSupportAction(btn.dataset.action);
+                    });
+                });
+
+                // Dashboard tabs
+                document.querySelectorAll('.tab-item').forEach(tab => {
+                    tab.addEventListener('click', (e) => {
+                        this.showTabContent(tab.dataset.tab);
+                        this.addHapticFeedback();
+                    });
+                });
+
+                // Journal
+                document.getElementById('newEntryBtn').addEventListener('click', () => {
+                    this.showNewEntryForm();
+                });
+
+                // Sobriety tracker
+                document.getElementById('editSobrietyBtn').addEventListener('click', () => {
+                    this.editSobrietyDate();
+                });
+
+                // Tasks
+                document.getElementById('addTaskBtn').addEventListener('click', () => {
+                    this.addTask();
+                });
+
+                document.getElementById('taskInput').addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        this.addTask();
+                    }
+                });
+
+                // Emergency button
+                document.getElementById('emergencyBtn').addEventListener('click', () => {
+                    this.showHotlines();
+                });
+
+                // Modal
+                document.getElementById('closeModalBtn').addEventListener('click', () => {
+                    this.hideModal();
+                });
+
+                // Hotlines
+                document.querySelectorAll('.hotline-call').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const number = btn.dataset.number;
+                        window.location.href = `tel:${number}`;
+                    });
+                });
+
+                document.querySelectorAll('.hotline-info').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const url = btn.dataset.url;
+                        window.open(url, '_blank');
+                    });
+                });
+            }
+
+            setupTouchEnhancements() {
+                // Add touch ripple effects to buttons
+                document.querySelectorAll('.emoji-btn, .btn, .nav-item').forEach(el => {
+                    el.addEventListener('touchstart', (e) => {
+                        el.style.transform = 'scale(0.98)';
+                    });
                     
-                    // Check if all subtasks are completed to mark main task as completed
-                    const allSubtasksCompleted = task.subtasks.every(s => s.completed);
-                    if (allSubtasksCompleted && task.subtasks.length > 0) {
-                        task.completed = true;
-                    } else if (task.completed && !subtask.completed) {
-                        task.completed = false;
+                    el.addEventListener('touchend', (e) => {
+                        setTimeout(() => {
+                            el.style.transform = '';
+                        }, 150);
+                    });
+                });
+            }
+
+            setupAccessibility() {
+                // Keyboard navigation for tabs
+                document.addEventListener('keydown', (e) => {
+                    if (e.target.classList.contains('nav-item')) {
+                        const navItems = Array.from(document.querySelectorAll('.nav-item'));
+                        const currentIndex = navItems.indexOf(e.target);
+                        let nextIndex;
+                        
+                        if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                            nextIndex = currentIndex > 0 ? currentIndex - 1 : navItems.length - 1;
+                        } else if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+                            nextIndex = currentIndex < navItems.length - 1 ? currentIndex + 1 : 0;
+                        }
+                        
+                        if (nextIndex !== undefined) {
+                            this.navigateTo(navItems[nextIndex].dataset.page);
+                            navItems[nextIndex].focus();
+                            e.preventDefault();
+                        }
+                    }
+                });
+            }
+
+            setupEmergencyButton() {
+                // Show emergency button based on mood state
+                this.toggleEmergencyButton();
+            }
+
+            addHapticFeedback() {
+                if ('vibrate' in navigator) {
+                    navigator.vibrate(10);
+                }
+            }
+
+            announce(message) {
+                const liveRegion = document.getElementById('live-announcements');
+                if (liveRegion) {
+                    liveRegion.textContent = message;
+                    setTimeout(() => {
+                        liveRegion.textContent = '';
+                    }, 1000);
+                }
+            }
+
+            navigateTo(page) {
+                // Add loading state
+                document.body.classList.add('loading');
+                
+                // Hide all pages
+                document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+                document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+                
+                // Show selected page
+                setTimeout(() => {
+                    document.getElementById(page).classList.add('active');
+                    document.querySelector(`[data-page="${page}"]`).classList.add('active');
+                    document.body.classList.remove('loading');
+                    
+                    // Scroll to top
+                    document.getElementById(page).scrollTop = 0;
+                    
+                    // Update current page
+                    this.currentPage = page;
+                    
+                    // Update URL without page refresh
+                    if (history.pushState) {
+                        history.pushState({ page }, null, `#${page}`);
                     }
                     
-                    localStorage.setItem('tasks', JSON.stringify(this.tasks));
-                    this.loadTasks();
-                    this.announce(subtask.completed ? 'Subtask completed' : 'Subtask uncompleted');
-                }
+                    this.announce(`Navigated to ${page} page`);
+                }, 100);
             }
-        }
 
-        toggleTaskExpansion(taskId) {
-            const task = this.tasks.find(t => t.id === taskId);
-            if (task) {
-                task.subtasksExpanded = !task.subtasksExpanded;
-                localStorage.setItem('tasks', JSON.stringify(this.tasks));
-                this.loadTasks();
-            }
-        }
-
-        showSubtaskInput(taskId) {
-            const input = document.querySelector(`.subtask-input[data-task-id="${taskId}"]`);
-            if (input) {
-                input.style.display = 'block';
-                input.focus();
-            }
-        }
-
-        addSubtask(taskId, text) {
-            const task = this.tasks.find(t => t.id === taskId);
-            if (task) {
-                if (!task.subtasks) {
-                    task.subtasks = [];
+            handleMoodSelect(mood) {
+                this.selectedMood = mood;
+                
+                // Show support panel for sad moods
+                if (mood === 'very-sad' || mood === 'sad') {
+                    this.showSupportPanel();
+                    this.toggleEmergencyButton(true);
+                } else {
+                    this.toggleEmergencyButton(false);
                 }
                 
-                const subtask = {
-                    id: Date.now(), // Simple ID generation for subtasks
+                this.announce(`Mood selected: ${mood}`);
+            }
+
+            showSupportPanel() {
+                document.getElementById('supportPanel').classList.add('show');
+            }
+
+            hideSupportPanel() {
+                document.getElementById('supportPanel').classList.remove('show');
+            }
+
+            toggleEmergencyButton(show = null) {
+                const btn = document.getElementById('emergencyBtn');
+                if (show === null) {
+                    show = this.selectedMood === 'very-sad' || this.selectedMood === 'sad';
+                }
+                
+                if (show) {
+                    btn.classList.add('show');
+                } else {
+                    btn.classList.remove('show');
+                }
+            }
+
+            handleSupportAction(action) {
+                switch(action) {
+                    case 'journal':
+                        this.hideSupportPanel();
+                        this.navigateTo('journal');
+                        setTimeout(() => this.showNewEntryForm(), 200);
+                        break;
+                    case 'hotlines':
+                        this.hideSupportPanel();
+                        this.showHotlines();
+                        break;
+                    case 'dashboard':
+                        this.hideSupportPanel();
+                        this.navigateTo('dashboard');
+                        break;
+                    case 'close':
+                        this.hideSupportPanel();
+                        break;
+                }
+            }
+
+            showHotlines() {
+                document.getElementById('hotlinesModal').classList.add('show');
+            }
+
+            hideModal() {
+                document.getElementById('hotlinesModal').classList.remove('show');
+            }
+
+            // Sobriety Tracker Methods
+            initSobrietyTracker() {
+                if (!this.sobrietyStartDate) {
+                    this.sobrietyStartDate = new Date().toISOString();
+                    localStorage.setItem('sobrietyStartDate', this.sobrietyStartDate);
+                }
+                this.updateSobrietyDisplay();
+            }
+
+            updateSobrietyDisplay() {
+                if (!this.sobrietyStartDate) return;
+
+                const startDate = new Date(this.sobrietyStartDate);
+                const today = new Date();
+                const diffTime = Math.abs(today - startDate);
+                const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+
+                document.getElementById('sobrietyDays').textContent = diffDays;
+
+                const motivationText = this.getMotivationText(diffDays);
+                document.getElementById('motivationText').textContent = motivationText;
+
+                const milestone = this.getNextMilestone(diffDays);
+                const progress = this.getMilestoneProgress(diffDays, milestone);
+                
+                document.getElementById('progressFill').style.width = `${progress}%`;
+                document.getElementById('milestoneText').textContent = this.getMilestoneText(diffDays, milestone);
+            }
+
+            getMotivationText(days) {
+                if (days === 0) return "Every day is a victory! Your journey starts now.";
+                if (days < 7) return `${days} day${days === 1 ? '' : 's'} of strength! Keep going.`;
+                if (days < 30) return `${Math.floor(days/7)} week${Math.floor(days/7) === 1 ? '' : 's'}+ of positive choices! Your strength shines.`;
+                if (days < 90) return `${Math.floor(days/30)} month${Math.floor(days/30) === 1 ? '' : 's'}+ of positive choices! Your strength shines.`;
+                if (days < 365) return `${Math.floor(days/30)} months+ of incredible progress! You're amazing.`;
+                return `${Math.floor(days/365)} year${Math.floor(days/365) === 1 ? '' : 's'}+ of transformation! You're inspiring.`;
+            }
+
+            getNextMilestone(days) {
+                const milestones = [7, 30, 90, 180, 365, 730];
+                return milestones.find(m => m > days) || milestones[milestones.length - 1];
+            }
+
+            getMilestoneProgress(days, milestone) {
+                if (days >= milestone) return 100;
+                const previousMilestone = [0, 7, 30, 90, 180, 365].find((m, i, arr) => arr[i + 1] === milestone) || 0;
+                return Math.floor(((days - previousMilestone) / (milestone - previousMilestone)) * 100);
+            }
+
+            getMilestoneText(days, milestone) {
+                if (days >= milestone) return `Milestone reached! Next: ${this.getNextMilestone(milestone)} days`;
+                const remaining = milestone - days;
+                return `${remaining} day${remaining === 1 ? '' : 's'} left to ${milestone} days`;
+            }
+
+            editSobrietyDate() {
+                const currentDate = this.sobrietyStartDate ? new Date(this.sobrietyStartDate).toISOString().split('T')[0] : new Date().toISOString().split('T')[0];
+                const newDate = prompt("Enter your sobriety start date (YYYY-MM-DD):", currentDate);
+                
+                if (newDate && newDate !== currentDate) {
+                    this.sobrietyStartDate = new Date(newDate).toISOString();
+                    localStorage.setItem('sobrietyStartDate', this.sobrietyStartDate);
+                    this.updateSobrietyDisplay();
+                    this.announce('Sobriety date updated');
+                }
+            }
+
+            // Streak Management
+            updateStreak() {
+                const today = new Date().toDateString();
+                const yesterday = new Date(Date.now() - 86400000).toDateString();
+                
+                if (this.lastLoginDate === yesterday) {
+                    this.streak++;
+                } else if (this.lastLoginDate !== today) {
+                    this.streak = 1;
+                }
+                
+                localStorage.setItem('streak', this.streak.toString());
+                localStorage.setItem('lastLoginDate', today);
+                
+                this.displayStreak();
+            }
+
+            displayStreak() {
+                const container = document.getElementById('streakContainer');
+                container.innerHTML = '';
+                
+                const heartsToShow = Math.min(this.streak, 7);
+                for (let i = 0; i < heartsToShow; i++) {
+                    const heart = document.createElement('span');
+                    heart.className = 'heart';
+                    heart.textContent = '❤️';
+                    container.appendChild(heart);
+                }
+                
+                if (this.streak >= 7) {
+                    const hazelnut = document.createElement('span');
+                    hazelnut.className = 'hazelnut';
+                    hazelnut.textContent = '🌰';
+                    container.appendChild(hazelnut);
+                }
+            }
+
+            // Dashboard Tab Content
+            showTabContent(tab) {
+                // Update active tab
+                document.querySelectorAll('.tab-item').forEach(t => t.classList.remove('active'));
+                document.querySelector(`[data-tab="${tab}"]`).classList.add('active');
+                
+                const content = document.getElementById('tabContent');
+                
+                const tabData = {
+                    'self-harm': {
+                        title: 'Self Harm Support',
+                        alternatives: [
+                            'Draw or create art',
+                            'Write in a journal',
+                            'Listen to music',
+                            'Pet an animal',
+                            'Eat some sour sweets',
+                            'Watch a comfort show/movie',
+                            'Take deep breaths and go for a walk'
+                        ],
+                        resources: [
+                            { name: 'Pieta House', url: 'https://www.pieta.ie/how-we-can-help/' },
+                            { name: 'HSE Mental Health', url: 'https://www.hse.ie/eng/services/list/4/mental-health-services/nosp/resources/selfharmyoung.pdf' },
+                            { name: 'Tusla', url: 'https://www.tusla.ie/parenting-24-seven/12-years/child-safety-practices-reduce-injury/self-harm/' },
+                            { name: 'St Patrick\'s MHS', url: 'https://www.stpatricks.ie/media-centre/blogs-articles/2023/february/self-harm-causes-and-supports' }
+                        ]
+                    },
+                    'ed': {
+                        title: 'Eating Disorder Support',
+                        alternatives: [
+                            'Talk to a trusted friend or family member',
+                            'Drink water or herbal tea',
+                            'Practice mindful eating',
+                            'Write about your feelings',
+                            'Use positive affirmations',
+                            'Call a support line',
+                            'Join an online support group',
+                            'Practice gentle movement or yoga'
+                        ],
+                        resources: [
+                            { name: 'BodyWhys', url: 'https://bodywhys.ie' },
+                            { name: 'HSE Eating Disorders', url: 'https://www.hse.ie/eng/about/who/cspd/ncps/mental-health/eating-disorders/' },
+                            { name: 'National ED Recovery Centre', url: 'https://nedrc.ie/' },
+                            { name: 'St Patrick\'s MHS', url: 'https://www.stpatricks.ie/mental-health/eating-disorders' }
+                        ]
+                    },
+                    'anxiety': {
+                        title: 'Anxiety Support',
+                        alternatives: [
+                            'Practice deep breathing exercises',
+                            'Use the 5-4-3-2-1 grounding technique',
+                            'Go for a short walk outside',
+                            'Listen to calming music',
+                            'Squeeze a stress ball or fidget toy',
+                            'Write down your worries',
+                            'Do progressive muscle relaxation',
+                            'Call someone you trust'
+                        ],
+                        resources: [
+                            { name: 'Aware', url: 'https://www.aware.ie/information/anxiety/' },
+                            { name: 'HSE Anxiety Support', url: 'https://www2.hse.ie/conditions/anxiety-tips-and-self-help/' },
+                            { name: 'Spunout', url: 'https://spunout.ie/category/mental-health/anxiety-stress' },
+                            { name: 'St Patrick\'s MHS', url: 'https://www.stpatricks.ie/mental-health/anxiety' }
+                        ]
+                    },
+                    'depression': {
+                        title: 'General Mental Health Support',
+                        alternatives: [
+                            'Listen to uplifting music',
+                            'Take a warm shower or bath',
+                            'Complete one small task',
+                            'Text or call a supportive friend',
+                            'Spend time in nature or by a window',
+                            'Create something simple',
+                            'Practice gratitude by listing 3 good things',
+                            'Do gentle movement or stretching'
+                        ],
+                        resources: [
+                            { name: 'Aware', url: 'https://www.aware.ie/information/depression/' },
+                            { name: 'HSE Depression Support', url: 'https://www2.hse.ie/conditions/depression/' },
+                            { name: 'Spunout', url: 'https://spunout.ie/category/mental-health/depression' },
+                            { name: 'St Patrick\'s MHS', url: 'https://www.stpatricks.ie/mental-health/depression' }
+                        ]
+                    }
+                };
+
+                const data = tabData[tab];
+                
+                content.innerHTML = `
+                    <div class="section-title">${data.title}</div>
+                    <div class="section-divider"></div>
+                    <div class="alternatives-list">
+                        ${data.alternatives.map(alt => `• ${alt}`).join('<br>')}
+                    </div>
+                    ${data.resources.map(resource => 
+                        `<button class="resource-btn" onclick="window.open('${resource.url}', '_blank')">${resource.name}</button>`
+                    ).join('')}
+                `;
+            }
+
+            // Journal Methods
+            loadJournalEntries() {
+                const container = document.getElementById('journalEntries');
+                
+                if (this.journalEntries.length === 0) {
+                    container.innerHTML = '<div class="empty-state">No journal entries yet. Start writing to track your thoughts and feelings.</div>';
+                    return;
+                }
+                
+                container.innerHTML = this.journalEntries.map(entry => `
+                    <div class="journal-entry" data-entry-id="${entry.id}">
+                        <div class="entry-title">${entry.title}</div>
+                        <div class="entry-date">${new Date(entry.date).toLocaleDateString()}</div>
+                        ${entry.mood ? `<div class="entry-mood">${this.getMoodEmoji(entry.mood)}</div>` : ''}
+                    </div>
+                `).join('');
+
+                // Add click listeners to entries
+                container.querySelectorAll('.journal-entry').forEach(entry => {
+                    entry.addEventListener('click', () => {
+                        this.viewEntry(parseInt(entry.dataset.entryId));
+                    });
+                });
+            }
+
+            getMoodEmoji(mood) {
+                const moodEmojis = {
+                    'very-sad': '😢',
+                    'sad': '😔',
+                    'neutral': '😐',
+                    'happy': '😊',
+                    'very-happy': '😄'
+                };
+                return moodEmojis[mood] || '';
+            }
+
+            showNewEntryForm() {
+                const today = new Date().toLocaleDateString('en-US', { 
+                    weekday: 'long', 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric' 
+                });
+                
+                document.getElementById('journalEntries').innerHTML = `
+                    <div class="entry-form">
+                        <h3 style="color: #435334; margin-bottom: var(--space-lg);">${this.isEditingEntry ? 'Edit Entry' : 'New Entry'} - ${today}</h3>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Title</label>
+                            <input type="text" id="entryTitle" class="form-input" placeholder="How are you feeling?" value="${this.isEditingEntry ? this.getEditingEntry().title : ''}" autocomplete="off">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Write your thoughts</label>
+                            <textarea id="entryContent" class="form-textarea" placeholder="Express yourself here...">${this.isEditingEntry ? this.getEditingEntry().content : ''}</textarea>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button class="btn btn-secondary" onclick="hazelApp.loadJournalEntries()">Cancel</button>
+                            <button class="btn btn-primary" onclick="hazelApp.saveEntry()">Save Entry</button>
+                        </div>
+                    </div>
+                `;
+                
+                // Focus on title input
+                setTimeout(() => {
+                    document.getElementById('entryTitle').focus();
+                }, 100);
+            }
+
+            getEditingEntry() {
+                return this.journalEntries.find(e => e.id === this.editingEntryId) || { title: '', content: '' };
+            }
+
+            saveEntry() {
+                const title = document.getElementById('entryTitle').value.trim();
+                const content = document.getElementById('entryContent').value.trim();
+                
+                if (!title || !content) {
+                    alert('Please fill in both title and content');
+                    return;
+                }
+                
+                if (this.isEditingEntry) {
+                    // Update existing entry
+                    const entryIndex = this.journalEntries.findIndex(e => e.id === this.editingEntryId);
+                    if (entryIndex !== -1) {
+                        this.journalEntries[entryIndex] = {
+                            ...this.journalEntries[entryIndex],
+                            title,
+                            content,
+                            lastModified: new Date().toISOString()
+                        };
+                    }
+                } else {
+                    // Create new entry
+                    const entry = {
+                        id: Date.now(),
+                        title: title,
+                        content: content,
+                        mood: this.selectedMood,
+                        date: new Date().toISOString(),
+                        tags: []
+                    };
+                    
+                    this.journalEntries.unshift(entry);
+                }
+                
+                localStorage.setItem('journalEntries', JSON.stringify(this.journalEntries));
+                
+                this.selectedMood = null;
+                this.isEditingEntry = false;
+                this.editingEntryId = null;
+                this.loadJournalEntries();
+                this.announce('Journal entry saved');
+            }
+
+            viewEntry(id) {
+                const entry = this.journalEntries.find(e => e.id === id);
+                if (!entry) return;
+                
+                const moodEmoji = this.getMoodEmoji(entry.mood);
+                
+                document.getElementById('journalEntries').innerHTML = `
+                    <div class="entry-form">
+                        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--space-lg);">
+                            <h3 style="color: #435334;">${entry.title}</h3>
+                            ${moodEmoji ? `<span style="font-size: 1.5rem;">${moodEmoji}</span>` : ''}
+                        </div>
+                        
+                        <div style="color: var(--text-secondary); margin-bottom: var(--space-md); font-size: var(--text-sm);">
+                            ${new Date(entry.date).toLocaleDateString('en-US', { 
+                                weekday: 'long', 
+                                year: 'numeric', 
+                                month: 'long', 
+                                day: 'numeric' 
+                            })}
+                        </div>
+                        
+                        <div style="line-height: 1.6; margin-bottom: var(--space-xl); white-space: pre-wrap;">${entry.content}</div>
+                        
+                        <div class="form-actions">
+                            <button class="btn btn-secondary" onclick="hazelApp.loadJournalEntries()">Back</button>
+                            <button class="btn btn-primary" onclick="hazelApp.editEntry(${entry.id})">Edit</button>
+                            <button class="btn btn-secondary" onclick="hazelApp.deleteEntry(${entry.id})" style="background: var(--error-color); color: white;">Delete</button>
+                        </div>
+                    </div>
+                `;
+            }
+
+            editEntry(id) {
+                this.isEditingEntry = true;
+                this.editingEntryId = id;
+                this.showNewEntryForm();
+            }
+
+            deleteEntry(id) {
+                if (confirm('Are you sure you want to delete this entry?')) {
+                    this.journalEntries = this.journalEntries.filter(e => e.id !== id);
+                    localStorage.setItem('journalEntries', JSON.stringify(this.journalEntries));
+                    this.loadJournalEntries();
+                    this.announce('Journal entry deleted');
+                }
+            }
+
+            // Task Management
+            loadTasks() {
+                const container = document.getElementById('tasksContainer');
+                
+                if (this.tasks.length === 0) {
+                    container.innerHTML = '<div style="text-align: center; opacity: 0.7; padding: var(--space-xl);">No tasks yet. Add one above!</div>';
+                    return;
+                }
+                
+                container.innerHTML = this.tasks.map(task => `
+                    <div class="task-item">
+                        <div class="task-checkbox ${task.completed ? 'completed' : ''}" data-task-id="${task.id}"></div>
+                        <div class="task-text ${task.completed ? 'completed' : ''}">${task.text}</div>
+                    </div>
+                `).join('');
+                
+                // Add click listeners to checkboxes
+                container.querySelectorAll('.task-checkbox').forEach(checkbox => {
+                    checkbox.addEventListener('click', () => {
+                        this.toggleTask(parseInt(checkbox.dataset.taskId));
+                    });
+                });
+            }
+
+            addTask() {
+                const input = document.getElementById('taskInput');
+                const text = input.value.trim();
+                
+                if (!text) return;
+                
+                const task = {
+                    id: this.nextTaskId++,
                     text: text,
                     completed: false,
                     createdAt: new Date().toISOString()
                 };
                 
-                task.subtasks.push(subtask);
-                task.subtasksExpanded = true; // Auto-expand when adding subtask
-                
+                this.tasks.push(task);
                 localStorage.setItem('tasks', JSON.stringify(this.tasks));
+                localStorage.setItem('nextTaskId', this.nextTaskId.toString());
+                
+                input.value = '';
                 this.loadTasks();
-                this.announce('Subtask added');
+                this.announce('Task added');
             }
-        }
 
-// Support Actions
-        handleSupportAction(action) {
-            switch (action) {
-                case 'hotlines':
-                    this.showHotlines();
-                    break;
-                case 'breathing':
-                    this.showBreathingExercise();
-                    break;
-                case 'grounding':
-                    this.showGroundingTechnique();
-                    break;
-            }
-            
-            document.getElementById('supportPanel').classList.remove('active');
-        }
-
-        showHotlines() {
-            const modalTitle = document.getElementById('modalTitle');
-            const modalBody = document.getElementById('modalBody');
-            
-            modalTitle.textContent = 'Crisis Support Hotlines';
-            modalBody.innerHTML = `
-                <div class="hotlines-list">
-                    <div class="hotline-item">
-                        <div class="hotline-info">
-                            <div class="hotline-name">National Suicide Prevention Lifeline</div>
-                            <div class="hotline-number">988</div>
-                            <div class="hotline-hours">24/7 Support</div>
-                        </div>
-                        <div class="hotline-actions">
-                            <a href="tel:988" class="hotline-call">Call</a>
-                            <a href="https://suicidepreventionlifeline.org" target="_blank" class="hotline-info-btn" data-url="https://suicidepreventionlifeline.org">Info</a>
-                        </div>
-                    </div>
-                    
-                    <div class="hotline-item">
-                        <div class="hotline-info">
-                            <div class="hotline-name">Crisis Text Line</div>
-                            <div class="hotline-number">Text HOME to 741741</div>
-                            <div class="hotline-hours">24/7 Support</div>
-                        </div>
-                        <div class="hotline-actions">
-                            <a href="sms:741741?body=HOME" class="hotline-call">Text</a>
-                            <a href="https://crisistextline.org" target="_blank" class="hotline-info-btn">Info</a>
-                        </div>
-                    </div>
-                    
-                    <div class="hotline-item">
-                        <div class="hotline-info">
-                            <div class="hotline-name">SAMHSA Helpline</div>
-                            <div class="hotline-number">1-800-662-4357</div>
-                            <div class="hotline-hours">24/7 Support</div>
-                        </div>
-                        <div class="hotline-actions">
-                            <a href="tel:1-800-662-4357" class="hotline-call">Call</a>
-                            <a href="https://samhsa.gov" target="_blank" class="hotline-info-btn">Info</a>
-                        </div>
-                    </div>
-                </div>
-            `;
-            
-            this.showModal();
-        }
-
-        showBreathingExercise() {
-            const modalTitle = document.getElementById('modalTitle');
-            const modalBody = document.getElementById('modalBody');
-            
-            modalTitle.textContent = 'Breathing Exercise';
-            modalBody.innerHTML = `
-                <div style="text-align: center; padding: var(--space-xl);">
-                    <div style="font-size: var(--text-lg); margin-bottom: var(--space-xl);">
-                        Follow the circle with your breathing
-                    </div>
-                    <div style="width: 200px; height: 200px; border: 4px solid var(--primary-color); border-radius: 50%; margin: 0 auto var(--space-xl); position: relative; animation: breathe 8s infinite;">
-                        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: var(--text-lg); font-weight: 600;" id="breatheText">Breathe In</div>
-                    </div>
-                    <div style="font-size: var(--text-base); color: var(--text-secondary);">
-                        Inhale for 4 seconds, hold for 4 seconds, exhale for 4 seconds
-                    </div>
-                </div>
-                <style>
-                    @keyframes breathe {
-                        0%, 100% { transform: scale(1); border-color: var(--primary-color); }
-                        25% { transform: scale(1.2); border-color: var(--secondary-color); }
-                        50% { transform: scale(1.2); border-color: var(--secondary-color); }
-                        75% { transform: scale(1); border-color: var(--primary-color); }
-                    }
-                </style>
-            `;
-            
-            // Update breathing text
-            const breatheText = modalBody.querySelector('#breatheText');
-            let phase = 0;
-            const phases = ['Breathe In', 'Hold', 'Breathe Out', 'Hold'];
-            
-            setInterval(() => {
-                if (breatheText) {
-                    breatheText.textContent = phases[phase % 4];
-                    phase++;
-                }
-            }, 2000);
-            
-            this.showModal();
-        }
-
-        showGroundingTechnique() {
-            const modalTitle = document.getElementById('modalTitle');
-            const modalBody = document.getElementById('modalBody');
-            
-            modalTitle.textContent = '5-4-3-2-1 Grounding Technique';
-            modalBody.innerHTML = `
-                <div style="padding: var(--space-lg);">
-                    <div style="margin-bottom: var(--space-xl); font-size: var(--text-lg); text-align: center;">
-                        Use your senses to ground yourself in the present moment
-                    </div>
-                    
-                    <div style="margin-bottom: var(--space-lg);">
-                        <strong>5 things you can SEE:</strong>
-                        <div style="margin-top: var(--space-sm); color: var(--text-secondary);">
-                            Look around and name 5 things you can see right now
-                        </div>
-                    </div>
-                    
-                    <div style="margin-bottom: var(--space-lg);">
-                        <strong>4 things you can TOUCH:</strong>
-                        <div style="margin-top: var(--space-sm); color: var(--text-secondary);">
-                            Notice 4 things you can physically feel
-                        </div>
-                    </div>
-                    
-                    <div style="margin-bottom: var(--space-lg);">
-                        <strong>3 things you can HEAR:</strong>
-                        <div style="margin-top: var(--space-sm); color: var(--text-secondary);">
-                            Listen carefully and identify 3 sounds
-                        </div>
-                    </div>
-                    
-                    <div style="margin-bottom: var(--space-lg);">
-                        <strong>2 things you can SMELL:</strong>
-                        <div style="margin-top: var(--space-sm); color: var(--text-secondary);">
-                            Take a deep breath and notice 2 scents
-                        </div>
-                    </div>
-                    
-                    <div style="margin-bottom: var(--space-lg);">
-                        <strong>1 thing you can TASTE:</strong>
-                        <div style="margin-top: var(--space-sm); color: var(--text-secondary);">
-                            Notice any taste in your mouth, or take a sip of water
-                        </div>
-                    </div>
-                </div>
-            `;
-            
-            this.showModal();
-        }
-
-        showModal() {
-            document.getElementById('modal').classList.add('active');
-        }
-
-        hideModal() {
-            document.getElementById('modal').classList.remove('active');
-        }
-
-        // Journal Management
-        loadJournalEntries() {
-            const container = document.getElementById('journalEntries');
-            
-            if (this.journalEntries.length === 0) {
-                container.innerHTML = '<div class="empty-state">Start writing to track your thoughts and feelings.</div>';
-                return;
-            }
-            
-            // Sort entries by date (newest first)
-            const sortedEntries = [...this.journalEntries].sort((a, b) => new Date(b.date) - new Date(a.date));
-            
-            container.innerHTML = sortedEntries.map(entry => `
-                <div class="journal-entry" data-entry-id="${entry.id}">
-                    <div class="entry-title">${entry.title}</div>
-                    <div class="entry-date">${new Date(entry.date).toLocaleDateString()}</div>
-                    ${entry.mood ? `<div class="entry-mood">${this.getMoodEmoji(entry.mood)}</div>` : ''}
-                </div>
-            `).join('');
-            
-            // Add click listeners to entries
-            container.querySelectorAll('.journal-entry').forEach(entry => {
-                entry.addEventListener('click', () => {
-                    this.viewJournalEntry(parseInt(entry.dataset.entryId));
-                });
-            });
-        }
-
-        getMoodEmoji(mood) {
-            const moodEmojis = {
-                'very-happy': '😄',
-                'happy': '😊',
-                'neutral': '😐',
-                'sad': '😔',
-                'very-sad': '😢'
-            };
-            return moodEmojis[mood] || '😐';
-        }
-
-        showNewEntryForm() {
-            const container = document.getElementById('journalEntries');
-            container.innerHTML = `
-                <div class="entry-form">
-                    <div class="form-group">
-                        <label class="form-label" for="entryTitle">Title</label>
-                        <input type="text" id="entryTitle" class="form-input" placeholder="What's on your mind?" maxlength="100">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label class="form-label" for="entryContent">Content</label>
-                        <textarea id="entryContent" class="form-textarea" placeholder="Write about your thoughts and feelings..." rows="8"></textarea>
-                    </div>
-                    
-                    <div class="form-actions">
-                        <button class="btn btn-outline" onclick="window.hazelApp.loadJournalEntries()">Cancel</button>
-                        <button class="btn btn-primary" onclick="window.hazelApp.saveJournalEntry()">Save Entry</button>
-                    </div>
-                </div>
-            `;
-            
-            document.getElementById('entryTitle').focus();
-        }
-
-        saveJournalEntry() {
-            const title = document.getElementById('entryTitle').value.trim();
-            const content = document.getElementById('entryContent').value.trim();
-            
-            if (!title || !content) {
-                alert('Please fill in both title and content');
-                return;
-            }
-            
-            const entry = {
-                id: Date.now(),
-                title: title,
-                content: content,
-                date: new Date().toISOString(),
-                mood: this.selectedMood
-            };
-            
-            this.journalEntries.push(entry);
-            localStorage.setItem('journalEntries', JSON.stringify(this.journalEntries));
-            
-            this.loadJournalEntries();
-            this.announce('Journal entry saved');
-        }
-
-        viewJournalEntry(id) {
-            const entry = this.journalEntries.find(e => e.id === id);
-            if (!entry) return;
-            
-            const container = document.getElementById('journalEntries');
-            container.innerHTML = `
-                <div class="entry-form">
-                    <div class="form-group">
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-md);">
-                            <h3 style="color: var(--text-primary); margin: 0;">${entry.title}</h3>
-                            ${entry.mood ? `<span style="font-size: 1.5rem;">${this.getMoodEmoji(entry.mood)}</span>` : ''}
-                        </div>
-                        <div style="font-size: var(--text-sm); color: var(--text-secondary); margin-bottom: var(--space-lg);">
-                            ${new Date(entry.date).toLocaleDateString()} at ${new Date(entry.date).toLocaleTimeString()}
-                        </div>
-                        <div style="line-height: 1.6; white-space: pre-wrap;">${entry.content}</div>
-                    </div>
-                    
-                    <div class="form-actions">
-                        <button class="btn btn-outline" onclick="window.hazelApp.loadJournalEntries()">Back</button>
-                        <button class="btn btn-secondary" onclick="window.hazelApp.deleteJournalEntry(${entry.id})">Delete</button>
-                    </div>
-                </div>
-            `;
-        }
-
-        deleteJournalEntry(id) {
-            if (confirm('Are you sure you want to delete this journal entry?')) {
-                this.journalEntries = this.journalEntries.filter(e => e.id !== id);
-                localStorage.setItem('journalEntries', JSON.stringify(this.journalEntries));
-                this.loadJournalEntries();
-                this.announce('Journal entry deleted');
-            }
-        }
-
-        // Sobriety Tracker
-        updateSobrietyTracker() {
-            const daysElement = document.getElementById('sobrietyDays');
-            const messageElement = document.getElementById('milestoneMessage');
-            const progressElement = document.getElementById('progressFill');
-            const milestoneElement = document.getElementById('milestoneText');
-            
-            if (!this.sobrietyStartDate) {
-                daysElement.textContent = '0';
-                messageElement.textContent = 'Set your start date to begin tracking';
-                progressElement.style.width = '0%';
-                milestoneElement.textContent = 'Click "Edit Start Date" to get started';
-                return;
-            }
-            
-            const startDate = new Date(this.sobrietyStartDate);
-            const today = new Date();
-            const diffTime = Math.abs(today - startDate);
-            const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
-            
-            daysElement.textContent = diffDays;
-            
-            // Milestone messages
-            const milestones = [
-                { days: 1, message: "You've taken the first step!" },
-                { days: 7, message: "One week strong!" },
-                { days: 30, message: "One month milestone!" },
-                { days: 90, message: "Three months of progress!" },
-                { days: 180, message: "Half a year accomplished!" },
-                { days: 365, message: "One full year - incredible!" }
-            ];
-            
-            let currentMilestone = milestones.find(m => diffDays >= m.days);
-            let nextMilestone = milestones.find(m => diffDays < m.days);
-            
-            if (currentMilestone) {
-                messageElement.textContent = currentMilestone.message;
-            }
-            
-            if (nextMilestone) {
-                const daysToNext = nextMilestone.days - diffDays;
-                const progress = (diffDays / nextMilestone.days) * 100;
-                progressElement.style.width = `${Math.min(progress, 100)}%`;
-                milestoneElement.textContent = `Next milestone: ${daysToNext} days to ${nextMilestone.days} days`;
-            } else {
-                progressElement.style.width = '100%';
-                milestoneElement.textContent = 'You\'re amazing! Keep going strong!';
-            }
-        }
-
-        editSobrietyDate() {
-            const currentDate = this.sobrietyStartDate ? new Date(this.sobrietyStartDate).toISOString().split('T')[0] : new Date().toISOString().split('T')[0];
-            const newDate = prompt('Enter your sobriety start date (YYYY-MM-DD):', currentDate);
-            
-            if (newDate && !isNaN(new Date(newDate))) {
-                this.sobrietyStartDate = newDate;
-                localStorage.setItem('sobrietyStartDate', newDate);
-                this.updateSobrietyTracker();
-                this.announce('Sobriety start date updated');
-            }
-        }
-
-        // Streak System
-        checkLoginStreak() {
-            const today = new Date().toDateString();
-            const yesterday = new Date(Date.now() - 86400000).toDateString();
-            
-            if (this.lastLoginDate === today) {
-                // Already logged in today, no change
-                return;
-            } else if (this.lastLoginDate === yesterday) {
-                // Logged in yesterday, continue streak
-                this.streak++;
-            } else if (this.lastLoginDate) {
-                // Missed a day, reset streak
-                this.streak = 1;
-            } else {
-                // First time
-                this.streak = 1;
-            }
-            
-            this.lastLoginDate = today;
-            localStorage.setItem('streak', this.streak.toString());
-            localStorage.setItem('lastLoginDate', today);
-            
-            this.updateStreakDisplay();
-        }
-
-        updateStreakDisplay() {
-            const container = document.getElementById('streakContainer');
-            const maxDays = 7;
-            
-            container.innerHTML = '';
-            for (let i = 0; i < maxDays; i++) {
-                const day = document.createElement('div');
-                day.className = 'streak-day';
-                if (i < this.streak) {
-                    day.classList.add('active');
-                }
-                container.appendChild(day);
-            }
-        }
-
-        // Dashboard Content
-        showTabContent(tab) {
-            // Update active tab
-            document.querySelectorAll('.tab-item').forEach(item => {
-                item.classList.remove('active');
-            });
-            document.querySelector(`[data-tab="${tab}"]`).classList.add('active');
-            
-            const content = this.getTabContent(tab);
-            document.getElementById('tabContent').innerHTML = content;
-        }
-
-        getTabContent(tab) {
-            const contents = {
-                'self-harm': `
-                    <h3>Self-Harm Support</h3>
-                    <div class="section-divider"></div>
-                    <div class="alternatives-list">
-                        Alternative coping strategies:<br>
-                        • Hold ice cubes in your hands<br>
-                        • Draw on your skin with a red marker<br>
-                        • Intense exercise or physical activity<br>
-                        • Squeeze a stress ball very hard<br>
-                        • Scream into a pillow<br>
-                        • Listen to loud music<br>
-                        • Take a hot or cold shower
-                    </div>
-                    <button class="resource-btn" onclick="window.open('https://selfinjury.bctr.cornell.edu/', '_blank')">Self-Injury Information</button>
-                    <button class="resource-btn" onclick="window.open('https://www.to-write-love-on-her-arms.com/', '_blank')">To Write Love On Her Arms</button>
-                    <button class="resource-btn" onclick="window.hazelApp.showHotlines()">Crisis Hotlines</button>
-                `,
-                'ed': `
-                    <h3>Eating Disorder Support</h3>
-                    <div class="section-divider"></div>
-                    <div class="alternatives-list">
-                        Remember:<br>
-                        • You are more than a number on a scale<br>
-                        • Recovery is possible and you deserve it<br>
-                        • It's okay to ask for help<br>
-                        • Every meal is a step toward healing<br>
-                        • Your body deserves nourishment and care
-                    </div>
-                    <button class="resource-btn" onclick="window.open('https://www.nationaleatingdisorders.org/', '_blank')">National Eating Disorders Association</button>
-                    <button class="resource-btn" onclick="window.open('https://www.eatingdisorderhope.com/', '_blank')">Eating Disorder Hope</button>
-                    <button class="resource-btn" onclick="window.open('tel:1-800-931-2237')">NEDA Hotline: 1-800-931-2237</button>
-                `,
-                'anxiety': `
-                    <h3>Anxiety Support</h3>
-                    <div class="section-divider"></div>
-                    <div class="alternatives-list">
-                        Quick anxiety relief techniques:<br>
-                        • 4-7-8 breathing: Inhale 4, hold 7, exhale 8<br>
-                        • Name 5 things you can see, 4 you can touch<br>
-                        • Progressive muscle relaxation<br>
-                        • Ground yourself: feel your feet on the floor<br>
-                        • Remind yourself: "This feeling will pass"
-                    </div>
-                    <button class="resource-btn" onclick="window.hazelApp.showBreathingExercise()">Breathing Exercise</button>
-                    <button class="resource-btn" onclick="window.hazelApp.showGroundingTechnique()">Grounding Technique</button>
-                    <button class="resource-btn" onclick="window.open('https://adaa.org/', '_blank')">Anxiety & Depression Association</button>
-                `,
-                'depression': `
-                    <h3>General Mental Health</h3>
-                    <div class="section-divider"></div>
-                    <div class="alternatives-list">
-                        Daily wellness reminders:<br>
-                        • You matter and your life has value<br>
-                        • It's okay to have bad days<br>
-                        • Small steps still count as progress<br>
-                        • Reaching out for help is a sign of strength<br>
-                        • You don't have to face this alone
-                    </div>
-                    <button class="resource-btn" onclick="window.open('https://www.nami.org/', '_blank')">National Alliance on Mental Illness</button>
-                    <button class="resource-btn" onclick="window.open('https://www.mentalhealthamerica.net/', '_blank')">Mental Health America</button>
-                    <button class="resource-btn" onclick="window.hazelApp.showHotlines()">Crisis Support</button>
-                `
-            };
-            
-            return contents[tab] || contents['depression'];
-        }
-
-        // Data Loading
-        loadInitialData() {
-            // Load saved mood for today
-            const savedMoodDate = localStorage.getItem('moodDate');
-            const today = new Date().toDateString();
-            
-            if (savedMoodDate === today) {
-                const savedMood = localStorage.getItem('currentMood');
-                if (savedMood) {
-                    this.selectedMood = savedMood;
-                    document.querySelector(`[data-mood="${savedMood}"]`).classList.add('selected');
+            toggleTask(id) {
+                const task = this.tasks.find(t => t.id === id);
+                if (task) {
+                    task.completed = !task.completed;
+                    localStorage.setItem('tasks', JSON.stringify(this.tasks));
+                    this.loadTasks();
+                    this.announce(task.completed ? 'Task completed' : 'Task uncompleted');
                 }
             }
-        }
-// PWA Setup
-        setupPWA() {
-            // Register service worker
-            if ('serviceWorker' in navigator) {
-                window.addEventListener('load', async () => {
-                    try {
-                        const swBlob = new Blob([this.createServiceWorker()], { type: 'application/javascript' });
-                        const swUrl = URL.createObjectURL(swBlob);
-                        
-                        const registration = await navigator.serviceWorker.register(swUrl);
-                        console.log('SW registered:', registration);
-                        
-                        registration.addEventListener('updatefound', () => {
-                            const newWorker = registration.installing;
-                            newWorker.addEventListener('statechange', () => {
-                                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                                    this.showUpdateNotification();
-                                }
-                            });
-                        });
-                    } catch (error) {
-                        console.log('SW registration failed:', error);
-                    }
-                });
-            }
 
-            // Handle PWA install prompt
-            let deferredPrompt;
-            window.addEventListener('beforeinstallprompt', (e) => {
-                e.preventDefault();
-                deferredPrompt = e;
-                this.showInstallButton(deferredPrompt);
-            });
-
-            // Handle URL parameters for shortcuts
-            const urlParams = new URLSearchParams(window.location.search);
-            const action = urlParams.get('action');
-            if (action) {
-                this.handleShortcutAction(action);
-            }
-
-            // Handle fullscreen mode changes
-            document.addEventListener('fullscreenchange', () => {
-                if (document.fullscreenElement) {
-                    document.body.classList.add('fullscreen-mode');
-                } else {
-                    document.body.classList.remove('fullscreen-mode');
-                }
-            });
-        }
-
-        createServiceWorker() {
-            return `
-                const CACHE_NAME = 'hazel-v2';
-                const urlsToCache = [
-                    '/',
-                    '/index.html',
-                    '/manifest.json'
-                ];
-
-                self.addEventListener('install', event => {
-                    event.waitUntil(
-                        caches.open(CACHE_NAME)
-                            .then(cache => cache.addAll(urlsToCache))
-                    );
-                    self.skipWaiting();
-                });
-
-                self.addEventListener('fetch', event => {
-                    event.respondWith(
-                        caches.match(event.request)
-                            .then(response => {
-                                if (response) {
-                                    return response;
-                                }
-                                return fetch(event.request);
-                            })
-                    );
-                });
-
-                self.addEventListener('activate', event => {
-                    event.waitUntil(
-                        caches.keys().then(cacheNames => {
-                            return Promise.all(
-                                cacheNames.map(cacheName => {
-                                    if (cacheName !== CACHE_NAME) {
-                                        return caches.delete(cacheName);
+            // PWA Setup
+            setupPWA() {
+                // Register service worker
+                if ('serviceWorker' in navigator) {
+                    window.addEventListener('load', async () => {
+                        try {
+                            const swBlob = new Blob([this.createServiceWorker()], { type: 'application/javascript' });
+                            const swUrl = URL.createObjectURL(swBlob);
+                            
+                            const registration = await navigator.serviceWorker.register(swUrl);
+                            console.log('SW registered:', registration);
+                            
+                            registration.addEventListener('updatefound', () => {
+                                const newWorker = registration.installing;
+                                newWorker.addEventListener('statechange', () => {
+                                    if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                        this.showUpdateNotification();
                                     }
-                                })
-                            );
-                        })
-                    );
-                });
-            `;
-        }
+                                });
+                            });
+                        } catch (error) {
+                            console.log('SW registration failed:', error);
+                        }
+                    });
+                }
 
-        handleShortcutAction(action) {
-            switch (action) {
-                case 'new-journal':
-                    this.navigateTo('journal');
-                    setTimeout(() => this.showNewEntryForm(), 100);
-                    break;
-                case 'crisis':
-                    this.showHotlines();
-                    break;
+                // Handle PWA install prompt
+                let deferredPrompt;
+                window.addEventListener('beforeinstallprompt', (e) => {
+                    e.preventDefault();
+                    deferredPrompt = e;
+                    this.showInstallButton(deferredPrompt);
+                });
+
+                // Handle URL parameters for shortcuts
+                const urlParams = new URLSearchParams(window.location.search);
+                const action = urlParams.get('action');
+                if (action) {
+                    this.handleShortcutAction(action);
+                }
+
+                // Handle fullscreen mode changes
+                document.addEventListener('fullscreenchange', () => {
+                    if (document.fullscreenElement) {
+                        document.body.classList.add('fullscreen-mode');
+                    } else {
+                        document.body.classList.remove('fullscreen-mode');
+                    }
+                });
+            }
+
+            createServiceWorker() {
+                return `
+                    const CACHE_NAME = 'hazel-v2';
+                    const urlsToCache = [
+                        '/',
+                        '/index.html',
+                        '/manifest.json'
+                    ];
+
+                    self.addEventListener('install', event => {
+                        event.waitUntil(
+                            caches.open(CACHE_NAME)
+                                .then(cache => cache.addAll(urlsToCache))
+                        );
+                        self.skipWaiting();
+                    });
+
+                    self.addEventListener('fetch', event => {
+                        event.respondWith(
+                            caches.match(event.request)
+                                .then(response => {
+                                    if (response) {
+                                        return response;
+                                    }
+                                    return fetch(event.request);
+                                })
+                        );
+                    });
+
+                    self.addEventListener('activate', event => {
+                        event.waitUntil(
+                            caches.keys().then(cacheNames => {
+                                return Promise.all(
+                                    cacheNames.map(cacheName => {
+                                        if (cacheName !== CACHE_NAME) {
+                                            return caches.delete(cacheName);
+                                        }
+                                    })
+                                );
+                            })
+                        );
+                        self.clients.claim();
+                    });
+                `;
+            }
+
+            handleShortcutAction(action) {
+                switch(action) {
+                    case 'new-journal':
+                        this.navigateTo('journal');
+                        setTimeout(() => this.showNewEntryForm(), 200);
+                        break;
+                    case 'crisis':
+                        this.showHotlines();
+                        break;
+                }
+            }
+
+            showUpdateNotification() {
+                const notification = document.createElement('div');
+                notification.className = 'update-notification';
+                notification.innerHTML = `
+                    <div style="background: var(--primary-color); color: white; padding: var(--space-md); border-radius: var(--radius-md); margin: var(--space-md); text-align: center;">
+                        App update available! 
+                        <button onclick="window.location.reload()" style="background: white; color: var(--primary-color); border: none; padding: var(--space-sm); border-radius: var(--radius-sm); margin-left: var(--space-sm);">
+                            Update Now
+                        </button>
+                    </div>
+                `;
+                document.body.appendChild(notification);
+                
+                setTimeout(() => notification.remove(), 10000);
+            }
+
+            showInstallButton(deferredPrompt) {
+                const installButton = document.createElement('button');
+                installButton.textContent = 'Install App';
+                installButton.className = 'btn btn-secondary';
+                installButton.style.cssText = `
+                    position: absolute;
+                    top: calc(20px + var(--safe-area-inset-top));
+                    right: 20px;
+                    z-index: var(--z-tooltip);
+                    font-size: var(--text-sm);
+                    padding: var(--space-sm) var(--space-md);
+                `;
+                
+                installButton.addEventListener('click', async () => {
+                    if (deferredPrompt) {
+                        deferredPrompt.prompt();
+                        const { outcome } = await deferredPrompt.userChoice;
+                        console.log('Install prompt outcome:', outcome);
+                        installButton.remove();
+                    }
+                });
+                
+                document.body.appendChild(installButton);
             }
         }
 
-        showUpdateNotification() {
-            const notification = document.createElement('div');
-            notification.style.cssText = `
-                position: fixed;
-                top: 20px;
-                left: 50%;
-                transform: translateX(-50%);
-                background: var(--primary-color);
-                color: white;
-                padding: var(--space-md);
-                border-radius: var(--radius-md);
-                z-index: var(--z-tooltip);
-                font-size: var(--text-sm);
-                box-shadow: var(--shadow-lg);
-            `;
-            notification.innerHTML = `
-                App updated! 
-                <button onclick="window.location.reload()" style="background: white; color: var(--primary-color); border: none; padding: var(--space-sm); border-radius: var(--radius-sm); margin-left: var(--space-sm);">
-                    Update Now
-                </button>
-            `;
-            document.body.appendChild(notification);
-            
-            setTimeout(() => notification.remove(), 10000);
+        // Initialize the app when DOM is ready
+        document.addEventListener('DOMContentLoaded', () => {
+            window.hazelApp = new HazelApp();
+        });
+
+        // Handle browser back button
+        window.addEventListener('popstate', (e) => {
+            if (e.state && e.state.page && window.hazelApp) {
+                window.hazelApp.navigateTo(e.state.page);
+            }
+        });
+
+        // Handle online/offline status
+        window.addEventListener('online', () => {
+            console.log('App is online');
+            document.body.classList.remove('offline');
+        });
+
+        window.addEventListener('offline', () => {
+            console.log('App is offline');
+            document.body.classList.add('offline');
+        });
+
+        // Handle viewport resize
+        window.addEventListener('resize', () => {
+            if (window.hazelApp) {
+                window.hazelApp.adjustViewportHeight();
+            }
+        });
+
+        // Detect if running on iOS
+        function isIOS() {
+            return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
         }
 
-        showInstallButton(deferredPrompt) {
-            const installButton = document.createElement('button');
-            installButton.textContent = 'Install App';
-            installButton.className = 'btn btn-secondary';
-            installButton.style.cssText = `
-                position: absolute;
-                top: calc(20px + var(--safe-area-inset-top));
-                right: 20px;
-                z-index: var(--z-tooltip);
-                font-size: var(--text-sm);
-                padding: var(--space-sm) var(--space-md);
-            `;
-            
-            installButton.addEventListener('click', async () => {
-                if (deferredPrompt) {
-                    deferredPrompt.prompt();
-                    const { outcome } = await deferredPrompt.userChoice;
-                    console.log('Install prompt outcome:', outcome);
-                    installButton.remove();
+        // Only run iOS-specific code on iOS devices
+        if (isIOS()) {
+            // Generate proper PNG icons for iOS only
+            function createIOSIcon(size) {
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                canvas.width = size;
+                canvas.height = size;
+                
+                // iOS-style background
+                ctx.fillStyle = '#A2AE83';
+                ctx.fillRect(0, 0, size, size);
+                
+                // iOS emoji rendering
+                ctx.font = `${size * 0.6}px "Apple Color Emoji", "Segoe UI Emoji", Arial`;
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText('🌰', size / 2, size / 2);
+                
+                return canvas.toDataURL('image/png');
+            }
+
+            // Update Apple Touch Icons after page loads (iOS only)
+            window.addEventListener('load', () => {
+                // Only proceed if this is actually iOS
+                if (!isIOS()) return;
+                
+                // Generate PNG versions
+                const icon180 = createIOSIcon(180);
+                const icon152 = createIOSIcon(152);
+                const icon120 = createIOSIcon(120);
+                
+                // Replace existing apple-touch-icon links
+                const existingIcons = document.querySelectorAll('link[rel="apple-touch-icon"]');
+                existingIcons.forEach(icon => icon.remove());
+                
+                // Add new PNG icons
+                const sizes = [
+                    { size: '180x180', dataURL: icon180 },
+                    { size: '152x152', dataURL: icon152 },
+                    { size: '120x120', dataURL: icon120 }
+                ];
+                
+                sizes.forEach(iconData => {
+                    const link = document.createElement('link');
+                    link.rel = 'apple-touch-icon';
+                    link.sizes = iconData.size;
+                    link.href = iconData.dataURL;
+                    document.head.appendChild(link);
+                });
+                
+                // Add fallback without sizes
+                const fallback = document.createElement('link');
+                fallback.rel = 'apple-touch-icon';
+                fallback.href = icon180;
+                document.head.appendChild(fallback);
+            });
+        }
+
+        // Android-specific fixes (if needed)
+        function isAndroid() {
+            return /Android/i.test(navigator.userAgent);
+        }
+
+        if (isAndroid()) {
+            // Ensure Android layout works properly
+            window.addEventListener('load', () => {
+                // Force re-layout if needed
+                document.body.style.minHeight = '100vh';
+                
+                // Make sure container takes full height
+                const container = document.querySelector('.container');
+                if (container) {
+                    container.style.height = '100vh';
+                    container.style.display = 'flex';
+                    container.style.flexDirection = 'column';
                 }
             });
-            
-            document.body.appendChild(installButton);
         }
-    }
-
-    // Initialize the app when DOM is ready
-    document.addEventListener('DOMContentLoaded', () => {
-        window.hazelApp = new HazelApp();
-    });
-
-    // Handle browser back button
-    window.addEventListener('popstate', (e) => {
-        if (e.state && e.state.page && window.hazelApp) {
-            window.hazelApp.navigateTo(e.state.page);
-        }
-    });
-
-    // Handle online/offline status
-    window.addEventListener('online', () => {
-        console.log('App is online');
-        document.body.classList.remove('offline');
-    });
-
-    window.addEventListener('offline', () => {
-        console.log('App is offline');
-        document.body.classList.add('offline');
-    });
-
-    // Handle viewport resize
-    window.addEventListener('resize', () => {
-        if (window.hazelApp) {
-            window.hazelApp.adjustViewportHeight();
-        }
-    });
-
-    function createIOSIcon(size) {
-        const canvas = document.createElement('canvas');
-        const ctx = canvas.getContext('2d');
-        canvas.width = size;
-        canvas.height = size;
-        
-        // iOS-style background (slightly rounded)
-        ctx.fillStyle = '#A2AE83';
-        ctx.fillRect(0, 0, size, size);
-        
-        // iOS prefers emoji rendered as text
-        ctx.font = `${size * 0.6}px "Apple Color Emoji", "Segoe UI Emoji", Arial`;
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'middle';
-        ctx.fillText('🌰', size / 2, size / 2);
-        
-        return canvas.toDataURL('image/png');
-    }
-
-    // Create and inject iOS-specific icons
-    window.addEventListener('load', () => {
-        const iosIcon180 = createIOSIcon(180);
-        
-        // Remove existing apple-touch-icon if any
-        const existingIcon = document.querySelector('link[rel="apple-touch-icon"]');
-        if (existingIcon) existingIcon.remove();
-        
-        // Add new iOS icon
-        const iosIconLink = document.createElement('link');
-        iosIconLink.rel = 'apple-touch-icon';
-        iosIconLink.sizes = '180x180';
-        iosIconLink.href = iosIcon180;
-        document.head.appendChild(iosIconLink);
-    });
     </script>
 </body>
 </html>
