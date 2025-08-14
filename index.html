@@ -2369,7 +2369,6 @@
                 }
             }
 
-            // Task Management
             loadTasks() {
                 const container = document.getElementById('tasksContainer');
                 
@@ -2416,7 +2415,6 @@
                 this.addTaskEventListeners();
             }
             
-
             addTask() {
                 const input = document.getElementById('taskInput');
                 const text = input.value.trim();
@@ -2428,8 +2426,8 @@
                     text: text,
                     completed: false,
                     createdAt: new Date().toISOString(),
-                    subtasks: [],              
-                    subtasksExpanded: false    
+                    subtasks: [],              // Make sure this line is added
+                    subtasksExpanded: false    // Make sure this line is added
                 };
                 
                 this.tasks.push(task);
@@ -2450,7 +2448,14 @@
                     this.announce(task.completed ? 'Task completed' : 'Task uncompleted');
                 }
             }
+
             addTaskEventListeners() {
+                // Remove any existing listeners first
+                const existingListeners = document.querySelectorAll('.task-checkbox, .subtask-checkbox, .task-expand-btn, .add-subtask-btn, .subtask-input');
+                existingListeners.forEach(el => {
+                    el.replaceWith(el.cloneNode(true));
+                });
+            
                 // Main task checkboxes
                 document.querySelectorAll('.task-checkbox').forEach(checkbox => {
                     checkbox.addEventListener('click', () => {
@@ -2478,10 +2483,13 @@
                     });
                 });
             
-                // Add subtask buttons
+                // Add subtask buttons - THIS IS THE KEY ONE
                 document.querySelectorAll('.add-subtask-btn').forEach(btn => {
-                    btn.addEventListener('click', () => {
+                    btn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
                         const taskId = parseInt(btn.dataset.taskId);
+                        console.log('Add subtask clicked for task:', taskId); // Debug line
                         this.showSubtaskInput(taskId);
                     });
                 });
@@ -2490,6 +2498,7 @@
                 document.querySelectorAll('.subtask-input').forEach(input => {
                     input.addEventListener('keypress', (e) => {
                         if (e.key === 'Enter') {
+                            e.preventDefault();
                             const taskId = parseInt(input.dataset.taskId);
                             const text = input.value.trim();
                             if (text) {
@@ -2512,6 +2521,40 @@
                 });
             }
             
+            showSubtaskInput(taskId) {
+                console.log('Showing subtask input for task:', taskId); // Debug line
+                const input = document.querySelector(`.subtask-input[data-task-id="${taskId}"]`);
+                console.log('Found input:', input); // Debug line
+                if (input) {
+                    input.style.display = 'block';
+                    input.focus();
+                }
+            }
+            
+            addSubtask(taskId, text) {
+                console.log('Adding subtask:', text, 'to task:', taskId); // Debug line
+                const task = this.tasks.find(t => t.id === taskId);
+                if (task) {
+                    if (!task.subtasks) {
+                        task.subtasks = [];
+                    }
+                    
+                    const subtask = {
+                        id: Date.now(),
+                        text: text,
+                        completed: false,
+                        createdAt: new Date().toISOString()
+                    };
+                    
+                    task.subtasks.push(subtask);
+                    task.subtasksExpanded = true;
+                    
+                    localStorage.setItem('tasks', JSON.stringify(this.tasks));
+                    this.loadTasks();
+                    this.announce('Subtask added');
+                }
+            }
+            
             toggleSubtask(taskId, subtaskId) {
                 const task = this.tasks.find(t => t.id === taskId);
                 if (task && task.subtasks) {
@@ -2519,7 +2562,6 @@
                     if (subtask) {
                         subtask.completed = !subtask.completed;
                         
-                        // Check if all subtasks are completed to mark main task as completed
                         const allSubtasksCompleted = task.subtasks.every(s => s.completed);
                         if (allSubtasksCompleted && task.subtasks.length > 0) {
                             task.completed = true;
@@ -2543,37 +2585,6 @@
                 }
             }
             
-            showSubtaskInput(taskId) {
-                const input = document.querySelector(`.subtask-input[data-task-id="${taskId}"]`);
-                if (input) {
-                    input.style.display = 'block';
-                    input.focus();
-                }
-            }
-            
-            addSubtask(taskId, text) {
-                const task = this.tasks.find(t => t.id === taskId);
-                if (task) {
-                    if (!task.subtasks) {
-                        task.subtasks = [];
-                    }
-                    
-                    const subtask = {
-                        id: Date.now(),
-                        text: text,
-                        completed: false,
-                        createdAt: new Date().toISOString()
-                    };
-                    
-                    task.subtasks.push(subtask);
-                    task.subtasksExpanded = true;
-                    
-                    localStorage.setItem('tasks', JSON.stringify(this.tasks));
-                    this.loadTasks();
-                    this.announce('Subtask added');
-                }
-            }
-
             // PWA Setup
             setupPWA() {
                 // Register service worker
