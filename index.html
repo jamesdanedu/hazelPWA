@@ -2524,9 +2524,18 @@
                     });
                 });
             }
-            
+
             showSubtaskInput(taskId) {
                 console.log('Showing subtask input for task:', taskId);
+                
+                // First, make sure the subtasks container is visible
+                const subtasksContainer = document.querySelector(`.subtasks[data-task-id="${taskId}"]`);
+                console.log('Found subtasks container:', subtasksContainer);
+                if (subtasksContainer) {
+                    subtasksContainer.style.display = 'block';
+                    subtasksContainer.classList.add('expanded');
+                }
+                
                 const input = document.querySelector(`.subtask-input[data-task-id="${taskId}"]`);
                 console.log('Found input:', input);
                 if (input) {
