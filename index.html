@@ -11,384 +11,188 @@
     <title>Hazel - Mental Health Support</title>
     
     <!-- PWA Manifest -->
-    <link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogIkhhemVsIC0gTWVudGFsIEhlYWx0aCBTdXBwb3J0IiwKICAic2hvcnRfbmFtZSI6ICJIYXplbCIsCiAgImRlc2NyaXB0aW9uIjogIk1lbnRhbCBoZWFsdGggc3VwcG9ydCBhcHAgd2l0aCBqb3VybmFsaW5nLCByZXNvdXJjZXMsIGFuZCBjcmlzaXMgc3VwcG9ydCIsCiAgInN0YXJ0X3VybCI6ICIuLyIsCiAgImRpc3BsYXkiOiAic3RhbmRhbG9uZSIsCiAgIm9yaWVudGF0aW9uIjogInBvcnRyYWl0IiwKICAiYmFja2dyb3VuZF9jb2xvciI6ICIjQTJBRTgzIiwKICAidGhlbWVfY29sb3IiOiAiI0EyQUU4MyIsCiAgImljb25zIjogWwogICAgewogICAgICAic3JjIjogImRhdGE6aW1hZ2Uvc3ZnK3htbDtiYXNlNjQsUEhOMlp5QjRiV3h1Y3owaWFIUjBjRG92TDNkM2R5NTNNeTV2Y21jdk1qQXdNQzl6ZG1jaUlIZHBaSFJvUFNJeE9USmNJaUJvWldsbmFIUTlJakU1TW5jaUlIWnBaWGRDYjNnOUlqQWdNQ0F4T1RJZ01UazJYQ0krUEhKbFkzUWdkMmxrZEdnOUlqRTVNaUlnYUdWcFoyaDBQU0l4T1RJaUlHWnBiR3c5SWlOQk1rRkZPRE5jSWk4K1BIUmxlSFFnZUQwaU9UWWlJSGs5SWpFeE1DSUJHWEJ1ZEMxemFYcGxQU0k0TkNJZ2RHVjRkQzFoYm1Ob2IzSTlJbTFwWkdSc1pTSStxS2FzOERBdmRHVjRkRDQ4TDNOMlp6ND0iLAogICAgICAidHlwZSI6ICJpbWFnZS9zdmcreG1sIiwKICAgICAgInNpemVzIjogIjE5MngxOTIiLAogICAgICAicHVycG9zZSI6ICJhbnkgbWFza2FibGUiCiAgICB9LAogICAgewogICAgICAic3JjIjogImRhdGE6aW1hZ2Uvc3ZnK3htbDtiYXNlNjQsUEhOMlp5QjRiV3h1Y3owaWFIUjBjRG92TDNkM2R5NTNNeTV2Y21jdk1qQXdNQzl6ZG1jaUlIZHBaSFJvUFNJMU1USndlQ0lnYUdWcFoyaDBQU0kxTVRKd2VDSWdkbWxsZDBKdmVEMGlNQ0F3SURRNU1UZ3dYQ0krUEhKbFkzUWdkMmxrZEdnOUlqVXhNaUlnYUdWcFoyaDBQU0kxTVRJaUlHWnBiR3c5SWlOQk1rRkZPRE5jSWk4K1BIUmxlSFFnZUQwaU1qVTJJaUJaUFNJek1EQWlJR1p2Ym5RdGMybDZaVDBpTWpBd0lpQjBaWGgwTFdGdVkyaHZjajBpYldsa1pHeGxYQ0krcUthczhEQXZkR1Y0ZEQ0OEwzTjJaejQ9IiwKICAgICAgInR5cGUiOiAiaW1hZ2Uvc3ZnK3htbCIsCiAgICAgICJzaXplcyI6ICI1MTJ4NTEyIiwKICAgICAgInB1cnBvc2UiOiAiYW55IG1hc2thYmxlIgogICAgfQogIF0sCiAgInNob3J0Y3V0cyI6IFsKICAgIHsKICAgICAgIm5hbWUiOiAiTmV3IEpvdXJuYWwgRW50cnkiLAogICAgICAic2hvcnRfbmFtZSI6ICJKb3VybmFsIiwKICAgICAgInVybCI6ICIvP2FjdGlvbj1uZXctam91cm5hbCIKICAgIH0sCiAgICB7CiAgICAgICJuYW1lIjogIkNyaXNpcyBTdXBwb3J0IiwKICAgICAgInNob3J0X25hbWUiOiAiQ3Jpc2lzIiwKICAgICAgInVybCI6ICIvP2FjdGlvbj1jcmlzaXMiCiAgICB9CiAgXQp9">
+    <link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogIkhhemVsIC0gTWVudGFsIEhlYWx0aCBTdXBwb3J0IiwKICAic2hvcnRfbmFtZSI6ICJIYXplbCIsCiAgImRlc2NyaXB0aW9uIjogIk1lbnRhbCBoZWFsdGggc3VwcG9ydCBhcHAgd2l0aCBqb3VybmFsaW5nLCByZXNvdXJjZXMsIGFuZCBjcmlzaXMgc3VwcG9ydCIsCiAgInN0YXJ0X3VybCI6ICIuLyIsCiAgImRpc3BsYXkiOiAic3RhbmRhbG9uZSIsCiAgIm9yaWVudGF0aW9uIjogInBvcnRyYWl0IiwKICAiYmFja2dyb3VuZF9jb2xvciI6ICIjQTJBRTgzIiwKICAidGhlbWVfY29sb3IiOiAiI0EyQUU4MyIsCiAgImljb25zIjogWwogICAgewogICAgICAic3JjIjogImRhdGE6aW1hZ2Uvc3ZnK3htbDtiYXNlNjQsUEhOMlp5QjRiV3h1Y3owaWFIUjBjRG92TDNkM2R5NTNNeTV2Y21jdk1qQXdNQzl6ZG1jaUlIZHBaSFJvUFNJeE9USmNJaUJvWldsbmFIUTlJakU1TW5jaUlIWnBaWGRDYjNnOUlqQWdNQ0F4T1RJZ01UazJYQ0krUEhKbFkzUWdkMmxrZEdnOUlqRTVNaUlnYUdWcFoyaDBQU0l4T1RJaUlHWnBiR3c5SWlOQk1rRkZPRE5jSWk4K1BIUmxlSFFnZUQwaU9UWWlJSGs5SWpFeE1DSUJHYIUZ1ZEMxemFYcGxQU0k0TkNJZ2RHVjRkQzFoYm1Ob2IzSTlJbTFwWkdSc1pTSStxS2FzOERBdmRHVjRkRDQ4TDNOMlp6ND0iLAogICAgICAidHlwZSI6ICJpbWFnZS9zdmcreG1sIiwKICAgICAgInNpemVzIjogIjE5MngxOTIiLAogICAgICAicHVycG9zZSI6ICJhbnkgbWFza2FibGUiCiAgICB9LAogICAgewogICAgICAic3JjIjogImRhdGE6aW1hZ2Uvc3ZnK3htbDtiYXNlNjQsUEhOMlp5QjRiV3h1Y3owaWFIUjBjRG92TDNkM2R5NTNNeTV2Y21jdk1qQXdNQzl6ZG1jaUlIZHBaSFJvUFNJMU1USndlQ0lnYUdWcFoyaDBQU0kxTVRKd2VDSWdkbWxsZDBKdmVEMGlNQ0F3SURRNU1UZ3dYQ0krUEhKbFkzUWdkMmxrZEdnOUlqVXhNaUlnYUdWcFoyaDBQU0kxTVRJaUlHWnBiR3c5SWlOQk1rRkZPRE5jSWk4K1BIUmxlSFFnZUQwaU1qVTJJaUJaUFNJek1EQWlJR1p2Ym5RdGMybDZaVDBpTWpBd0lpQjBaWGgwTFdGdVkyaHZjajBpYldsa1pHeGxYQ0lrcUthczhEQXZkR1Y0ZEQ0OEwzTjJaejQ9IiwKICAgICAgInR5cGUiOiAiaW1hZ2Uvc3ZnK3htbCIsCiAgICAgICJzaXplcyI6ICI1MTJ4NTEyIiwKICAgICAgInB1cnBvc2UiOiAiYW55IG1hc2thYmxlIgogICAgfQogIF0sCiAgInNob3J0Y3V0cyI6IFsKICAgIHsKICAgICAgIm5hbWUiOiAiTmV3IEpvdXJuYWwgRW50cnkiLAogICAgICAic2hvcnRfbmFtZSI6ICJKb3VybmFsIiwKICAgICAgInVybCI6ICIvP2FjdGlvbj1uZXctam91cm5hbCIKICAgIH0sCiAgICB7CiAgICAgICJuYW1lIjogIkNyaXNpcyBTdXBwb3J0IiwKICAgICAgInNob3J0X25hbWUiOiAiQ3Jpc2lzIiwKICAgICAgInVybCI6ICIvP2FjdGlvbj1jcmlzaXMiCiAgICB9CiAgXQp9">
 
     <!-- Apple Touch Icons for iOS PWA -->
-    <link rel="apple-touch-icon" sizes="180x180" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgwIiBoZWlnaHQ9IjE4MCIgdmlld0JveD0iMCAwIDE4MCAxODAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjE4MCIgaGVpZ2h0PSIxODAiIGZpbGw9IiNBMkFFODMiLz48dGV4dCB4PSI5MCIgeT0iMTEwIiBmb250LXNpemU9IjgwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj7wn42wPC90ZXh0Pjwvc3ZnPg==">
+    <link rel="apple-touch-icon" sizes="180x180" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgwIiBoZWlnaHQ9IjE4MCIgdmlld0JveD0iMCAwIDE4MCAxODAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjE4MCIgaGVpZ2h0PSIxODAiIGZpbGw9IiNBMkFFODMiLz48dGV4dCB4PSI5MCIgeT0iMTEwIiBmb250LXNpemU9IjEwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFwcGxlIENvbG9yIEVtb2ppLCBTZWdvZSBVSSBFbW9qaSwgTm90byBDb2xvciBFbW9qaSwgc2Fucy1zZXJpZiI+8J+MsDwvdGV4dD48L3N2Zz4=">
+    <link rel="apple-touch-icon" sizes="152x152" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUyIiBoZWlnaHQ9IjE1MiIgdmlld0JveD0iMCAwIDE1MiAxNTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjE1MiIgaGVpZ2h0PSIxNTIiIGZpbGw9IiNBMkFFODMiLz48dGV4dCB4PSI3NiIgeT0iOTIiIGZvbnQtc2l6ZT0iODQiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcHBsZSBDb2xvciBFbW9qaSwgU2Vnb2UgVUkgRW1vamksIE5vdG8gQ29sb3IgRW1vamksIHNhbnMtc2VyaWYiPvCfjLA8L3RleHQ+PC9zdmc+">
+    <link rel="apple-touch-icon" sizes="120x120" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjEyMCIgdmlld0JveD0iMCAwIDEyMCAxMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEyMCIgaGVpZ2h0PSIxMjAiIGZpbGw9IiNBMkFFODMiLz48dGV4dCB4PSI2MCIgeT0iNzMiIGZvbnQtc2l6ZT0iNjYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcHBsZSBDb2xvciBFbW9qaSwgU2Vnb2UgVUkgRW1vamksIE5vdG8gQ29sb3IgRW1vamksIHNhbnMtc2VyaWYiPvCfjLA8L3RleHQ+PC9zdmc+">
+    <!-- Fallback Apple Touch Icon (catches all other sizes) -->
+    <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgwIiBoZWlnaHQ9IjE4MCIgdmlld0JveD0iMCAwIDE4MCAxODAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjE4MCIgaGVpZ2h0PSIxODAiIGZpbGw9IiNBMkFFODMiLz48dGV4dCB4PSI5MCIgeT0iMTEwIiBmb250LXNpemU9IjEwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFwcGxlIENvbG9yIEVtb2ppLCBTZWdvZSBVSSBFbW9qaSwgTm90byBDb2xvciBFbW9qaSwgc2Fucy1zZXJpZiI+8J+MsDwvdGV4dD48L3N2Zz4=">
 
     <style>
-        /* CSS Custom Properties */
+        /* CSS Custom Properties for Mobile-First Design */
         :root {
+            /* Color System */
             --primary-color: #A2AE83;
-            --secondary-color: #7D8F5E;
-            --accent-color: #435334;
-            --text-primary: #333;
-            --text-secondary: #666;
-            --surface-color: rgba(255,255,255,0.95);
-            --background-gradient: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            --primary-dark: #8B956C;
+            --primary-light: #B8C19D;
+            --secondary-color: #B088F9;
+            --accent-color: #BA6464;
+            --background-color: #A2AE83;
+            --surface-color: #FFFFFF;
+            --text-primary: #333333;
+            --text-secondary: #666666;
+            --text-on-primary: #FFFFFF;
+            --success-color: #4CAF50;
+            --warning-color: #FF9800;
+            --error-color: #F44336;
             
-            /* Spacing */
-            --space-xs: 0.25rem;
-            --space-sm: 0.5rem;
-            --space-md: 1rem;
-            --space-lg: 1.5rem;
-            --space-xl: 2rem;
-            --space-2xl: 3rem;
+            /* Fluid Typography */
+            --text-xs: clamp(0.75rem, 1.5vw + 0.5rem, 0.875rem);
+            --text-sm: clamp(0.875rem, 2vw + 0.5rem, 1rem);
+            --text-base: clamp(1rem, 2.5vw + 0.5rem, 1.125rem);
+            --text-lg: clamp(1.125rem, 3vw + 0.5rem, 1.25rem);
+            --text-xl: clamp(1.25rem, 4vw + 0.5rem, 1.5rem);
+            --text-2xl: clamp(1.5rem, 5vw + 0.5rem, 2rem);
+            --text-3xl: clamp(2rem, 6vw + 0.5rem, 3rem);
+            --text-4xl: clamp(2.5rem, 8vw + 0.5rem, 4rem);
             
-            /* Typography */
-            --text-xs: 0.75rem;
-            --text-sm: 0.875rem;
-            --text-base: 1rem;
-            --text-lg: 1.125rem;
-            --text-xl: 1.25rem;
-            --text-2xl: 1.5rem;
-            --text-3xl: 1.875rem;
+            /* Responsive Spacing */
+            --space-xs: clamp(0.25rem, 1vw, 0.5rem);
+            --space-sm: clamp(0.5rem, 2vw, 1rem);
+            --space-md: clamp(1rem, 3vw, 1.5rem);
+            --space-lg: clamp(1.5rem, 4vw, 2rem);
+            --space-xl: clamp(2rem, 5vw, 3rem);
+            --space-2xl: clamp(3rem, 6vw, 4rem);
+            
+            /* Border Radius */
+            --radius-sm: 0.5rem;
+            --radius-md: 1rem;
+            --radius-lg: 1.5rem;
+            --radius-xl: 2rem;
+            --radius-full: 9999px;
             
             /* Shadows */
-            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+            --shadow-xl: 0 20px 25px rgba(0,0,0,0.1);
             
-            /* Radius */
-            --radius-sm: 0.125rem;
-            --radius-md: 0.375rem;
-            --radius-lg: 0.5rem;
-            --radius-xl: 0.75rem;
-            --radius-full: 9999px;
+            /* Z-index Scale */
+            --z-dropdown: 1000;
+            --z-sticky: 1020;
+            --z-fixed: 1030;
+            --z-modal-backdrop: 1040;
+            --z-modal: 1050;
+            --z-popover: 1060;
+            --z-tooltip: 1070;
+            
+            /* Safe Areas */
+            --safe-area-inset-top: env(safe-area-inset-top);
+            --safe-area-inset-right: env(safe-area-inset-right);
+            --safe-area-inset-bottom: env(safe-area-inset-bottom);
+            --safe-area-inset-left: env(safe-area-inset-left);
         }
 
-        /* Base Styles */
-        * {
+        /* Reset and Base Styles */
+        *, *::before, *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-            line-height: 1.6;
-            color: var(--text-primary);
-            background: var(--background-gradient);
-            height: 100vh;
-            overflow: hidden;
-            position: fixed;
-            width: 100%;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            user-select: none;
-            -webkit-user-select: none;
-            -webkit-touch-callout: none;
-        }
-
-        /* Safe area support for notched devices */
-        .app-container {
-            display: flex;
-            flex-direction: column;
-            height: 100vh;
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
+            -moz-text-size-adjust: 100%;
+            text-size-adjust: 100%;
+            height: 100%;
             height: 100dvh;
-            padding-top: env(safe-area-inset-top);
-            padding-bottom: env(safe-area-inset-bottom);
-            padding-left: env(safe-area-inset-left);
-            padding-right: env(safe-area-inset-right);
         }
 
-        /* Pages */
-        .page {
-            display: none;
-            flex: 1;
-            padding: var(--space-lg);
-            overflow-y: auto;
-            -webkit-overflow-scrolling: touch;
-            min-height: 0;
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow: hidden;
+            height: 100%;
+            height: 100dvh;
+            padding-top: var(--safe-area-inset-top);
+            padding-left: var(--safe-area-inset-left);
+            padding-right: var(--safe-area-inset-right);
+            padding-bottom: var(--safe-area-inset-bottom);
+            font-size: var(--text-base);
             position: relative;
         }
 
-        .page.active {
-            display: flex;
-            flex-direction: column;
-        }
-
-        /* Home Page Styles */
-        .home-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            gap: var(--space-xl);
-            flex: 1;
-            justify-content: center;
-            max-width: 500px;
-            margin: 0 auto;
-            padding: var(--space-lg);
-        }
-
-        .app-title {
-            font-size: clamp(2.5rem, 8vw, 4rem);
-            font-weight: 800;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            margin-bottom: var(--space-md);
-        }
-
-        .app-subtitle {
-            font-size: var(--text-xl);
-            color: rgba(255,255,255,0.9);
-            margin-bottom: var(--space-2xl);
-        }
-
-        .mood-check {
-            background: rgba(255,255,255,0.95);
-            padding: var(--space-xl);
-            border-radius: var(--radius-xl);
-            box-shadow: var(--shadow-xl);
+        /* Enhanced Container System */
+        /* UPDATED WITH iOS FIX */
+        .container {
             width: 100%;
-            max-width: 400px;
-        }
-
-        .mood-question {
-            font-size: var(--text-lg);
-            font-weight: 600;
-            margin-bottom: var(--space-lg);
-            color: var(--accent-color);
-        }
-
-        .emoji-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
-            gap: var(--space-md);
-            margin-bottom: var(--space-lg);
-        }
-
-        .emoji-btn {
-            background: var(--surface-color);
-            border: 3px solid transparent;
-            border-radius: var(--radius-lg);
-            padding: var(--space-md);
-            font-size: 2rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            aspect-ratio: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: var(--shadow-md);
-            min-height: 64px;
-        }
-
-        .emoji-btn:hover,
-        .emoji-btn:focus {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--primary-color);
-        }
-
-        .emoji-btn.selected {
-            background: var(--primary-color);
-            border-color: var(--accent-color);
-            transform: scale(1.1);
-        }
-
-        .support-section {
-            margin-top: var(--space-xl);
-        }
-
-        .support-question {
-            font-size: var(--text-base);
-            margin-bottom: var(--space-md);
-            color: var(--text-secondary);
-        }
-
-        .support-buttons {
-            display: flex;
-            gap: var(--space-md);
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .support-btn {
-            background: var(--accent-color);
-            color: white;
-            border: none;
-            padding: var(--space-md) var(--space-lg);
-            border-radius: var(--radius-full);
-            font-size: var(--text-sm);
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            box-shadow: var(--shadow-md);
-            min-height: 44px;
-        }
-
-        .support-btn:hover,
-        .support-btn:focus {
-            background: var(--secondary-color);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .emergency-btn {
-            background: #e53e3e;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-        }
-
-        .emergency-btn:hover,
-        .emergency-btn:focus {
-            background: #c53030;
-        }
-
-        /* Sobriety Tracker */
-        .sobriety-tracker {
-            background: rgba(255,255,255,0.95);
-            padding: var(--space-xl);
-            border-radius: var(--radius-xl);
-            box-shadow: var(--shadow-xl);
-            width: 100%;
-            max-width: 400px;
-            margin-top: var(--space-lg);
-        }
-
-        .tracker-title {
-            font-size: var(--text-xl);
-            font-weight: 700;
-            color: var(--accent-color);
-            margin-bottom: var(--space-lg);
-            text-align: center;
-        }
-
-        .days-sober {
-            font-size: clamp(2rem, 6vw, 3rem);
-            font-weight: 800;
-            color: var(--primary-color);
-            text-align: center;
-            margin-bottom: var(--space-md);
-        }
-
-        .sober-label {
-            font-size: var(--text-base);
-            color: var(--text-secondary);
-            text-align: center;
-            margin-bottom: var(--space-lg);
-        }
-
-        .progress-section {
-            margin-bottom: var(--space-lg);
-        }
-
-        .progress-label {
-            font-size: var(--text-sm);
-            color: var(--text-secondary);
-            text-align: center;
-            margin-bottom: var(--space-md);
-        }
-
-        .progress-bar {
-            background: rgba(162, 174, 131, 0.2);
-            height: 8px;
-            border-radius: var(--radius-full);
+            min-height: 100vh !important;
+            height: 100vh !important;
+            position: relative;
+            display: flex !important;
+            flex-direction: column !important;
             overflow: hidden;
-            margin-bottom: var(--space-md);
         }
 
-        .progress-fill {
-            background: var(--primary-color);
-            height: 100%;
-            border-radius: var(--radius-full);
-            transition: width 0.3s ease;
-            width: 0%;
-        }
-
-        .milestone-text {
-            font-size: var(--text-sm);
-            color: var(--text-secondary);
-            text-align: center;
-        }
-
-        .edit-sobriety-btn {
-            background: none;
-            border: 2px solid var(--primary-color);
-            color: var(--primary-color);
-            padding: var(--space-sm) var(--space-md);
-            border-radius: var(--radius-md);
-            font-size: var(--text-sm);
-            cursor: pointer;
-            transition: all 0.2s ease;
-            width: 100%;
-            margin-top: var(--space-md);
-        }
-
-        .edit-sobriety-btn:hover,
-        .edit-sobriety-btn:focus {
-            background: var(--primary-color);
-            color: white;
-        }
-
-        /* Streak Display */
-        .streak-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: var(--space-sm);
-            margin-top: var(--space-lg);
-            padding: var(--space-md);
-            background: rgba(255,255,255,0.1);
-            border-radius: var(--radius-lg);
-        }
-
-        .streak-text {
-            color: white;
-            font-weight: 600;
-        }
-
-        .streak-number {
-            font-size: var(--text-xl);
-            font-weight: 800;
-            color: #ffd700;
-        }
-
-        /* Navigation Styles */
-        .bottom-nav {
-            display: flex;
-            background: rgba(255,255,255,0.95);
+        /* Mobile-First Navigation Bar */
+        .nav-bar {
+            position: relative;
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border-top: 1px solid rgba(255,255,255,0.2);
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
             padding: var(--space-sm) 0;
-            margin: 0 calc(-1 * var(--space-lg));
-            margin-bottom: calc(-1 * var(--space-lg));
+            box-shadow: 0 -2px 20px rgba(0,0,0,0.1);
+            z-index: var(--z-fixed);
+            border-top: 1px solid rgba(0,0,0,0.1);
+            flex-shrink: 0 !important;
+            margin-top: auto !important;
         }
 
         .nav-item {
-            flex: 1;
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
             padding: var(--space-sm);
             cursor: pointer;
-            transition: all 0.2s ease;
-            border-radius: var(--radius-md);
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: var(--radius-sm);
             margin: 0 var(--space-xs);
-            min-height: 60px;
-            justify-content: center;
+            min-height: 44px;
+            text-decoration: none;
+            color: inherit;
+            position: relative;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
         }
 
-        .nav-item:hover,
-        .nav-item:focus {
-            background: rgba(162, 174, 131, 0.1);
-            transform: translateY(-2px);
+        .nav-item::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: 50%;
+            width: 20px;
+            height: 3px;
+            background: var(--primary-color);
+            border-radius: 2px;
+            transform: translateX(-50%) scaleX(0);
+            transition: transform 0.2s ease;
+        }
+
+        .nav-item.active::before {
+            transform: translateX(-50%) scaleX(1);
         }
 
         .nav-item.active {
-            background: var(--primary-color);
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
+            color: var(--primary-color);
         }
 
         .nav-icon {
             font-size: 1.5rem;
             margin-bottom: var(--space-xs);
+            transition: transform 0.2s ease;
+        }
+
+        .nav-item.active .nav-icon {
+            transform: scale(1.1);
         }
 
         .nav-text {
@@ -397,76 +201,301 @@
             text-align: center;
         }
 
-        /* Dashboard Styles */
+        /* Enhanced Page System */
+        /* UPDATED WITH iOS FIX */
+        .page {
+            display: none;
+            flex: 1 !important;
+            padding: var(--space-md);
+            overflow-y: auto !important;
+            overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
+            width: 100%;
+            flex-direction: column !important;
+        }
+
+        .page.active {
+            display: flex !important;
+            flex-direction: column;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Home Page Styles */
+        /* UPDATED WITH iOS FIX */
+        .home-header {
+            text-align: center;
+            margin-bottom: var(--space-lg);
+            display: flex !important;
+            flex-direction: column !important;
+            flex: 1 !important;
+            justify-content: space-around !important;
+            min-height: 0 !important;
+        }
+
+        .logo {
+            width: clamp(80px, 20vw, 120px);
+            height: clamp(80px, 20vw, 120px);
+            background: linear-gradient(135deg, #556B2F, #6B7F3F);
+            border-radius: var(--radius-lg);
+            margin: 0 auto var(--space-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: clamp(2rem, 8vw, 3rem);
+            color: white;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+            transform: rotate(45deg);
+            animation: logoShine 3s ease-in-out infinite;
+        }
+
+        @keyframes logoShine {
+            0%, 100% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            50% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .feeling-text {
+            font-size: var(--text-xl);
+            font-weight: 700;
+            margin-bottom: var(--space-lg);
+            color: white;
+        }
+
+        .emoji-container {
+            display: flex;
+            justify-content: space-between;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-xl);
+            padding: 0 var(--space-lg);
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .emoji-btn {
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            border-radius: var(--radius-full);
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            padding: var(--space-md);
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: var(--shadow-md);
+            min-height: 60px;
+            min-width: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .emoji-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255,255,255,0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.3s ease;
+        }
+
+        .emoji-btn:hover::before,
+        .emoji-btn:focus::before {
+            width: 100px;
+            height: 100px;
+        }
+
+        .emoji-btn:hover,
+        .emoji-btn:focus {
+            transform: scale(1.1);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .emoji-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* Sobriety Tracker */
+        .sobriety-tracker {
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: var(--radius-xl);
+            padding: var(--space-lg);
+            color: white;
+            backdrop-filter: blur(10px);
+            margin-bottom: var(--space-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sobriety-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-md);
+        }
+
+        .sobriety-title {
+            font-size: var(--text-lg);
+            font-weight: 600;
+        }
+
+        .edit-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: var(--text-lg);
+            cursor: pointer;
+            padding: var(--space-xs);
+            border-radius: var(--radius-sm);
+            transition: background 0.2s ease;
+        }
+
+        .edit-btn:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .days-counter {
+            text-align: center;
+            margin-bottom: var(--space-md);
+        }
+
+        .days-number {
+            font-size: var(--text-4xl);
+            font-weight: 700;
+            line-height: 1;
+            background: linear-gradient(135deg, #fff, #ccc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .days-text {
+            font-size: var(--text-base);
+            opacity: 0.8;
+        }
+
+        .motivation-text {
+            text-align: center;
+            font-style: italic;
+            opacity: 0.9;
+            margin-bottom: var(--space-md);
+        }
+
+        .progress-bar {
+            height: 6px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 3px;
+            overflow: hidden;
+            margin-bottom: var(--space-sm);
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+            transition: width 0.3s ease;
+        }
+
+        .milestone-text {
+            text-align: center;
+            font-size: var(--text-sm);
+            opacity: 0.8;
+        }
+
+        /* Enhanced Dashboard Layout */
         .dashboard-container {
             display: flex;
             flex: 1;
-            gap: var(--space-lg);
-            min-height: 0;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            max-height: 100%;
         }
 
         .tab-sidebar {
+            width: 80px;
+            background: #000;
             display: flex;
             flex-direction: column;
-            gap: var(--space-sm);
-            min-width: 120px;
+            flex-shrink: 0;
         }
 
         .tab-item {
-            background: rgba(255,255,255,0.8);
-            padding: var(--space-md);
-            border-radius: var(--radius-md);
-            font-size: var(--text-sm);
-            font-weight: 600;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            color: var(--accent-color);
-            box-shadow: var(--shadow-sm);
-        }
-
-        .tab-item:hover,
-        .tab-item:focus {
-            background: rgba(255,255,255,0.95);
-            transform: translateY(-1px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .tab-item.active {
-            background: var(--primary-color);
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: white;
-            box-shadow: var(--shadow-md);
+            cursor: pointer;
+            font-size: var(--text-xs);
+            font-weight: 700;
+            text-align: center;
+            line-height: 1.2;
+            transition: all 0.2s ease;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            padding: var(--space-sm);
+            position: relative;
+            min-height: 60px;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
         }
+
+        .tab-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--primary-color);
+            transform: scaleY(0);
+            transition: transform 0.2s ease;
+        }
+
+        .tab-item.active::before {
+            transform: scaleY(1);
+        }
+
+        .tab-item:nth-child(1) { background: #FFFFFF; color: #000; }
+        .tab-item:nth-child(2) { background: #8FAE79; }
+        .tab-item:nth-child(3) { background: #678553; }
+        .tab-item:nth-child(4) { background: #45582F; }
 
         .tab-content {
             flex: 1;
-            background: rgba(255,255,255,0.95);
-            padding: var(--space-xl);
-            border-radius: var(--radius-xl);
-            box-shadow: var(--shadow-xl);
+            background: #A9B189;
+            padding: var(--space-lg);
             overflow-y: auto;
             -webkit-overflow-scrolling: touch;
         }
 
-        .crisis-header {
-            background: #e53e3e;
+        .section-title {
             color: white;
-            padding: var(--space-lg);
-            border-radius: var(--radius-lg);
-            margin-bottom: var(--space-xl);
+            font-size: var(--text-xl);
+            font-weight: 700;
             text-align: center;
-            box-shadow: var(--shadow-lg);
-        }
-
-        .crisis-title {
-            font-size: var(--text-2xl);
-            font-weight: 800;
-            margin-bottom: var(--space-md);
-        }
-
-        .crisis-subtitle {
-            font-size: var(--text-lg);
-            opacity: 0.9;
+            margin-bottom: var(--space-sm);
         }
 
         .section-divider {
@@ -562,237 +591,100 @@
             color: #435334;
         }
 
-        /* Recipe List Styles */
-        .recipe-list-container {
-            display: flex;
-            flex-direction: column;
-            flex: 1;
-            gap: var(--space-lg);
+        /* Support Panel */
+        .support-panel {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            padding: var(--space-2xl);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-xl);
+            z-index: var(--z-modal);
+            display: none;
+            max-width: min(90vw, 320px);
+            width: 100%;
+            backdrop-filter: blur(10px);
         }
 
-        .recipe-header {
-            display: flex;
-            align-items: center;
-            gap: var(--space-md);
+        .support-panel.show {
+            display: block;
+            animation: supportPanelSlideIn 0.3s ease;
+        }
+
+        @keyframes supportPanelSlideIn {
+            from { transform: translate(-50%, -50%) scale(0.8); opacity: 0; }
+            to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+        }
+
+        .support-panel h3 {
+            color: white;
+            text-align: center;
             margin-bottom: var(--space-lg);
+            font-size: var(--text-lg);
+            font-weight: 600;
         }
 
-        .back-btn {
-            background: rgba(255,255,255,0.9);
+        .support-btn {
+            display: block;
+            width: 100%;
+            padding: var(--space-md);
+            margin-bottom: var(--space-md);
             border: none;
             border-radius: var(--radius-full);
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            font-size: var(--text-base);
+            font-weight: 600;
             cursor: pointer;
-            font-size: var(--text-lg);
-            box-shadow: var(--shadow-md);
             transition: all 0.2s ease;
-        }
-
-        .back-btn:hover,
-        .back-btn:focus {
-            background: white;
-            transform: translateY(-1px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .recipe-category-title {
-            font-size: var(--text-2xl);
-            font-weight: 700;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .recipe-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: var(--space-md);
-            flex: 1;
-            overflow-y: auto;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        .recipe-card {
-            background: var(--surface-color);
-            border-radius: var(--radius-lg);
-            padding: var(--space-lg);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: var(--shadow-md);
+            min-height: 48px;
             position: relative;
             overflow: hidden;
         }
 
-        .recipe-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .recipe-card:hover::before {
-            left: 100%;
-        }
-
-        .recipe-card:hover,
-        .recipe-card:focus {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-xl);
-        }
-
-        .recipe-title {
-            font-size: var(--text-lg);
-            font-weight: 700;
-            color: var(--accent-color);
-            margin-bottom: var(--space-sm);
-        }
-
-        .recipe-description {
-            font-size: var(--text-sm);
-            color: var(--text-secondary);
-            line-height: 1.5;
-        }
-
-        /* Recipe Detail Styles */
-        .recipe-detail-container {
-            display: flex;
-            flex-direction: column;
-            flex: 1;
-            gap: var(--space-lg);
-        }
-
-        .recipe-detail-header {
-            display: flex;
-            align-items: center;
-            gap: var(--space-md);
-            margin-bottom: var(--space-lg);
-        }
-
-        .recipe-detail-title {
-            font-size: var(--text-2xl);
-            font-weight: 700;
+        .support-btn.primary {
+            background: var(--secondary-color);
             color: white;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
-        .recipe-content {
-            background: var(--surface-color);
-            border-radius: var(--radius-xl);
-            padding: var(--space-xl);
-            box-shadow: var(--shadow-xl);
-            flex: 1;
-            overflow-y: auto;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        .recipe-section {
-            margin-bottom: var(--space-xl);
-        }
-
-        .recipe-section:last-child {
-            margin-bottom: 0;
-        }
-
-        .recipe-section-title {
-            font-size: var(--text-xl);
-            font-weight: 700;
-            color: var(--accent-color);
-            margin-bottom: var(--space-md);
-            padding-bottom: var(--space-sm);
-            border-bottom: 2px solid var(--primary-color);
-        }
-
-        .ingredients-list {
-            list-style: none;
-            margin-bottom: var(--space-lg);
-        }
-
-        .ingredients-list li {
-            padding: var(--space-sm) 0;
-            border-bottom: 1px solid rgba(162, 174, 131, 0.2);
-            font-size: var(--text-base);
-            line-height: 1.5;
-        }
-
-        .ingredients-list li:last-child {
-            border-bottom: none;
-        }
-
-        .ingredients-list li::before {
-            content: '🥄';
-            margin-right: var(--space-sm);
-        }
-
-        .method-list {
-            list-style: none;
-            counter-reset: step-counter;
-        }
-
-        .method-list li {
-            counter-increment: step-counter;
-            padding: var(--space-md) 0;
-            position: relative;
-            padding-left: var(--space-2xl);
-            font-size: var(--text-base);
-            line-height: 1.6;
-            border-bottom: 1px solid rgba(162, 174, 131, 0.2);
-        }
-
-        .method-list li:last-child {
-            border-bottom: none;
-        }
-
-        .method-list li::before {
-            content: counter(step-counter);
-            position: absolute;
-            left: 0;
-            top: var(--space-md);
-            background: var(--primary-color);
+        .support-btn.danger {
+            background: var(--accent-color);
             color: white;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: var(--text-sm);
-            font-weight: 700;
+        }
+
+        .support-btn.secondary {
+            background: white;
+            color: var(--text-primary);
         }
 
         /* Journal Styles */
         .journal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            text-align: center;
             margin-bottom: var(--space-xl);
+            flex-shrink: 0;
         }
 
         .journal-title {
             font-size: var(--text-3xl);
             font-weight: 700;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            color: #435334;
+            margin-bottom: var(--space-lg);
         }
 
         .new-entry-btn {
-            background: rgba(255,255,255,0.9);
-            color: var(--accent-color);
+            background: var(--surface-color);
+            color: #435334;
             border: none;
-            padding: var(--space-md) var(--space-lg);
+            padding: var(--space-lg) var(--space-xl);
             border-radius: var(--radius-full);
-            font-size: var(--text-sm);
+            font-size: var(--text-base);
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.2s ease;
+            width: 100%;
+            margin: var(--space-lg) 0;
+            min-height: 48px;
             box-shadow: var(--shadow-md);
-            min-height: 44px;
+            transition: all 0.2s ease;
         }
 
         .new-entry-btn:hover,
@@ -896,394 +788,105 @@
             border-radius: var(--radius-full);
             background: rgba(255,255,255,0.9);
             font-size: var(--text-base);
-            outline: none;
             transition: all 0.2s ease;
+            min-height: 48px;
         }
 
         .task-input:focus {
-            border-color: var(--primary-color);
+            outline: none;
+            border-color: var(--secondary-color);
             background: white;
-            box-shadow: var(--shadow-md);
         }
 
         .add-btn {
-            background: var(--primary-color);
+            background: var(--secondary-color);
             color: white;
             border: none;
             padding: var(--space-md) var(--space-lg);
             border-radius: var(--radius-full);
-            font-size: var(--text-sm);
-            font-weight: 700;
+            font-size: var(--text-base);
+            font-weight: 600;
             cursor: pointer;
             transition: all 0.2s ease;
-            box-shadow: var(--shadow-md);
-            min-height: 48px;
+            min-height: 44px;
         }
 
         .add-btn:hover,
         .add-btn:focus {
-            background: var(--secondary-color);
-            transform: translateY(-1px);
-            box-shadow: var(--shadow-lg);
+            background: #9966E6;
+            transform: scale(1.05);
         }
 
         .tasks-container {
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: var(--radius-xl);
+            padding: var(--space-lg);
+            color: white;
+            backdrop-filter: blur(10px);
             flex: 1;
             overflow-y: auto;
             -webkit-overflow-scrolling: touch;
-            display: flex;
-            flex-direction: column;
-            gap: var(--space-md);
+            min-height: 0;
         }
 
         .task-item {
-            background: rgba(255,255,255,0.95);
-            padding: var(--space-lg);
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-md);
             display: flex;
             align-items: center;
             gap: var(--space-md);
+            padding: var(--space-md) 0;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
             transition: all 0.2s ease;
-            position: relative;
         }
 
-        .task-item:hover {
-            transform: translateY(-1px);
-            box-shadow: var(--shadow-lg);
+        .task-item:last-child {
+            border-bottom: none;
         }
 
         .task-checkbox {
-            width: 24px;
-            height: 24px;
-            border: 2px solid var(--primary-color);
-            border-radius: var(--radius-sm);
+            width: 20px;
+            height: 20px;
+            border: 2px solid white;
+            border-radius: 4px;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.2s ease;
+            transition: all 0.3s ease;
             flex-shrink: 0;
         }
 
         .task-checkbox.completed {
-            background: var(--primary-color);
+            background: var(--secondary-color);
+            border-color: var(--secondary-color);
         }
 
         .task-checkbox.completed::after {
             content: '✓';
             color: white;
-            font-size: var(--text-sm);
-            font-weight: 700;
-        }
-
-        .task-content {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: var(--space-sm);
+            font-size: 14px;
         }
 
         .task-text {
+            flex: 1;
+            transition: all 0.3s ease;
             font-size: var(--text-base);
-            color: var(--text-primary);
-            line-height: 1.5;
-            transition: all 0.2s ease;
         }
 
         .task-text.completed {
             text-decoration: line-through;
             opacity: 0.6;
-            color: var(--text-secondary);
-        }
-
-        .task-actions {
-            display: flex;
-            gap: var(--space-sm);
-            align-items: center;
-        }
-
-        .subtask-btn {
-            background: var(--accent-color);
-            color: white;
-            border: none;
-            padding: var(--space-xs) var(--space-sm);
-            border-radius: var(--radius-sm);
-            font-size: var(--text-xs);
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .subtask-btn:hover,
-        .subtask-btn:focus {
-            background: var(--secondary-color);
-        }
-
-        .delete-task-btn {
-            background: #e53e3e;
-            color: white;
-            border: none;
-            border-radius: var(--radius-sm);
-            width: 24px;
-            height: 24px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: var(--text-xs);
-            transition: all 0.2s ease;
-        }
-
-        .delete-task-btn:hover,
-        .delete-task-btn:focus {
-            background: #c53030;
-        }
-
-        .subtasks-container {
-            margin-left: var(--space-xl);
-            display: flex;
-            flex-direction: column;
-            gap: var(--space-sm);
-        }
-
-        .subtask-item {
-            display: flex;
-            align-items: center;
-            gap: var(--space-sm);
-            padding: var(--space-sm);
-            background: rgba(162, 174, 131, 0.1);
-            border-radius: var(--radius-md);
-            transition: all 0.2s ease;
-        }
-
-        .subtask-item:hover {
-            background: rgba(162, 174, 131, 0.15);
-        }
-
-        .subtask-checkbox {
-            width: 18px;
-            height: 18px;
-            border: 2px solid var(--secondary-color);
-            border-radius: var(--radius-sm);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s ease;
-            flex-shrink: 0;
-        }
-
-        .subtask-checkbox.completed {
-            background: var(--secondary-color);
-        }
-
-        .subtask-checkbox.completed::after {
-            content: '✓';
-            color: white;
-            font-size: var(--text-xs);
-            font-weight: 700;
-        }
-
-        .subtask-text {
-            font-size: var(--text-sm);
-            color: var(--text-primary);
-            flex: 1;
-            transition: all 0.2s ease;
-        }
-
-        .subtask-text.completed {
-            text-decoration: line-through;
-            opacity: 0.6;
-        }
-
-        .delete-subtask-btn {
-            background: #e53e3e;
-            color: white;
-            border: none;
-            border-radius: var(--radius-sm);
-            width: 18px;
-            height: 18px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 10px;
-            transition: all 0.2s ease;
-        }
-
-        .delete-subtask-btn:hover,
-        .delete-subtask-btn:focus {
-            background: #c53030;
-        }
-
-        .add-subtask-container {
-            margin-left: var(--space-xl);
-            margin-top: var(--space-sm);
-            display: none;
-        }
-
-        .add-subtask-container.show {
-            display: flex;
-            gap: var(--space-sm);
-        }
-
-        .subtask-input {
-            flex: 1;
-            padding: var(--space-sm);
-            border: 2px solid var(--secondary-color);
-            border-radius: var(--radius-md);
-            background: white;
-            font-size: var(--text-sm);
-            outline: none;
-        }
-
-        .subtask-input:focus {
-            border-color: var(--primary-color);
-            box-shadow: var(--shadow-sm);
-        }
-
-        .add-subtask-btn {
-            background: var(--secondary-color);
-            color: white;
-            border: none;
-            padding: var(--space-sm);
-            border-radius: var(--radius-md);
-            font-size: var(--text-xs);
-            cursor: pointer;
-            min-width: 40px;
-        }
-
-        .add-subtask-btn:hover,
-        .add-subtask-btn:focus {
-            background: var(--primary-color);
-        }
-
-        /* Support Panel */
-        .support-panel {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: white;
-            padding: var(--space-2xl);
-            border-radius: var(--radius-xl);
-            box-shadow: var(--shadow-xl);
-            max-width: 90vw;
-            max-height: 80vh;
-            overflow-y: auto;
-            -webkit-overflow-scrolling: touch;
-            z-index: 1000;
-            display: none;
-        }
-
-        .support-panel.show {
-            display: block;
-        }
-
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0.5);
-            backdrop-filter: blur(4px);
-            -webkit-backdrop-filter: blur(4px);
-            z-index: 999;
-            display: none;
-        }
-
-        .modal-overlay.show {
-            display: block;
-        }
-
-        .hotline-item {
-            background: #f7fafc;
-            padding: var(--space-lg);
-            border-radius: var(--radius-lg);
-            margin-bottom: var(--space-md);
-            border-left: 4px solid var(--primary-color);
-        }
-
-        .hotline-name {
-            font-size: var(--text-lg);
-            font-weight: 700;
-            color: var(--accent-color);
-            margin-bottom: var(--space-sm);
-        }
-
-        .hotline-description {
-            font-size: var(--text-sm);
-            color: var(--text-secondary);
-            margin-bottom: var(--space-md);
-            line-height: 1.5;
-        }
-
-        .hotline-actions {
-            display: flex;
-            gap: var(--space-sm);
-        }
-
-        .hotline-call,
-        .hotline-info {
-            padding: var(--space-sm) var(--space-md);
-            border-radius: var(--radius-md);
-            font-size: var(--text-sm);
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            text-decoration: none;
-            display: inline-block;
-            min-height: 36px;
-            display: flex;
-            align-items: center;
-        }
-
-        .hotline-call {
-            background: #48bb78;
-            color: white;
-        }
-
-        .hotline-call:hover,
-        .hotline-call:focus {
-            background: #38a169;
-        }
-
-        .hotline-info {
-            background: #4299e1;
-            color: white;
-        }
-
-        .hotline-info:hover,
-        .hotline-info:focus {
-            background: #3182ce;
-        }
-
-        .close-modal-btn {
-            background: var(--accent-color);
-            color: white;
-            border: none;
-            padding: var(--space-md) var(--space-lg);
-            border-radius: var(--radius-md);
-            font-size: var(--text-base);
-            font-weight: 600;
-            cursor: pointer;
-            margin-top: var(--space-xl);
-            width: 100%;
-        }
-
-        .close-modal-btn:hover,
-        .close-modal-btn:focus {
-            background: var(--secondary-color);
         }
 
         /* Form Styles */
-        .form-container {
-            background: rgba(255,255,255,0.95);
-            padding: var(--space-xl);
-            border-radius: var(--radius-xl);
-            box-shadow: var(--shadow-xl);
+        .entry-form {
+            background: var(--surface-color);
+            padding: var(--space-lg);
+            border-radius: var(--radius-lg);
             margin-bottom: var(--space-lg);
+            box-shadow: var(--shadow-md);
+            max-height: 100%;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
         }
 
         .form-group {
@@ -1292,151 +895,327 @@
 
         .form-label {
             display: block;
-            font-size: var(--text-sm);
             font-weight: 600;
-            color: var(--accent-color);
+            color: #435334;
             margin-bottom: var(--space-sm);
+            font-size: var(--text-base);
         }
 
-        .form-input,
-        .form-textarea,
-        .form-select {
+        .form-input, .form-textarea {
             width: 100%;
             padding: var(--space-md);
-            border: 2px solid rgba(162, 174, 131, 0.3);
+            border: 2px solid #ddd;
             border-radius: var(--radius-md);
             font-size: var(--text-base);
-            background: white;
-            transition: all 0.2s ease;
-            outline: none;
-        }
-
-        .form-input:focus,
-        .form-textarea:focus,
-        .form-select:focus {
-            border-color: var(--primary-color);
-            box-shadow: var(--shadow-md);
+            transition: border-color 0.2s ease;
+            font-family: inherit;
         }
 
         .form-textarea {
             min-height: 120px;
             resize: vertical;
-            font-family: inherit;
         }
 
-        .form-btn {
-            background: var(--primary-color);
-            color: white;
+        .form-input:focus, .form-textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .form-actions {
+            display: flex;
+            gap: var(--space-md);
+            justify-content: space-between;
+        }
+
+        .btn {
+            padding: var(--space-md) var(--space-lg);
             border: none;
-            padding: var(--space-md) var(--space-xl);
             border-radius: var(--radius-md);
             font-size: var(--text-base);
             font-weight: 600;
             cursor: pointer;
             transition: all 0.2s ease;
-            box-shadow: var(--shadow-md);
-            margin-right: var(--space-md);
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
         }
 
-        .form-btn:hover,
-        .form-btn:focus {
-            background: var(--secondary-color);
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: var(--surface-color);
+            color: var(--text-primary);
+            border: 2px solid #ddd;
+        }
+
+        .btn:hover, .btn:focus {
             transform: translateY(-1px);
-            box-shadow: var(--shadow-lg);
+            box-shadow: var(--shadow-md);
         }
 
-        .form-btn.secondary {
-            background: var(--text-secondary);
+        /* Modal Styles */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(5px);
+            z-index: var(--z-modal);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-lg);
         }
 
-        .form-btn.secondary:hover,
-        .form-btn.secondary:focus {
-            background: var(--accent-color);
+        .modal.show {
+            display: flex;
+            animation: modalFadeIn 0.3s ease;
+        }
+
+        @keyframes modalFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background: var(--surface-color);
+            border-radius: var(--radius-xl);
+            padding: var(--space-xl);
+            max-width: 400px;
+            width: 100%;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+            animation: modalSlideIn 0.3s ease;
+        }
+
+        @keyframes modalSlideIn {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .hotline-card {
+            background: linear-gradient(135deg, var(--accent-color), #d67676);
+            color: white;
+            padding: var(--space-lg);
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--space-md);
+            text-align: center;
+        }
+
+        .hotline-title {
+            font-size: var(--text-lg);
+            font-weight: 600;
+            margin-bottom: var(--space-md);
+        }
+
+        .hotline-actions {
+            display: flex;
+            gap: var(--space-md);
+            justify-content: center;
+        }
+
+        .hotline-call, .hotline-info {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: var(--space-sm) var(--space-md);
+            border-radius: var(--radius-md);
+            font-size: var(--text-sm);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            min-height: 44px;
+        }
+
+        .hotline-call:hover, .hotline-info:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        .close-modal {
+            width: 100%;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: var(--space-md);
+            border-radius: var(--radius-md);
+            font-size: var(--text-base);
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: var(--space-lg);
+            min-height: 48px;
+        }
+
+        /* Emergency Button */
+        .emergency-btn {
+            position: absolute;
+            top: calc(20px + var(--safe-area-inset-top));
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff4444, #cc0000);
+            color: white;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: var(--z-tooltip);
+            box-shadow: 0 4px 12px rgba(255, 68, 68, 0.4);
+            transition: all 0.2s ease;
+            display: none;
+            animation: pulse 2s infinite;
+        }
+
+        .emergency-btn.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 4px 12px rgba(255, 68, 68, 0.4); }
+            50% { box-shadow: 0 4px 20px rgba(255, 68, 68, 0.8); }
+            100% { box-shadow: 0 4px 12px rgba(255, 68, 68, 0.4); }
+        }
+
+        /* Updated Responsive Design - KEEPS VERTICAL TABS */
+        @media (max-width: 768px) {
+            /* Keep dashboard container as horizontal flex (vertical tabs) */
+            .dashboard-container {
+                /* Keep default flex-direction: row */
+                /* Keep default height: 100% */
+            }
+            
+            /* Make tab-sidebar narrower on mobile but keep vertical */
+            .tab-sidebar {
+                width: 60px; /* Narrower than desktop (80px) */
+                /* Keep flex-direction: column (default) */
+                /* Keep default order */
+                flex-shrink: 0;
+            }
+            
+            /* Make tab items smaller but keep vertical orientation */
+            .tab-item {
+                font-size: 10px; /* Smaller text for mobile */
+                padding: 4px; /* Less padding */
+                /* Keep writing-mode: vertical-rl (default) */
+                /* Keep text-orientation: mixed (default) */
+                min-height: 50px; /* Slightly smaller min-height */
+            }
+            
+            /* Keep tab content layout */
+            .tab-content {
+                flex: 1;
+                min-height: 0;
+                overflow-y: auto;
+            }
+            
+            /* Keep vertical indicator positioning */
+            .tab-item::before {
+                left: 0;
+                top: 0;
+                bottom: 0;
+                width: 3px;
+                transform: scaleY(0); /* Keep Y scale for vertical indicator */
+            }
+            
+            .tab-item.active::before {
+                transform: scaleY(1); /* Keep Y scale for vertical indicator */
+            }
+
+            /* Keep all other responsive functionality */
+            .form-actions {
+                flex-direction: column;
+            }
+
+            .hotline-actions {
+                flex-direction: column;
+            }
+
+            .page {
+                padding: var(--space-sm);
+            }
+        }
+
+        @media (max-width: 480px) {
+            /* Make tabs even narrower on very small screens but still vertical */
+            .tab-sidebar {
+                width: 50px;
+            }
+            
+            .tab-item {
+                font-size: 9px;
+                padding: 2px;
+                min-height: 45px;
+            }
+            
+            .page {
+                padding: var(--space-xs);
+            }
+            
+            .emoji-container {
+                padding: var(--space-md);
+                gap: var(--space-xs);
+            }
+            
+            .emoji-btn {
+                min-height: 50px;
+                min-width: 50px;
+                font-size: clamp(1.5rem, 5vw, 2rem);
+                padding: var(--space-sm);
+            }
+            
+            .sobriety-tracker {
+                padding: var(--space-md);
+                margin: var(--space-sm) 0;
+            }
+
+            .home-header {
+                margin-bottom: var(--space-sm);
+            }
+
+            .days-number {
+                font-size: var(--text-3xl);
+            }
+
+            .entry-form {
+                padding: var(--space-md);
+            }
+
+            .modal-content {
+                padding: var(--space-md);
+                max-width: 95vw;
+            }
         }
 
         /* Accessibility */
-        .visually-hidden {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            margin: -1px;
-            padding: 0;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border: 0;
+        .nav-item:focus,
+        .emoji-btn:focus,
+        .btn:focus,
+        .edit-btn:focus,
+        .task-checkbox:focus,
+        .mood-btn:focus {
+            outline: 3px solid var(--primary-color);
+            outline-offset: 2px;
         }
 
-        /* Loading States */
-        .loading {
-            opacity: 0.6;
-            pointer-events: none;
-        }
-
-        .spinner {
-            border: 2px solid rgba(255,255,255,0.3);
-            border-top: 2px solid white;
-            border-radius: 50%;
-            width: 20px;
-            height: 20px;
-            animation: spin 1s linear infinite;
-            margin: 0 auto;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        /* Responsive Design */
-        @media (min-width: 640px) {
-            .menu-categories {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .recipe-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .emoji-container {
-                grid-template-columns: repeat(5, 1fr);
-            }
-        }
-
-        @media (min-width: 768px) {
-            .home-container {
-                flex-direction: row;
-                gap: var(--space-2xl);
-                align-items: flex-start;
-                text-align: left;
-            }
-
-            .app-info {
-                flex: 1;
-            }
-
-            .mood-check,
-            .sobriety-tracker {
-                max-width: 350px;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .dashboard-container {
-                gap: var(--space-2xl);
-            }
-
-            .tab-sidebar {
-                min-width: 150px;
-            }
-        }
-
-        /* Dark mode support */
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --text-primary: #e2e8f0;
-                --text-secondary: #a0aec0;
-                --surface-color: rgba(255,255,255,0.1);
+        /* Touch feedback for mobile */
+        @media (hover: none) and (pointer: coarse) {
+            .nav-item:active,
+            .emoji-btn:active,
+            .btn:active,
+            .task-checkbox:active,
+            .mood-btn:active {
+                transform: scale(0.98);
             }
         }
 
@@ -1453,83 +1232,115 @@
 
         /* High contrast mode */
         @media (prefers-contrast: high) {
-            .nav-item {
-                border: 2px solid currentColor;
+            .nav-item.active {
+                background: var(--primary-color);
+                color: white;
             }
-
-            .task-checkbox,
-            .subtask-checkbox {
-                border-width: 3px;
+            
+            .btn {
+                border: 2px solid currentColor;
             }
         }
 
-        /* Print styles */
-        @media print {
-            .bottom-nav,
-            .support-buttons,
-            .form-btn {
-                display: none !important;
-            }
+        /* Loading state */
+        .loading {
+            pointer-events: none;
+            opacity: 0.7;
+        }
 
+        .loading::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            border: 2px solid transparent;
+            border-top: 2px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            transform: translate(-50%, -50%);
+        }
+
+        @keyframes spin {
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        /* Fullscreen PWA Styles */
+        .fullscreen-mode {
+            position: relative;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            height: 100dvh;
+            overflow: hidden;
+        }
+
+        /* Hide address bar on mobile when in fullscreen */
+        @media (display-mode: fullscreen) {
             body {
-                background: white !important;
-                color: black !important;
+                padding-top: 0;
             }
+        }
 
-            .page {
-                display: block !important;
-                overflow: visible !important;
+        /* Standalone display mode */
+        @media (display-mode: standalone) {
+            body {
+                padding-top: 0;
+            }
+            
+            .emergency-btn {
+                top: 20px;
+            }
+        }
+
+        /* iOS Safari fullscreen adjustments */
+        /* iOS-specific safe area handling */
+        @supports (-webkit-touch-callout: none) {
+            .container {
+                height: -webkit-fill-available;
+                padding-top: env(safe-area-inset-top);
+                padding-bottom: env(safe-area-inset-bottom);
             }
         }
     </style>
 </head>
 <body>
-    <div class="app-container">
+    <div class="container">
+        <!-- Emergency Button -->
+        <button id="emergencyBtn" class="emergency-btn" aria-label="Emergency crisis support">🆘</button>
+
         <!-- Home Page -->
         <div id="home" class="page active">
-            <div class="home-container">
-                <div class="app-info">
-                    <h1 class="app-title">Hazel</h1>
-                    <p class="app-subtitle">Your mental health companion</p>
-                </div>
-
-                <!-- Mood Check -->
-                <div class="mood-check">
-                    <div class="mood-question">How are you feeling today?</div>
-                    <div class="emoji-container">
-                        <button class="emoji-btn" data-mood="very-happy" aria-label="Very happy">😊</button>
-                        <button class="emoji-btn" data-mood="happy" aria-label="Happy">🙂</button>
-                        <button class="emoji-btn" data-mood="neutral" aria-label="Neutral">😐</button>
-                        <button class="emoji-btn" data-mood="sad" aria-label="Sad">😔</button>
-                        <button class="emoji-btn" data-mood="very-sad" aria-label="Very sad">😢</button>
-                    </div>
-                    
-                    <div class="support-section" id="supportSection" style="display: none;">
-                        <div class="support-question">Would you like some support?</div>
-                        <div class="support-buttons">
-                            <button class="support-btn" data-action="resources">Find Resources</button>
-                            <button class="support-btn emergency-btn" data-action="crisis" id="emergencyBtn">Crisis Support</button>
-                        </div>
-                    </div>
+            <div class="home-header">
+                <div class="logo">🌰</div>
+                <div class="feeling-text">How are you feeling?</div>
+                <div class="emoji-container">
+                    <button class="emoji-btn" data-mood="very-sad" aria-label="Very sad">😢</button>
+                    <button class="emoji-btn" data-mood="sad" aria-label="Sad">😔</button>
+                    <button class="emoji-btn" data-mood="neutral" aria-label="Neutral">😐</button>
+                    <button class="emoji-btn" data-mood="happy" aria-label="Happy">😊</button>
+                    <button class="emoji-btn" data-mood="very-happy" aria-label="Very happy">😄</button>
                 </div>
 
                 <!-- Sobriety Tracker -->
                 <div class="sobriety-tracker">
-                    <div class="tracker-title">Sobriety Journey</div>
-                    <div class="days-sober" id="daysSober">0</div>
-                    <div class="sober-label">days strong</div>
-                    
-                    <div class="progress-section">
-                        <div class="progress-label" id="progressLabel">
-                            Your journey starts now.
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress-fill" id="progressFill"></div>
-                        </div>
-                        <div class="milestone-text" id="milestoneText">Next milestone: 7 days</div>
+                    <div class="sobriety-header">
+                        <div class="sobriety-title">Sobriety Tracker</div>
+                        <button class="edit-btn" id="editSobrietyBtn" aria-label="Edit sobriety date">✏️</button>
                     </div>
-
-                    <button class="edit-sobriety-btn" id="editSobrietyBtn">Set Start Date</button>
+                    <div class="days-counter">
+                        <div class="days-number" id="sobrietyDays">0</div>
+                        <div class="days-text">days</div>
+                    </div>
+                    <div class="motivation-text" id="motivationText">
+                        Every day is a victory! Your journey starts now.
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <div class="milestone-text" id="milestoneText">Next milestone: 7 days</div>
                 </div>
 
                 <!-- Streak Display -->
@@ -1565,7 +1376,7 @@
 
         <!-- Menus Page -->
         <div id="menus" class="page">
-            <h2 style="text-align: center; margin-bottom: var(--space-lg); font-size: var(--text-2xl); font-weight: 700; color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">Food Menus</h2>
+            <h2 style="text-align: center; margin-bottom: var(--space-lg); font-size: var(--text-2xl); font-weight: 700;">Food Menus</h2>
             <div class="menu-categories">
                 <div class="menu-category" data-category="breakfast">
                     <div class="category-icon">🥞</div>
@@ -1586,32 +1397,6 @@
             </div>
         </div>
 
-        <!-- Recipe List Page -->
-        <div id="recipe-list" class="page">
-            <div class="recipe-list-container">
-                <div class="recipe-header">
-                    <button class="back-btn" id="backToMenusBtn" aria-label="Back to menus">←</button>
-                    <h2 class="recipe-category-title" id="recipeCategoryTitle">Recipes</h2>
-                </div>
-                <div class="recipe-grid" id="recipeGrid">
-                    <!-- Recipes will be populated by JavaScript -->
-                </div>
-            </div>
-        </div>
-
-        <!-- Recipe Detail Page -->
-        <div id="recipe-detail" class="page">
-            <div class="recipe-detail-container">
-                <div class="recipe-detail-header">
-                    <button class="back-btn" id="backToRecipeListBtn" aria-label="Back to recipe list">←</button>
-                    <h2 class="recipe-detail-title" id="recipeDetailTitle">Recipe</h2>
-                </div>
-                <div class="recipe-content" id="recipeContent">
-                    <!-- Recipe details will be populated by JavaScript -->
-                </div>
-            </div>
-        </div>
-
         <!-- To-Do List Page -->
         <div id="todo" class="page">
             <div class="todo-container">
@@ -1628,71 +1413,50 @@
             </div>
         </div>
 
-        <!-- Modal Overlay -->
-        <div class="modal-overlay" id="modalOverlay"></div>
-
         <!-- Support Panel -->
         <div class="support-panel" id="supportPanel">
-            <div class="crisis-header">
-                <div class="crisis-title">Crisis Support</div>
-                <div class="crisis-subtitle">You are not alone. Help is available.</div>
-            </div>
-
-            <div class="section-divider"></div>
-
-            <div class="alternatives-list">
-                <strong>If you're having thoughts of self-harm, please try these alternatives first:</strong><br>
-                • Take 10 deep breaths<br>
-                • Hold ice cubes in your hands<br>
-                • Draw or write about your feelings
-		• Call a friend or family member<br>
-                • Listen to calming music<br>
-                • Take a warm shower or bath<br>
-                • Exercise or go for a walk<br>
-                • Practice grounding techniques (5 things you can see, 4 you can hear, etc.)
-            </div>
-
-            <div class="hotline-item">
-                <div class="hotline-name">National Suicide Prevention Lifeline</div>
-                <div class="hotline-description">24/7 crisis support for anyone in suicidal crisis or emotional distress</div>
-                <div class="hotline-actions">
-                    <button class="hotline-call" data-number="988">Call 988</button>
-                    <button class="hotline-info" data-url="https://suicidepreventionlifeline.org">More Info</button>
-                </div>
-            </div>
-
-            <div class="hotline-item">
-                <div class="hotline-name">Crisis Text Line</div>
-                <div class="hotline-description">Free, 24/7 support via text message for people in crisis</div>
-                <div class="hotline-actions">
-                    <button class="hotline-call" data-number="741741">Text HOME to 741741</button>
-                    <button class="hotline-info" data-url="https://www.crisistextline.org">More Info</button>
-                </div>
-            </div>
-
-            <div class="hotline-item">
-                <div class="hotline-name">SAMHSA National Helpline</div>
-                <div class="hotline-description">Treatment referral and information service for mental health and substance use disorders</div>
-                <div class="hotline-actions">
-                    <button class="hotline-call" data-number="1-800-662-4357">Call 1-800-662-HELP</button>
-                    <button class="hotline-info" data-url="https://www.samhsa.gov/find-help/national-helpline">More Info</button>
-                </div>
-            </div>
-
-            <div class="hotline-item">
-                <div class="hotline-name">National Eating Disorders Association</div>
-                <div class="hotline-description">Support for eating disorders and body image concerns</div>
-                <div class="hotline-actions">
-                    <button class="hotline-call" data-number="1-800-931-2237">Call 1-800-931-2237</button>
-                    <button class="hotline-info" data-url="https://www.nationaleatingdisorders.org">More Info</button>
-                </div>
-            </div>
-
-            <button class="close-modal-btn" id="closeModalBtn">Close</button>
+            <h3>We're here to help</h3>
+            <button class="support-btn primary" data-action="journal">Write in Journal</button>
+            <button class="support-btn danger" data-action="hotlines">Emergency Hotlines</button>
+            <button class="support-btn secondary" data-action="dashboard">Find Resources</button>
+            <button class="support-btn secondary" data-action="close">I'm OK for now</button>
         </div>
 
-        <!-- Bottom Navigation -->
-        <nav class="bottom-nav" role="tablist">
+        <!-- Hotlines Modal -->
+        <div class="modal" id="hotlinesModal">
+            <div class="modal-content">
+                <h3 style="text-align: center; margin-bottom: var(--space-lg); color: #435334;">Crisis Support</h3>
+                
+                <div class="hotline-card">
+                    <div class="hotline-title">Samaritans</div>
+                    <div class="hotline-actions">
+                        <button class="hotline-call" data-number="116123">CALL FREE</button>
+                        <button class="hotline-info" data-url="https://www.samaritans.org">More Info</button>
+                    </div>
+                </div>
+
+                <div class="hotline-card">
+                    <div class="hotline-title">BodyWhys</div>
+                    <div class="hotline-actions">
+                        <button class="hotline-call" data-number="1890200444">CALL NOW</button>
+                        <button class="hotline-info" data-url="https://bodywhys.ie">More Info</button>
+                    </div>
+                </div>
+
+                <div class="hotline-card">
+                    <div class="hotline-title">Pieta House</div>
+                    <div class="hotline-actions">
+                        <button class="hotline-call" data-number="1800901234">CALL NOW</button>
+                        <button class="hotline-info" data-url="https://www.pieta.ie/how-we-can-help">More Info</button>
+                    </div>
+                </div>
+
+                <button class="close-modal" id="closeModalBtn">Back</button>
+            </div>
+        </div>
+
+        <!-- Navigation Bar -->
+        <nav class="nav-bar" role="navigation" aria-label="Main navigation">
             <div class="nav-item" data-page="menus" role="tab" aria-label="Food menus">
                 <div class="nav-icon">🍕</div>
                 <div class="nav-text">Menus</div>
@@ -1719,7 +1483,7 @@
         <div id="live-announcements" aria-live="polite" aria-atomic="true" style="position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden;"></div>
     </div>
 
-<script>
+    <script>
     // Generate proper hazelnut icons dynamically
     function createHazelnutIcon(size) {
         const canvas = document.createElement('canvas');
@@ -1795,748 +1559,78 @@
         newManifest.href = manifestURL;
         document.head.appendChild(newManifest);
     });
-
-    // Recipe Data
-    const recipeData = {
-        breakfast: [
-            {
-                id: 1,
-                title: "Pancakes with Syrup",
-                description: "Fluffy buttermilk pancakes served with warm maple syrup and a pat of butter. A comforting breakfast classic that's perfect for weekend mornings.",
-                ingredients: [
-                    "2 cups all-purpose flour",
-                    "2 tablespoons sugar",
-                    "2 teaspoons baking powder",
-                    "1 teaspoon salt",
-                    "2 large eggs",
-                    "1 3/4 cups buttermilk",
-                    "1/4 cup melted butter",
-                    "1 teaspoon vanilla extract",
-                    "Butter for cooking",
-                    "Maple syrup for serving"
-                ],
-                method: [
-                    "In a large bowl, whisk together flour, sugar, baking powder, and salt.",
-                    "In another bowl, beat eggs, then whisk in buttermilk, melted butter, and vanilla.",
-                    "Pour wet ingredients into dry ingredients and stir until just combined (don't overmix).",
-                    "Heat a non-stick pan or griddle over medium heat and add a little butter.",
-                    "Pour 1/4 cup batter for each pancake onto the hot surface.",
-                    "Cook until bubbles form on surface and edges look set, about 2-3 minutes.",
-                    "Flip and cook until golden brown on the other side, 1-2 minutes.",
-                    "Serve immediately with butter and warm maple syrup."
-                ]
-            },
-            {
-                id: 2,
-                title: "Avocado Toast",
-                description: "Creamy mashed avocado on crispy sourdough toast, seasoned with lemon juice, salt, and red pepper flakes. Simple, healthy, and delicious.",
-                ingredients: [
-                    "2 slices sourdough bread",
-                    "1 ripe avocado",
-                    "1 tablespoon lemon juice",
-                    "Salt and pepper to taste",
-                    "Red pepper flakes (optional)",
-                    "Optional toppings: cherry tomatoes, feta cheese, everything bagel seasoning"
-                ],
-                method: [
-                    "Toast bread slices until golden brown and crispy.",
-                    "Cut avocado in half, remove pit, and scoop flesh into a bowl.",
-                    "Add lemon juice, salt, and pepper. Mash with a fork to desired consistency.",
-                    "Spread avocado mixture on toast.",
-                    "Sprinkle with red pepper flakes and add any additional toppings.",
-                    "Serve immediately."
-                ]
-            },
-            {
-                id: 3,
-                title: "Oatmeal with Berries",
-                description: "Warm, creamy steel-cut oats topped with a colorful mix of fresh berries and a drizzle of honey. A comforting, fiber-rich start to your day.",
-                ingredients: [
-                    "1 cup steel-cut oats",
-                    "3 cups water or milk",
-                    "1/4 teaspoon salt",
-                    "1 cup mixed berries (strawberries, blueberries, raspberries)",
-                    "2 tablespoons honey or maple syrup",
-                    "Optional toppings: nuts, seeds, cinnamon, yogurt"
-                ],
-                method: [
-                    "In a medium saucepan, bring water or milk to a gentle boil.",
-                    "Add oats and salt, reduce heat to low.",
-                    "Simmer uncovered for 20-30 minutes, stirring occasionally until oats are tender and creamy.",
-                    "Divide into bowls and top with fresh berries.",
-                    "Drizzle with honey or maple syrup.",
-                    "Add any additional toppings as desired."
-                ]
-            }
-        ],
-        lunch: [
-            {
-                id: 4,
-                title: "Chicken Salad",
-                description: "Tender grilled chicken breast served on a bed of mixed greens with cherry tomatoes, cucumber, and red onion. Dressed with a light vinaigrette for a satisfying, protein-packed lunch.",
-                ingredients: [
-                    "2 boneless, skinless chicken breasts",
-                    "2 tablespoons olive oil, divided",
-                    "1 teaspoon Italian herbs",
-                    "Salt and pepper to taste",
-                    "4 cups mixed salad greens",
-                    "1 cup cherry tomatoes, halved",
-                    "1 cucumber, sliced",
-                    "1/4 red onion, thinly sliced",
-                    "For dressing: 3 tablespoons olive oil, 1 tablespoon balsamic vinegar, 1 teaspoon Dijon mustard, 1 clove garlic (minced), salt and pepper"
-                ],
-                method: [
-                    "Preheat grill or pan to medium-high heat.",
-                    "Brush chicken with 1 tablespoon olive oil and season with herbs, salt, and pepper.",
-                    "Grill chicken 6-7 minutes per side until cooked through (internal temp 165°F).",
-                    "Let chicken rest 5 minutes, then slice.",
-                    "Arrange salad greens on plates and top with tomatoes, cucumber, and red onion.",
-                    "Add sliced chicken.",
-                    "Whisk dressing ingredients and drizzle over salad.",
-                    "Serve immediately."
-                ]
-            },
-            {
-                id: 5,
-                title: "Veggie Wrap",
-                description: "A colorful assortment of fresh vegetables and hummus wrapped in a whole wheat tortilla. Perfect for a quick, plant-based lunch on the go.",
-                ingredients: [
-                    "2 whole wheat tortillas",
-                    "1/2 cup hummus",
-                    "1 cup baby spinach",
-                    "1 carrot, grated",
-                    "1 bell pepper, thinly sliced",
-                    "1/2 cucumber, cut into thin strips",
-                    "1/2 avocado, sliced",
-                    "Salt and pepper to taste",
-                    "Optional: sprouts, olives, feta cheese"
-                ],
-                method: [
-                    "Warm tortillas slightly to make them more pliable.",
-                    "Spread a layer of hummus on each tortilla, leaving a small border around the edge.",
-                    "Layer spinach, carrot, bell pepper, cucumber, and avocado on top.",
-                    "Season with salt and pepper.",
-                    "Add any optional ingredients.",
-                    "Fold in sides of tortilla, then roll tightly from bottom to top.",
-                    "Cut in half diagonally and serve.",
-                    "Can be wrapped in foil for a portable lunch."
-                ]
-            },
-            {
-                id: 6,
-                title: "Tomato Soup with Grilled Cheese",
-                description: "Homemade tomato soup with hints of basil and garlic, served alongside a perfectly golden grilled cheese sandwich. The ultimate comfort food duo.",
-                ingredients: [
-                    "For soup: 2 tablespoons olive oil, 1 onion (diced), 2 garlic cloves (minced), 2 cans (28oz) whole peeled tomatoes, 2 cups vegetable broth, 1/4 cup fresh basil, 1/4 cup heavy cream, salt and pepper",
-                    "For sandwiches: 8 slices bread, 4 tablespoons butter, 8 slices cheese (cheddar, American, or gruyère)"
-                ],
-                method: [
-                    "For soup: Heat oil in pot over medium heat. Add onion and cook until soft.",
-                    "Add garlic and cook 30 seconds until fragrant.",
-                    "Add tomatoes with juice, broth, and half the basil. Bring to boil, then simmer 15 minutes.",
-                    "Blend soup until smooth (use immersion blender or regular blender in batches).",
-                    "Return to pot, add cream, salt, and pepper. Warm through.",
-                    "For sandwiches: Butter one side of each bread slice.",
-                    "Place bread butter-side down, add cheese, top with another slice butter-side up.",
-                    "Cook in skillet over medium heat until golden and cheese melts, about 3-4 minutes per side.",
-                    "Garnish soup with remaining basil and serve with grilled cheese."
-                ]
-            }
-        ],
-        dinner: [
-            {
-                id: 7,
-                title: "Spaghetti Bolognese",
-                description: "Al dente spaghetti topped with a rich, slow-simmered meat sauce. This classic Italian comfort food is hearty, satisfying, and perfect for family meals.",
-                ingredients: [
-                    "1 pound spaghetti",
-                    "2 tablespoons olive oil",
-                    "1 pound ground beef (or mix of beef and pork)",
-                    "1 onion, finely diced",
-                    "2 carrots, finely diced",
-                    "2 celery stalks, finely diced",
-                    "4 garlic cloves, minced",
-                    "1 can (28oz) crushed tomatoes",
-                    "1/2 cup red wine (optional)",
-                    "2 tablespoons tomato paste",
-                    "1 teaspoon dried oregano",
-                    "1 teaspoon dried basil",
-                    "Salt and pepper to taste",
-                    "Parmesan cheese for serving"
-                ],
-                method: [
-                    "Heat olive oil in a large pot over medium-high heat.",
-                    "Add ground meat and cook, breaking it up, until browned (about 5-7 minutes).",
-                    "Add onion, carrots, and celery. Cook until vegetables soften, about 5 minutes.",
-                    "Add garlic and cook 1 minute until fragrant.",
-                    "Stir in tomato paste and cook 1 minute.",
-                    "Add wine (if using) and let it simmer for 2 minutes.",
-                    "Add crushed tomatoes, oregano, basil, salt, and pepper.",
-                    "Reduce heat to low and simmer for 30-45 minutes, stirring occasionally.",
-                    "Meanwhile, cook spaghetti according to package directions until al dente.",
-                    "Serve sauce over pasta with grated Parmesan cheese."
-                ]
-            },
-            {
-                id: 8,
-                title: "Baked Salmon with Vegetables",
-                description: "Tender baked salmon fillet seasoned with herbs and lemon, served with a medley of roasted seasonal vegetables. A healthy, complete meal.",
-                ingredients: [
-                    "4 salmon fillets (6oz each)",
-                    "2 tablespoons olive oil",
-                    "2 lemons (juiced and zested)",
-                    "2 teaspoons dried dill",
-                    "1 teaspoon garlic powder",
-                    "Salt and pepper to taste",
-                    "2 cups broccoli florets",
-                    "1 bell pepper, sliced",
-                    "1 zucchini, sliced",
-                    "1 red onion, sliced",
-                    "2 tablespoons fresh herbs (parsley, dill, or thyme)"
-                ],
-                method: [
-                    "Preheat oven to 425°F (220°C).",
-                    "Line a large baking sheet with parchment paper.",
-                    "Place salmon fillets on one side of the baking sheet.",
-                    "Brush salmon with half the olive oil and season with lemon juice, zest, dill, garlic powder, salt, and pepper.",
-                    "Toss vegetables with remaining olive oil, salt, and pepper.",
-                    "Arrange vegetables on the other side of the baking sheet.",
-                    "Bake for 12-15 minutes until salmon flakes easily and vegetables are tender.",
-                    "Garnish with fresh herbs and serve with lemon wedges."
-                ]
-            },
-            {
-                id: 9,
-                title: "Vegetable Stir Fry",
-                description: "A colorful mix of fresh vegetables quickly stir-fried and tossed in a savory sauce. Served over steamed rice for a satisfying vegetarian meal.",
-                ingredients: [
-                    "2 tablespoons vegetable oil",
-                    "1 onion, sliced",
-                    "2 bell peppers, sliced",
-                    "1 cup broccoli florets",
-                    "1 cup snap peas",
-                    "2 carrots, thinly sliced",
-                    "3 garlic cloves, minced",
-                    "1 tablespoon fresh ginger, minced",
-                    "For sauce: 3 tablespoons soy sauce, 2 tablespoons oyster sauce, 1 tablespoon rice vinegar, 1 teaspoon sesame oil, 1 teaspoon cornstarch",
-                    "Cooked rice for serving",
-                    "Sesame seeds and green onions for garnish"
-                ],
-                method: [
-                    "Mix all sauce ingredients in a small bowl and set aside.",
-                    "Heat oil in a large wok or skillet over high heat.",
-                    "Add onion and stir-fry for 2 minutes.",
-                    "Add bell peppers, broccoli, and carrots. Stir-fry for 3-4 minutes.",
-                    "Add snap peas, garlic, and ginger. Stir-fry for 1-2 minutes.",
-                    "Pour sauce over vegetables and toss to coat.",
-                    "Cook for 1-2 minutes until sauce thickens.",
-                    "Serve immediately over rice, garnished with sesame seeds and green onions."
-                ]
-            }
-        ],
-        snacks: [
-            {
-                id: 10,
-                title: "Trail Mix",
-                description: "A healthy mix of nuts, dried fruits, and seeds. Perfect for on-the-go snacking or post-workout fuel.",
-                ingredients: [
-                    "1 cup mixed nuts (almonds, cashews, walnuts)",
-                    "1/2 cup dried fruits (raisins, cranberries, apricots)",
-                    "1/4 cup seeds (pumpkin seeds, sunflower seeds)",
-                    "1/4 cup dark chocolate chips (optional)"
-                ],
-                method: [
-                    "Combine all ingredients in a large bowl.",
-                    "Mix well to distribute evenly.",
-                    "Store in an airtight container for up to 2 weeks.",
-                    "Portion into small bags for easy grab-and-go snacks."
-                ]
-            },
-            {
-                id: 11,
-                title: "Apple Slices with Peanut Butter",
-                description: "Crisp apple slices paired with creamy peanut butter. A simple, nutritious snack that provides fiber, protein, and healthy fats.",
-                ingredients: [
-                    "2 medium apples, cored and sliced",
-                    "1/4 cup natural peanut butter",
-                    "Optional: cinnamon, honey, crushed nuts"
-                ],
-                method: [
-                    "Wash and core apples, then slice into wedges.",
-                    "Arrange apple slices on a plate.",
-                    "Serve with peanut butter for dipping.",
-                    "Sprinkle with cinnamon or drizzle with honey if desired.",
-                    "Can also sprinkle crushed nuts on peanut butter for extra crunch."
-                ]
-            },
-            {
-                id: 12,
-                title: "Greek Yogurt Parfait",
-                description: "Layers of creamy Greek yogurt, fresh berries, and crunchy granola. A protein-rich snack that feels like a treat.",
-                ingredients: [
-                    "1 cup Greek yogurt",
-                    "1/2 cup mixed berries",
-                    "1/4 cup granola",
-                    "1 tablespoon honey",
-                    "Optional: nuts, seeds, coconut flakes"
-                ],
-                method: [
-                    "In a glass or bowl, layer half the yogurt.",
-                    "Add half the berries and a drizzle of honey.",
-                    "Add half the granola.",
-                    "Repeat layers with remaining ingredients.",
-                    "Top with any optional ingredients.",
-                    "Serve immediately for best texture."
-                ]
-            }
-        ]
-    };
-
         // Enhanced PWA App with Mobile-First Features and Fullscreen Support
         class HazelApp {
             constructor() {
                 this.currentPage = 'home';
-                this.currentCategory = null;
-                this.currentRecipe = null;
                 this.journalEntries = JSON.parse(localStorage.getItem('journalEntries') || '[]');
                 this.streak = parseInt(localStorage.getItem('streak') || '0');
                 this.lastLoginDate = localStorage.getItem('lastLoginDate');
                 this.sobrietyStartDate = localStorage.getItem('sobrietyStartDate');
                 this.tasks = JSON.parse(localStorage.getItem('tasks') || '[]');
                 this.nextTaskId = parseInt(localStorage.getItem('nextTaskId') || '1');
-                this.nextSubtaskId = parseInt(localStorage.getItem('nextSubtaskId') || '1');
                 this.selectedMood = null;
-                this.deferredPrompt = null;
-                this.isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
-                
+                this.isEditingEntry = false;
+                this.editingEntryId = null;
+
                 this.init();
             }
 
-init() {
-                this.registerServiceWorker();
+            init() {
+                this.setupFullscreen();
                 this.setupEventListeners();
                 this.setupTouchEnhancements();
-                this.setupAccessibility();
-                this.loadInitialData();
-                this.handleInstallPrompt();
-                this.checkStreak();
-                this.loadSobrietyProgress();
-                this.loadTasks();
+                this.setupPWA();
+                this.updateStreak();
                 this.loadJournalEntries();
                 this.showTabContent('self-harm');
-                
-                // PWA installation prompt handling
-                window.addEventListener('beforeinstallprompt', (e) => {
-                    e.preventDefault();
-                    this.deferredPrompt = e;
-                    console.log('PWA install prompt saved');
-                });
-
-                // Handle URL parameters for shortcuts
-                const urlParams = new URLSearchParams(window.location.search);
-                const action = urlParams.get('action');
-                if (action) {
-                    this.handleShortcutAction(action);
-                }
-
-                // Handle fullscreen mode changes
-                document.addEventListener('fullscreenchange', () => {
-                    if (document.fullscreenElement) {
-                        document.body.classList.add('fullscreen-mode');
-                    } else {
-                        document.body.classList.remove('fullscreen-mode');
-                    }
-                });
-            }
-
-            // Navigation
-            navigateTo(page) {
-                // Hide all pages
-                document.querySelectorAll('.page').forEach(p => {
-                    p.classList.remove('active');
-                });
-                
-                // Show target page
-                const targetPage = document.getElementById(page);
-                if (targetPage) {
-                    targetPage.classList.add('active');
-                    this.currentPage = page;
-                }
-                
-                // Update navigation
-                document.querySelectorAll('.nav-item').forEach(item => {
-                    item.classList.remove('active');
-                });
-                
-                const activeNavItem = document.querySelector(`[data-page="${page}"]`);
-                if (activeNavItem) {
-                    activeNavItem.classList.add('active');
-                }
-                
-                this.announce(`Navigated to ${page}`);
-            }
-
-            // Show specific recipe category
-            showRecipeCategory(category) {
-                this.currentCategory = category;
-                const recipes = recipeData[category] || [];
-                
-                // Update category title
-                const categoryTitle = document.getElementById('recipeCategoryTitle');
-                if (categoryTitle) {
-                    categoryTitle.textContent = category.charAt(0).toUpperCase() + category.slice(1);
-                }
-                
-                // Populate recipe grid
-                const recipeGrid = document.getElementById('recipeGrid');
-                if (recipeGrid) {
-                    recipeGrid.innerHTML = recipes.map(recipe => `
-                        <div class="recipe-card" data-recipe-id="${recipe.id}">
-                            <div class="recipe-title">${recipe.title}</div>
-                            <div class="recipe-description">${recipe.description}</div>
-                        </div>
-                    `).join('');
-                    
-                    // Add click handlers
-                    recipeGrid.querySelectorAll('.recipe-card').forEach(card => {
-                        card.addEventListener('click', () => {
-                            const recipeId = parseInt(card.dataset.recipeId);
-                            this.showRecipeDetail(recipeId);
-                        });
-                    });
-                }
-                
-                // Navigate to recipe list page
-                this.navigateTo('recipe-list');
-            }
-
-            // Show recipe details
-            showRecipeDetail(recipeId) {
-                const recipe = this.findRecipeById(recipeId);
-                if (!recipe) return;
-                
-                this.currentRecipe = recipe;
-                
-                // Update recipe title
-                const recipeTitle = document.getElementById('recipeDetailTitle');
-                if (recipeTitle) {
-                    recipeTitle.textContent = recipe.title;
-                }
-                
-                // Populate recipe content
-                const recipeContent = document.getElementById('recipeContent');
-                if (recipeContent) {
-                    recipeContent.innerHTML = `
-                        <div class="recipe-section">
-                            <h3 class="recipe-section-title">${recipe.title}</h3>
-                            <p style="color: var(--text-secondary); font-size: var(--text-base); line-height: 1.6; margin-bottom: var(--space-lg);">${recipe.description}</p>
-                        </div>
-                        
-                        <div class="recipe-section">
-                            <h3 class="recipe-section-title">Ingredients</h3>
-                            <ul class="ingredients-list">
-                                ${recipe.ingredients.map(ingredient => `<li>${ingredient}</li>`).join('')}
-                            </ul>
-                        </div>
-                        
-                        <div class="recipe-section">
-                            <h3 class="recipe-section-title">Method</h3>
-                            <ol class="method-list">
-                                ${recipe.method.map(step => `<li>${step}</li>`).join('')}
-                            </ol>
-                        </div>
-                    `;
-                }
-                
-                // Navigate to recipe detail page
-                this.navigateTo('recipe-detail');
-            }
-
-            // Find recipe by ID across all categories
-            findRecipeById(id) {
-                for (const category in recipeData) {
-                    const recipe = recipeData[category].find(r => r.id === id);
-                    if (recipe) return recipe;
-                }
-                return null;
-            }
-
-            // Task Management with Subtasks
-            loadTasks() {
-                const container = document.getElementById('tasksContainer');
-                
-                if (this.tasks.length === 0) {
-                    container.innerHTML = '<div style="text-align: center; opacity: 0.7; padding: var(--space-xl);">No tasks yet. Add one above!</div>';
-                    return;
-                }
-                
-                container.innerHTML = this.tasks.map(task => `
-                    <div class="task-item">
-                        <div class="task-checkbox ${task.completed ? 'completed' : ''}" data-task-id="${task.id}"></div>
-                        <div class="task-content">
-                            <div class="task-text ${task.completed ? 'completed' : ''}">${task.text}</div>
-                            ${task.subtasks && task.subtasks.length > 0 ? this.renderSubtasks(task.subtasks) : ''}
-                            <div class="add-subtask-container" id="addSubtask-${task.id}">
-                                <input type="text" class="subtask-input" placeholder="Add a subtask..." maxlength="80">
-                                <button class="add-subtask-btn" data-task-id="${task.id}">+</button>
-                            </div>
-                        </div>
-                        <div class="task-actions">
-                            <button class="subtask-btn" data-task-id="${task.id}">+Sub</button>
-                            <button class="delete-task-btn" data-task-id="${task.id}">×</button>
-                        </div>
-                    </div>
-                `).join('');
-                
-                // Add event listeners
-                container.querySelectorAll('.task-checkbox').forEach(checkbox => {
-                    checkbox.addEventListener('click', () => {
-                        this.toggleTask(parseInt(checkbox.dataset.taskId));
-                    });
-                });
-
-                container.querySelectorAll('.subtask-btn').forEach(btn => {
-                    btn.addEventListener('click', () => {
-                        this.toggleSubtaskForm(parseInt(btn.dataset.taskId));
-                    });
-                });
-
-                container.querySelectorAll('.add-subtask-btn').forEach(btn => {
-                    btn.addEventListener('click', () => {
-                        this.addSubtask(parseInt(btn.dataset.taskId));
-                    });
-                });
-
-                container.querySelectorAll('.delete-task-btn').forEach(btn => {
-                    btn.addEventListener('click', () => {
-                        this.deleteTask(parseInt(btn.dataset.taskId));
-                    });
-                });
-
-                container.querySelectorAll('.subtask-checkbox').forEach(checkbox => {
-                    checkbox.addEventListener('click', () => {
-                        this.toggleSubtask(parseInt(checkbox.dataset.taskId), parseInt(checkbox.dataset.subtaskId));
-                    });
-                });
-
-                container.querySelectorAll('.delete-subtask-btn').forEach(btn => {
-                    btn.addEventListener('click', () => {
-                        this.deleteSubtask(parseInt(btn.dataset.taskId), parseInt(btn.dataset.subtaskId));
-                    });
-                });
-
-                // Handle Enter key for subtask inputs
-                container.querySelectorAll('.subtask-input').forEach(input => {
-                    input.addEventListener('keypress', (e) => {
-                        if (e.key === 'Enter') {
-                            const taskId = parseInt(e.target.closest('.add-subtask-container').querySelector('.add-subtask-btn').dataset.taskId);
-                            this.addSubtask(taskId);
-                        }
-                    });
-                });
-            }
-
-            renderSubtasks(subtasks) {
-                return `
-                    <div class="subtasks-container">
-                        ${subtasks.map(subtask => `
-                            <div class="subtask-item">
-                                <div class="subtask-checkbox ${subtask.completed ? 'completed' : ''}" 
-                                     data-task-id="${subtask.taskId}" 
-                                     data-subtask-id="${subtask.id}"></div>
-                                <div class="subtask-text ${subtask.completed ? 'completed' : ''}">${subtask.text}</div>
-                                <button class="delete-subtask-btn" 
-                                        data-task-id="${subtask.taskId}" 
-                                        data-subtask-id="${subtask.id}">×</button>
-                            </div>
-                        `).join('')}
-                    </div>
-                `;
-            }
-
-            addTask() {
-                const input = document.getElementById('taskInput');
-                const text = input.value.trim();
-                
-                if (!text) return;
-                
-                const task = {
-                    id: this.nextTaskId++,
-                    text: text,
-                    completed: false,
-                    createdAt: new Date().toISOString(),
-                    subtasks: []
-                };
-                
-                this.tasks.push(task);
-                this.saveTasks();
-                
-                input.value = '';
+                this.updateSobrietyDisplay();
                 this.loadTasks();
-                this.announce('Task added');
+                this.initSobrietyTracker();
+                this.setupAccessibility();
+                this.setupEmergencyButton();
+                this.preventZoom();
             }
 
-            toggleTask(id) {
-                const task = this.tasks.find(t => t.id === id);
-                if (task) {
-                    task.completed = !task.completed;
-                    // If task is completed, mark all subtasks as completed
-                    if (task.completed && task.subtasks) {
-                        task.subtasks.forEach(subtask => subtask.completed = true);
-                    }
-                    this.saveTasks();
-                    this.loadTasks();
-                    this.announce(task.completed ? 'Task completed' : 'Task uncompleted');
-                }
-            }
-
-            deleteTask(id) {
-                this.tasks = this.tasks.filter(t => t.id !== id);
-                this.saveTasks();
-                this.loadTasks();
-                this.announce('Task deleted');
-            }
-
-            toggleSubtaskForm(taskId) {
-                const container = document.getElementById(`addSubtask-${taskId}`);
-                if (container) {
-                    container.classList.toggle('show');
-                    if (container.classList.contains('show')) {
-                        const input = container.querySelector('.subtask-input');
-                        if (input) input.focus();
-                    }
-                }
-            }
-
-            addSubtask(taskId) {
-                const container = document.getElementById(`addSubtask-${taskId}`);
-                const input = container?.querySelector('.subtask-input');
-                const text = input?.value.trim();
+            setupFullscreen() {
+                // Add fullscreen class to body
+                document.body.classList.add('fullscreen-mode');
                 
-                if (!text) return;
-                
-                const task = this.tasks.find(t => t.id === taskId);
-                if (task) {
-                    if (!task.subtasks) task.subtasks = [];
-                    
-                    const subtask = {
-                        id: this.nextSubtaskId++,
-                        taskId: taskId,
-                        text: text,
-                        completed: false,
-                        createdAt: new Date().toISOString()
-                    };
-                    
-                    task.subtasks.push(subtask);
-                    this.saveTasks();
-                    
-                    input.value = '';
-                    container.classList.remove('show');
-                    this.loadTasks();
-                    this.announce('Subtask added');
-                }
-            }
-
-            toggleSubtask(taskId, subtaskId) {
-                const task = this.tasks.find(t => t.id === taskId);
-                if (task && task.subtasks) {
-                    const subtask = task.subtasks.find(s => s.id === subtaskId);
-                    if (subtask) {
-                        subtask.completed = !subtask.completed;
-                        
-                        // Check if all subtasks are completed and update main task
-                        const allSubtasksCompleted = task.subtasks.every(s => s.completed);
-                        const anySubtasksCompleted = task.subtasks.some(s => s.completed);
-                        
-                        if (allSubtasksCompleted && task.subtasks.length > 0) {
-                            task.completed = true;
-                        } else if (!anySubtasksCompleted) {
-                            task.completed = false;
-                        }
-                        
-                        this.saveTasks();
-                        this.loadTasks();
-                        this.announce(subtask.completed ? 'Subtask completed' : 'Subtask uncompleted');
-                    }
-                }
-            }
-
-            deleteSubtask(taskId, subtaskId) {
-                const task = this.tasks.find(t => t.id === taskId);
-                if (task && task.subtasks) {
-                    task.subtasks = task.subtasks.filter(s => s.id !== subtaskId);
-                    this.saveTasks();
-                    this.loadTasks();
-                    this.announce('Subtask deleted');
-                }
-            }
-
-            saveTasks() {
-                localStorage.setItem('tasks', JSON.stringify(this.tasks));
-                localStorage.setItem('nextTaskId', this.nextTaskId.toString());
-                localStorage.setItem('nextSubtaskId', this.nextSubtaskId.toString());
-            }
-
-            // Mood Handling
-            handleMoodSelect(mood) {
-                this.selectedMood = mood;
-                
-                // Update visual selection
-                document.querySelectorAll('.emoji-btn').forEach(btn => {
-                    btn.classList.remove('selected');
+                // Hide address bar on mobile devices
+                window.addEventListener('load', () => {
+                    setTimeout(() => {
+                        window.scrollTo(0, 1);
+                    }, 0);
                 });
-                
-                const selectedBtn = document.querySelector(`[data-mood="${mood}"]`);
-                if (selectedBtn) {
-                    selectedBtn.classList.add('selected');
-                }
-                
-                // Show support section for negative moods
-                const supportSection = document.getElementById('supportSection');
-                if (['sad', 'very-sad'].includes(mood)) {
-                    supportSection.style.display = 'block';
-                } else {
-                    supportSection.style.display = 'none';
-                }
-                
-                this.announce(`Selected mood: ${mood.replace('-', ' ')}`);
+
+                // Prevent scrolling on the main container
+                document.addEventListener('touchmove', (e) => {
+                    if (e.target === document.body || e.target === document.documentElement) {
+                        e.preventDefault();
+                    }
+                }, { passive: false });
+
+                // Handle orientation changes
+                window.addEventListener('orientationchange', () => {
+                    setTimeout(() => {
+                        window.scrollTo(0, 1);
+                        this.adjustViewportHeight();
+                    }, 100);
+                });
+
+                // Set initial viewport height
+                this.adjustViewportHeight();
             }
 
-            // Support Actions
-            handleSupportAction(action) {
-                switch(action) {
-                    case 'resources':
-                        this.navigateTo('dashboard');
-                        break;
-                    case 'crisis':
-                        this.showHotlines();
-                        break;
-                }
+            adjustViewportHeight() {
+                const vh = window.innerHeight * 0.01;
+                document.documentElement.style.setProperty('--vh', `${vh}px`);
             }
 
-            showHotlines() {
-                const modal = document.getElementById('supportPanel');
-                const overlay = document.getElementById('modalOverlay');
-                
-                modal.classList.add('show');
-                overlay.classList.add('show');
-                
-                // Focus management for accessibility
-                const closeBtn = document.getElementById('closeModalBtn');
-                if (closeBtn) closeBtn.focus();
-            }
-
-            hideModal() {
-                const modal = document.getElementById('supportPanel');
-                const overlay = document.getElementById('modalOverlay');
-                
-                modal.classList.remove('show');
-                overlay.classList.remove('show');
-            }
-setupTouchEnhancements() {
+            preventZoom() {
                 // Prevent double-tap zoom
                 let lastTouchEnd = 0;
-                document.addEventListener('touchend', function (event) {
+                document.addEventListener('touchend', (event) => {
                     const now = (new Date()).getTime();
                     if (now - lastTouchEnd <= 300) {
                         event.preventDefault();
@@ -2556,9 +1650,90 @@ setupTouchEnhancements() {
                 document.addEventListener('gestureend', (e) => {
                     e.preventDefault();
                 });
+            }
 
+            setupEventListeners() {
+                // Navigation
+                document.querySelectorAll('.nav-item').forEach(item => {
+                    item.addEventListener('click', (e) => {
+                        this.navigateTo(item.dataset.page);
+                        this.addHapticFeedback();
+                    });
+                });
+
+                // Mood selection
+                document.querySelectorAll('.emoji-btn').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        this.handleMoodSelect(btn.dataset.mood);
+                        this.addHapticFeedback();
+                    });
+                });
+
+                // Support panel
+                document.querySelectorAll('.support-btn').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        this.handleSupportAction(btn.dataset.action);
+                    });
+                });
+
+                // Dashboard tabs
+                document.querySelectorAll('.tab-item').forEach(tab => {
+                    tab.addEventListener('click', (e) => {
+                        this.showTabContent(tab.dataset.tab);
+                        this.addHapticFeedback();
+                    });
+                });
+
+                // Journal
+                document.getElementById('newEntryBtn').addEventListener('click', () => {
+                    this.showNewEntryForm();
+                });
+
+                // Sobriety tracker
+                document.getElementById('editSobrietyBtn').addEventListener('click', () => {
+                    this.editSobrietyDate();
+                });
+
+                // Tasks
+                document.getElementById('addTaskBtn').addEventListener('click', () => {
+                    this.addTask();
+                });
+
+                document.getElementById('taskInput').addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        this.addTask();
+                    }
+                });
+
+                // Emergency button
+                document.getElementById('emergencyBtn').addEventListener('click', () => {
+                    this.showHotlines();
+                });
+
+                // Modal
+                document.getElementById('closeModalBtn').addEventListener('click', () => {
+                    this.hideModal();
+                });
+
+                // Hotlines
+                document.querySelectorAll('.hotline-call').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const number = btn.dataset.number;
+                        window.location.href = `tel:${number}`;
+                    });
+                });
+
+                document.querySelectorAll('.hotline-info').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const url = btn.dataset.url;
+                        window.open(url, '_blank');
+                    });
+                });
+            }
+
+            setupTouchEnhancements() {
                 // Add touch ripple effects to buttons
-                document.querySelectorAll('.emoji-btn, .btn, .nav-item, .menu-category, .recipe-card').forEach(el => {
+                document.querySelectorAll('.emoji-btn, .btn, .nav-item').forEach(el => {
                     el.addEventListener('touchstart', (e) => {
                         el.style.transform = 'scale(0.98)';
                     });
@@ -2583,37 +1758,663 @@ setupTouchEnhancements() {
                             nextIndex = currentIndex > 0 ? currentIndex - 1 : navItems.length - 1;
                         } else if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
                             nextIndex = currentIndex < navItems.length - 1 ? currentIndex + 1 : 0;
-                        } else if (e.key === 'Enter' || e.key === ' ') {
-                            e.preventDefault();
-                            this.navigateTo(e.target.dataset.page);
-                            return;
                         }
                         
                         if (nextIndex !== undefined) {
-                            e.preventDefault();
+                            this.navigateTo(navItems[nextIndex].dataset.page);
                             navItems[nextIndex].focus();
+                            e.preventDefault();
                         }
                     }
                 });
+            }
 
-                // Skip to main content
-                const skipLink = document.createElement('a');
-                skipLink.href = '#main';
-                skipLink.textContent = 'Skip to main content';
-                skipLink.className = 'visually-hidden';
-                skipLink.addEventListener('focus', () => {
-                    skipLink.classList.remove('visually-hidden');
-                });
-                skipLink.addEventListener('blur', () => {
-                    skipLink.classList.add('visually-hidden');
-                });
-                document.body.prepend(skipLink);
+            setupEmergencyButton() {
+                // Show emergency button based on mood state
+                this.toggleEmergencyButton();
+            }
 
-                // Add main landmark
-                const appContainer = document.querySelector('.app-container');
-                if (appContainer) {
-                    appContainer.setAttribute('role', 'main');
-                    appContainer.id = 'main';
+            addHapticFeedback() {
+                if ('vibrate' in navigator) {
+                    navigator.vibrate(10);
+                }
+            }
+
+            announce(message) {
+                const liveRegion = document.getElementById('live-announcements');
+                if (liveRegion) {
+                    liveRegion.textContent = message;
+                    setTimeout(() => {
+                        liveRegion.textContent = '';
+                    }, 1000);
+                }
+            }
+
+            navigateTo(page) {
+                // Add loading state
+                document.body.classList.add('loading');
+                
+                // Hide all pages
+                document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+                document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+                
+                // Show selected page
+                setTimeout(() => {
+                    document.getElementById(page).classList.add('active');
+                    document.querySelector(`[data-page="${page}"]`).classList.add('active');
+                    document.body.classList.remove('loading');
+                    
+                    // Scroll to top
+                    document.getElementById(page).scrollTop = 0;
+                    
+                    // Update current page
+                    this.currentPage = page;
+                    
+                    // Update URL without page refresh
+                    if (history.pushState) {
+                        history.pushState({ page }, null, `#${page}`);
+                    }
+                    
+                    this.announce(`Navigated to ${page} page`);
+                }, 100);
+            }
+
+            handleMoodSelect(mood) {
+                this.selectedMood = mood;
+                
+                // Show support panel for sad moods
+                if (mood === 'very-sad' || mood === 'sad') {
+                    this.showSupportPanel();
+                    this.toggleEmergencyButton(true);
+                } else {
+                    this.toggleEmergencyButton(false);
+                }
+                
+                this.announce(`Mood selected: ${mood}`);
+            }
+
+            showSupportPanel() {
+                document.getElementById('supportPanel').classList.add('show');
+            }
+
+            hideSupportPanel() {
+                document.getElementById('supportPanel').classList.remove('show');
+            }
+
+            toggleEmergencyButton(show = null) {
+                const btn = document.getElementById('emergencyBtn');
+                if (show === null) {
+                    show = this.selectedMood === 'very-sad' || this.selectedMood === 'sad';
+                }
+                
+                if (show) {
+                    btn.classList.add('show');
+                } else {
+                    btn.classList.remove('show');
+                }
+            }
+
+            handleSupportAction(action) {
+                switch(action) {
+                    case 'journal':
+                        this.hideSupportPanel();
+                        this.navigateTo('journal');
+                        setTimeout(() => this.showNewEntryForm(), 200);
+                        break;
+                    case 'hotlines':
+                        this.hideSupportPanel();
+                        this.showHotlines();
+                        break;
+                    case 'dashboard':
+                        this.hideSupportPanel();
+                        this.navigateTo('dashboard');
+                        break;
+                    case 'close':
+                        this.hideSupportPanel();
+                        break;
+                }
+            }
+
+            showHotlines() {
+                document.getElementById('hotlinesModal').classList.add('show');
+            }
+
+            hideModal() {
+                document.getElementById('hotlinesModal').classList.remove('show');
+            }
+
+            // Sobriety Tracker Methods
+            initSobrietyTracker() {
+                if (!this.sobrietyStartDate) {
+                    this.sobrietyStartDate = new Date().toISOString();
+                    localStorage.setItem('sobrietyStartDate', this.sobrietyStartDate);
+                }
+                this.updateSobrietyDisplay();
+            }
+
+            updateSobrietyDisplay() {
+                if (!this.sobrietyStartDate) return;
+
+                const startDate = new Date(this.sobrietyStartDate);
+                const today = new Date();
+                const diffTime = Math.abs(today - startDate);
+                const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+
+                document.getElementById('sobrietyDays').textContent = diffDays;
+
+                const motivationText = this.getMotivationText(diffDays);
+                document.getElementById('motivationText').textContent = motivationText;
+
+                const milestone = this.getNextMilestone(diffDays);
+                const progress = this.getMilestoneProgress(diffDays, milestone);
+                
+                document.getElementById('progressFill').style.width = `${progress}%`;
+                document.getElementById('milestoneText').textContent = this.getMilestoneText(diffDays, milestone);
+            }
+
+            getMotivationText(days) {
+                if (days === 0) return "Every day is a victory! Your journey starts now.";
+                if (days < 7) return `${days} day${days === 1 ? '' : 's'} of strength! Keep going.`;
+                if (days < 30) return `${Math.floor(days/7)} week${Math.floor(days/7) === 1 ? '' : 's'}+ of positive choices! Your strength shines.`;
+                if (days < 90) return `${Math.floor(days/30)} month${Math.floor(days/30) === 1 ? '' : 's'}+ of positive choices! Your strength shines.`;
+                if (days < 365) return `${Math.floor(days/30)} months+ of incredible progress! You're amazing.`;
+                return `${Math.floor(days/365)} year${Math.floor(days/365) === 1 ? '' : 's'}+ of transformation! You're inspiring.`;
+            }
+
+            getNextMilestone(days) {
+                const milestones = [7, 30, 90, 180, 365, 730];
+                return milestones.find(m => m > days) || milestones[milestones.length - 1];
+            }
+
+            getMilestoneProgress(days, milestone) {
+                if (days >= milestone) return 100;
+                const previousMilestone = [0, 7, 30, 90, 180, 365].find((m, i, arr) => arr[i + 1] === milestone) || 0;
+                return Math.floor(((days - previousMilestone) / (milestone - previousMilestone)) * 100);
+            }
+
+            getMilestoneText(days, milestone) {
+                if (days >= milestone) return `Milestone reached! Next: ${this.getNextMilestone(milestone)} days`;
+                const remaining = milestone - days;
+                return `${remaining} day${remaining === 1 ? '' : 's'} left to ${milestone} days`;
+            }
+
+            editSobrietyDate() {
+                const currentDate = this.sobrietyStartDate ? new Date(this.sobrietyStartDate).toISOString().split('T')[0] : new Date().toISOString().split('T')[0];
+                const newDate = prompt("Enter your sobriety start date (YYYY-MM-DD):", currentDate);
+                
+                if (newDate && newDate !== currentDate) {
+                    this.sobrietyStartDate = new Date(newDate).toISOString();
+                    localStorage.setItem('sobrietyStartDate', this.sobrietyStartDate);
+                    this.updateSobrietyDisplay();
+                    this.announce('Sobriety date updated');
+                }
+            }
+
+            // Streak Management
+            updateStreak() {
+                const today = new Date().toDateString();
+                const yesterday = new Date(Date.now() - 86400000).toDateString();
+                
+                if (this.lastLoginDate === yesterday) {
+                    this.streak++;
+                } else if (this.lastLoginDate !== today) {
+                    this.streak = 1;
+                }
+                
+                localStorage.setItem('streak', this.streak.toString());
+                localStorage.setItem('lastLoginDate', today);
+                
+                this.displayStreak();
+            }
+
+            displayStreak() {
+                const container = document.getElementById('streakContainer');
+                container.innerHTML = '';
+                
+                const heartsToShow = Math.min(this.streak, 7);
+                for (let i = 0; i < heartsToShow; i++) {
+                    const heart = document.createElement('span');
+                    heart.className = 'heart';
+                    heart.textContent = '❤️';
+                    container.appendChild(heart);
+                }
+                
+                if (this.streak >= 7) {
+                    const hazelnut = document.createElement('span');
+                    hazelnut.className = 'hazelnut';
+                    hazelnut.textContent = '🌰';
+                    container.appendChild(hazelnut);
+                }
+            }
+
+            // Dashboard Tab Content
+            showTabContent(tab) {
+                // Update active tab
+                document.querySelectorAll('.tab-item').forEach(t => t.classList.remove('active'));
+                document.querySelector(`[data-tab="${tab}"]`).classList.add('active');
+                
+                const content = document.getElementById('tabContent');
+                
+                const tabData = {
+                    'self-harm': {
+                        title: 'Self Harm Support',
+                        alternatives: [
+                            'Draw or create art',
+                            'Write in a journal',
+                            'Listen to music',
+                            'Pet an animal',
+                            'Eat some sour sweets',
+                            'Watch a comfort show/movie',
+                            'Take deep breaths and go for a walk'
+                        ],
+                        resources: [
+                            { name: 'Pieta House', url: 'https://www.pieta.ie/how-we-can-help/' },
+                            { name: 'HSE Mental Health', url: 'https://www.hse.ie/eng/services/list/4/mental-health-services/nosp/resources/selfharmyoung.pdf' },
+                            { name: 'Tusla', url: 'https://www.tusla.ie/parenting-24-seven/12-years/child-safety-practices-reduce-injury/self-harm/' },
+                            { name: 'St Patrick\'s MHS', url: 'https://www.stpatricks.ie/media-centre/blogs-articles/2023/february/self-harm-causes-and-supports' }
+                        ]
+                    },
+                    'ed': {
+                        title: 'Eating Disorder Support',
+                        alternatives: [
+                            'Talk to a trusted friend or family member',
+                            'Drink water or herbal tea',
+                            'Practice mindful eating',
+                            'Write about your feelings',
+                            'Use positive affirmations',
+                            'Call a support line',
+                            'Join an online support group',
+                            'Practice gentle movement or yoga'
+                        ],
+                        resources: [
+                            { name: 'BodyWhys', url: 'https://bodywhys.ie' },
+                            { name: 'HSE Eating Disorders', url: 'https://www.hse.ie/eng/about/who/cspd/ncps/mental-health/eating-disorders/' },
+                            { name: 'National ED Recovery Centre', url: 'https://nedrc.ie/' },
+                            { name: 'St Patrick\'s MHS', url: 'https://www.stpatricks.ie/mental-health/eating-disorders' }
+                        ]
+                    },
+                    'anxiety': {
+                        title: 'Anxiety Support',
+                        alternatives: [
+                            'Practice deep breathing exercises',
+                            'Use the 5-4-3-2-1 grounding technique',
+                            'Go for a short walk outside',
+                            'Listen to calming music',
+                            'Squeeze a stress ball or fidget toy',
+                            'Write down your worries',
+                            'Do progressive muscle relaxation',
+                            'Call someone you trust'
+                        ],
+                        resources: [
+                            { name: 'Aware', url: 'https://www.aware.ie/information/anxiety/' },
+                            { name: 'HSE Anxiety Support', url: 'https://www2.hse.ie/conditions/anxiety-tips-and-self-help/' },
+                            { name: 'Spunout', url: 'https://spunout.ie/category/mental-health/anxiety-stress' },
+                            { name: 'St Patrick\'s MHS', url: 'https://www.stpatricks.ie/mental-health/anxiety' }
+                        ]
+                    },
+                    'depression': {
+                        title: 'General Mental Health Support',
+                        alternatives: [
+                            'Listen to uplifting music',
+                            'Take a warm shower or bath',
+                            'Complete one small task',
+                            'Text or call a supportive friend',
+                            'Spend time in nature or by a window',
+                            'Create something simple',
+                            'Practice gratitude by listing 3 good things',
+                            'Do gentle movement or stretching'
+                        ],
+                        resources: [
+                            { name: 'Aware', url: 'https://www.aware.ie/information/depression/' },
+                            { name: 'HSE Depression Support', url: 'https://www2.hse.ie/conditions/depression/' },
+                            { name: 'Spunout', url: 'https://spunout.ie/category/mental-health/depression' },
+                            { name: 'St Patrick\'s MHS', url: 'https://www.stpatricks.ie/mental-health/depression' }
+                        ]
+                    }
+                };
+
+                const data = tabData[tab];
+                
+                content.innerHTML = `
+                    <div class="section-title">${data.title}</div>
+                    <div class="section-divider"></div>
+                    <div class="alternatives-list">
+                        ${data.alternatives.map(alt => `• ${alt}`).join('<br>')}
+                    </div>
+                    ${data.resources.map(resource => 
+                        `<button class="resource-btn" onclick="window.open('${resource.url}', '_blank')">${resource.name}</button>`
+                    ).join('')}
+                `;
+            }
+
+            // Journal Methods
+            loadJournalEntries() {
+                const container = document.getElementById('journalEntries');
+                
+                if (this.journalEntries.length === 0) {
+                    container.innerHTML = '<div class="empty-state">No journal entries yet. Start writing to track your thoughts and feelings.</div>';
+                    return;
+                }
+                
+                container.innerHTML = this.journalEntries.map(entry => `
+                    <div class="journal-entry" data-entry-id="${entry.id}">
+                        <div class="entry-title">${entry.title}</div>
+                        <div class="entry-date">${new Date(entry.date).toLocaleDateString()}</div>
+                        ${entry.mood ? `<div class="entry-mood">${this.getMoodEmoji(entry.mood)}</div>` : ''}
+                    </div>
+                `).join('');
+
+                // Add click listeners to entries
+                container.querySelectorAll('.journal-entry').forEach(entry => {
+                    entry.addEventListener('click', () => {
+                        this.viewEntry(parseInt(entry.dataset.entryId));
+                    });
+                });
+            }
+
+            getMoodEmoji(mood) {
+                const moodEmojis = {
+                    'very-sad': '😢',
+                    'sad': '😔',
+                    'neutral': '😐',
+                    'happy': '😊',
+                    'very-happy': '😄'
+                };
+                return moodEmojis[mood] || '';
+            }
+
+            showNewEntryForm() {
+                const today = new Date().toLocaleDateString('en-US', { 
+                    weekday: 'long', 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric' 
+                });
+                
+                document.getElementById('journalEntries').innerHTML = `
+                    <div class="entry-form">
+                        <h3 style="color: #435334; margin-bottom: var(--space-lg);">${this.isEditingEntry ? 'Edit Entry' : 'New Entry'} - ${today}</h3>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Title</label>
+                            <input type="text" id="entryTitle" class="form-input" placeholder="How are you feeling?" value="${this.isEditingEntry ? this.getEditingEntry().title : ''}" autocomplete="off">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Write your thoughts</label>
+                            <textarea id="entryContent" class="form-textarea" placeholder="Express yourself here...">${this.isEditingEntry ? this.getEditingEntry().content : ''}</textarea>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button class="btn btn-secondary" onclick="hazelApp.loadJournalEntries()">Cancel</button>
+                            <button class="btn btn-primary" onclick="hazelApp.saveEntry()">Save Entry</button>
+                        </div>
+                    </div>
+                `;
+                
+                // Focus on title input
+                setTimeout(() => {
+                    document.getElementById('entryTitle').focus();
+                }, 100);
+            }
+
+            getEditingEntry() {
+                return this.journalEntries.find(e => e.id === this.editingEntryId) || { title: '', content: '' };
+            }
+
+            saveEntry() {
+                const title = document.getElementById('entryTitle').value.trim();
+                const content = document.getElementById('entryContent').value.trim();
+                
+                if (!title || !content) {
+                    alert('Please fill in both title and content');
+                    return;
+                }
+                
+                if (this.isEditingEntry) {
+                    // Update existing entry
+                    const entryIndex = this.journalEntries.findIndex(e => e.id === this.editingEntryId);
+                    if (entryIndex !== -1) {
+                        this.journalEntries[entryIndex] = {
+                            ...this.journalEntries[entryIndex],
+                            title,
+                            content,
+                            lastModified: new Date().toISOString()
+                        };
+                    }
+                } else {
+                    // Create new entry
+                    const entry = {
+                        id: Date.now(),
+                        title: title,
+                        content: content,
+                        mood: this.selectedMood,
+                        date: new Date().toISOString(),
+                        tags: []
+                    };
+                    
+                    this.journalEntries.unshift(entry);
+                }
+                
+                localStorage.setItem('journalEntries', JSON.stringify(this.journalEntries));
+                
+                this.selectedMood = null;
+                this.isEditingEntry = false;
+                this.editingEntryId = null;
+                this.loadJournalEntries();
+                this.announce('Journal entry saved');
+            }
+
+            viewEntry(id) {
+                const entry = this.journalEntries.find(e => e.id === id);
+                if (!entry) return;
+                
+                const moodEmoji = this.getMoodEmoji(entry.mood);
+                
+                document.getElementById('journalEntries').innerHTML = `
+                    <div class="entry-form">
+                        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--space-lg);">
+                            <h3 style="color: #435334;">${entry.title}</h3>
+                            ${moodEmoji ? `<span style="font-size: 1.5rem;">${moodEmoji}</span>` : ''}
+                        </div>
+                        
+                        <div style="color: var(--text-secondary); margin-bottom: var(--space-md); font-size: var(--text-sm);">
+                            ${new Date(entry.date).toLocaleDateString('en-US', { 
+                                weekday: 'long', 
+                                year: 'numeric', 
+                                month: 'long', 
+                                day: 'numeric' 
+                            })}
+                        </div>
+                        
+                        <div style="line-height: 1.6; margin-bottom: var(--space-xl); white-space: pre-wrap;">${entry.content}</div>
+                        
+                        <div class="form-actions">
+                            <button class="btn btn-secondary" onclick="hazelApp.loadJournalEntries()">Back</button>
+                            <button class="btn btn-primary" onclick="hazelApp.editEntry(${entry.id})">Edit</button>
+                            <button class="btn btn-secondary" onclick="hazelApp.deleteEntry(${entry.id})" style="background: var(--error-color); color: white;">Delete</button>
+                        </div>
+                    </div>
+                `;
+            }
+
+            editEntry(id) {
+                this.isEditingEntry = true;
+                this.editingEntryId = id;
+                this.showNewEntryForm();
+            }
+
+            deleteEntry(id) {
+                if (confirm('Are you sure you want to delete this entry?')) {
+                    this.journalEntries = this.journalEntries.filter(e => e.id !== id);
+                    localStorage.setItem('journalEntries', JSON.stringify(this.journalEntries));
+                    this.loadJournalEntries();
+                    this.announce('Journal entry deleted');
+                }
+            }
+
+            // Task Management
+            loadTasks() {
+                const container = document.getElementById('tasksContainer');
+                
+                if (this.tasks.length === 0) {
+                    container.innerHTML = '<div style="text-align: center; opacity: 0.7; padding: var(--space-xl);">No tasks yet. Add one above!</div>';
+                    return;
+                }
+                
+                container.innerHTML = this.tasks.map(task => `
+                    <div class="task-item">
+                        <div class="task-checkbox ${task.completed ? 'completed' : ''}" data-task-id="${task.id}"></div>
+                        <div class="task-text ${task.completed ? 'completed' : ''}">${task.text}</div>
+                    </div>
+                `).join('');
+                
+                // Add click listeners to checkboxes
+                container.querySelectorAll('.task-checkbox').forEach(checkbox => {
+                    checkbox.addEventListener('click', () => {
+                        this.toggleTask(parseInt(checkbox.dataset.taskId));
+                    });
+                });
+            }
+
+            addTask() {
+                const input = document.getElementById('taskInput');
+                const text = input.value.trim();
+                
+                if (!text) return;
+                
+                const task = {
+                    id: this.nextTaskId++,
+                    text: text,
+                    completed: false,
+                    createdAt: new Date().toISOString()
+                };
+                
+                this.tasks.push(task);
+                localStorage.setItem('tasks', JSON.stringify(this.tasks));
+                localStorage.setItem('nextTaskId', this.nextTaskId.toString());
+                
+                input.value = '';
+                this.loadTasks();
+                this.announce('Task added');
+            }
+
+            toggleTask(id) {
+                const task = this.tasks.find(t => t.id === id);
+                if (task) {
+                    task.completed = !task.completed;
+                    localStorage.setItem('tasks', JSON.stringify(this.tasks));
+                    this.loadTasks();
+                    this.announce(task.completed ? 'Task completed' : 'Task uncompleted');
+                }
+            }
+
+            // PWA Setup
+            setupPWA() {
+                // Register service worker
+                if ('serviceWorker' in navigator) {
+                    window.addEventListener('load', async () => {
+                        try {
+                            const swBlob = new Blob([this.createServiceWorker()], { type: 'application/javascript' });
+                            const swUrl = URL.createObjectURL(swBlob);
+                            
+                            const registration = await navigator.serviceWorker.register(swUrl);
+                            console.log('SW registered:', registration);
+                            
+                            registration.addEventListener('updatefound', () => {
+                                const newWorker = registration.installing;
+                                newWorker.addEventListener('statechange', () => {
+                                    if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                        this.showUpdateNotification();
+                                    }
+                                });
+                            });
+                        } catch (error) {
+                            console.log('SW registration failed:', error);
+                        }
+                    });
+                }
+
+                // Handle PWA install prompt
+                let deferredPrompt;
+                window.addEventListener('beforeinstallprompt', (e) => {
+                    e.preventDefault();
+                    deferredPrompt = e;
+                    this.showInstallButton(deferredPrompt);
+                });
+
+                // Handle URL parameters for shortcuts
+                const urlParams = new URLSearchParams(window.location.search);
+                const action = urlParams.get('action');
+                if (action) {
+                    this.handleShortcutAction(action);
+                }
+
+                // Handle fullscreen mode changes
+                document.addEventListener('fullscreenchange', () => {
+                    if (document.fullscreenElement) {
+                        document.body.classList.add('fullscreen-mode');
+                    } else {
+                        document.body.classList.remove('fullscreen-mode');
+                    }
+                });
+            }
+
+            createServiceWorker() {
+                return `
+                    const CACHE_NAME = 'hazel-v2';
+                    const urlsToCache = [
+                        '/',
+                        '/index.html',
+                        '/manifest.json'
+                    ];
+
+                    self.addEventListener('install', event => {
+                        event.waitUntil(
+                            caches.open(CACHE_NAME)
+                                .then(cache => cache.addAll(urlsToCache))
+                        );
+                        self.skipWaiting();
+                    });
+
+                    self.addEventListener('fetch', event => {
+                        event.respondWith(
+                            caches.match(event.request)
+                                .then(response => {
+                                    if (response) {
+                                        return response;
+                                    }
+                                    return fetch(event.request);
+                                })
+                        );
+                    });
+
+                    self.addEventListener('activate', event => {
+                        event.waitUntil(
+                            caches.keys().then(cacheNames => {
+                                return Promise.all(
+                                    cacheNames.map(cacheName => {
+                                        if (cacheName !== CACHE_NAME) {
+                                            return caches.delete(cacheName);
+                                        }
+                                    })
+                                );
+                            })
+                        );
+                        self.clients.claim();
+                    });
+                `;
+            }
+
+            handleShortcutAction(action) {
+                switch(action) {
+                    case 'new-journal':
+                        this.navigateTo('journal');
+                        setTimeout(() => this.showNewEntryForm(), 200);
+                        break;
+                    case 'crisis':
+                        this.showHotlines();
+                        break;
                 }
             }
 
@@ -2622,71 +2423,157 @@ setupTouchEnhancements() {
                 notification.className = 'update-notification';
                 notification.innerHTML = `
                     <div style="background: var(--primary-color); color: white; padding: var(--space-md); border-radius: var(--radius-md); margin: var(--space-md); text-align: center;">
-                        App update available!
-                        <button onclick="window.location.reload()" style="background: white; color: var(--primary-color); border: none; padding: var(--space-sm); border-radius: var(--radius-sm); margin-left: var(--space-sm); cursor: pointer;">
+                        App update available! 
+                        <button onclick="window.location.reload()" style="background: white; color: var(--primary-color); border: none; padding: var(--space-sm); border-radius: var(--radius-sm); margin-left: var(--space-sm);">
                             Update Now
                         </button>
                     </div>
                 `;
                 document.body.appendChild(notification);
                 
-                setTimeout(() => {
-                    notification.remove();
-                }, 5000);
+                setTimeout(() => notification.remove(), 10000);
+            }
+
+            showInstallButton(deferredPrompt) {
+                const installButton = document.createElement('button');
+                installButton.textContent = 'Install App';
+                installButton.className = 'btn btn-secondary';
+                installButton.style.cssText = `
+                    position: absolute;
+                    top: calc(20px + var(--safe-area-inset-top));
+                    right: 20px;
+                    z-index: var(--z-tooltip);
+                    font-size: var(--text-sm);
+                    padding: var(--space-sm) var(--space-md);
+                `;
+                
+                installButton.addEventListener('click', async () => {
+                    if (deferredPrompt) {
+                        deferredPrompt.prompt();
+                        const { outcome } = await deferredPrompt.userChoice;
+                        console.log('Install prompt outcome:', outcome);
+                        installButton.remove();
+                    }
+                });
+                
+                document.body.appendChild(installButton);
             }
         }
 
-        // Initialize the app when DOM is loaded
-        let app;
+        // Initialize the app when DOM is ready
         document.addEventListener('DOMContentLoaded', () => {
-            app = new HazelApp();
+            window.hazelApp = new HazelApp();
         });
 
-        // Handle app lifecycle events
-        document.addEventListener('visibilitychange', () => {
-            if (!document.hidden && app) {
-                // App became visible, check for updates
-                app.checkStreak();
+        // Handle browser back button
+        window.addEventListener('popstate', (e) => {
+            if (e.state && e.state.page && window.hazelApp) {
+                window.hazelApp.navigateTo(e.state.page);
             }
         });
 
-        // Handle install prompt
-        window.addEventListener('beforeinstallprompt', (e) => {
-            e.preventDefault();
-            if (app) {
-                app.deferredPrompt = e;
-            }
-        });
-
-        // Handle successful installation
-        window.addEventListener('appinstalled', () => {
-            console.log('PWA was installed');
-            if (app) {
-                app.announce('App installed successfully!');
-            }
-        });
-
-        // Handle offline/online status
+        // Handle online/offline status
         window.addEventListener('online', () => {
-            if (app) {
-                app.announce('Back online');
-            }
+            console.log('App is online');
+            document.body.classList.remove('offline');
         });
 
         window.addEventListener('offline', () => {
-            if (app) {
-                app.announce('You are offline');
+            console.log('App is offline');
+            document.body.classList.add('offline');
+        });
+
+        // Handle viewport resize
+        window.addEventListener('resize', () => {
+            if (window.hazelApp) {
+                window.hazelApp.adjustViewportHeight();
             }
         });
 
-        // Error handling
-        window.addEventListener('error', (e) => {
-            console.error('Global error:', e.error);
-        });
+        // Detect if running on iOS
+        function isIOS() {
+            return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+        }
 
-        window.addEventListener('unhandledrejection', (e) => {
-            console.error('Unhandled promise rejection:', e.reason);
-        });
+        // Only run iOS-specific code on iOS devices
+        if (isIOS()) {
+            // Generate proper PNG icons for iOS only
+            function createIOSIcon(size) {
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                canvas.width = size;
+                canvas.height = size;
+                
+                // iOS-style background
+                ctx.fillStyle = '#A2AE83';
+                ctx.fillRect(0, 0, size, size);
+                
+                // iOS emoji rendering
+                ctx.font = `${size * 0.6}px "Apple Color Emoji", "Segoe UI Emoji", Arial`;
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText('🌰', size / 2, size / 2);
+                
+                return canvas.toDataURL('image/png');
+            }
+
+            // Update Apple Touch Icons after page loads (iOS only)
+            window.addEventListener('load', () => {
+                // Only proceed if this is actually iOS
+                if (!isIOS()) return;
+                
+                // Generate PNG versions
+                const icon180 = createIOSIcon(180);
+                const icon152 = createIOSIcon(152);
+                const icon120 = createIOSIcon(120);
+                
+                // Replace existing apple-touch-icon links
+                const existingIcons = document.querySelectorAll('link[rel="apple-touch-icon"]');
+                existingIcons.forEach(icon => icon.remove());
+                
+                // Add new PNG icons
+                const sizes = [
+                    { size: '180x180', dataURL: icon180 },
+                    { size: '152x152', dataURL: icon152 },
+                    { size: '120x120', dataURL: icon120 }
+                ];
+                
+                sizes.forEach(iconData => {
+                    const link = document.createElement('link');
+                    link.rel = 'apple-touch-icon';
+                    link.sizes = iconData.size;
+                    link.href = iconData.dataURL;
+                    document.head.appendChild(link);
+                });
+                
+                // Add fallback without sizes
+                const fallback = document.createElement('link');
+                fallback.rel = 'apple-touch-icon';
+                fallback.href = icon180;
+                document.head.appendChild(fallback);
+            });
+        }
+
+        // Android-specific fixes (if needed)
+        function isAndroid() {
+            return /Android/i.test(navigator.userAgent);
+        }
+
+        if (isAndroid()) {
+            // Ensure Android layout works properly
+            window.addEventListener('load', () => {
+                // Force re-layout if needed
+                document.body.style.minHeight = '100vh';
+                
+                // Make sure container takes full height
+                const container = document.querySelector('.container');
+                if (container) {
+                    container.style.height = '100vh';
+                    container.style.display = 'flex';
+                    container.style.flexDirection = 'column';
+                }
+            });
+        }
     </script>
 </body>
 </html>
