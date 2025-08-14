@@ -1054,6 +1054,122 @@
             margin-top: var(--space-lg);
             min-height: 48px;
         }
+                .task-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+        }
+        
+        .task-header {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            width: 100%;
+        }
+        
+        .task-actions {
+            display: flex;
+            gap: var(--space-xs);
+            opacity: 0.7;
+        }
+        
+        .task-expand-btn,
+        .add-subtask-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: var(--text-sm);
+            cursor: pointer;
+            padding: var(--space-xs);
+            border-radius: var(--radius-sm);
+            transition: all 0.2s ease;
+        }
+        
+        .task-expand-btn:hover,
+        .add-subtask-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            opacity: 1;
+        }
+        
+        .subtasks {
+            margin-left: var(--space-lg);
+            padding-left: var(--space-md);
+            border-left: 2px solid rgba(255, 255, 255, 0.2);
+            display: none;
+        }
+        
+        .subtasks.expanded {
+            display: block;
+        }
+        
+        .subtask-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: var(--space-sm) 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .subtask-item:last-child {
+            border-bottom: none;
+        }
+        
+        .subtask-checkbox {
+            width: 16px;
+            height: 16px;
+            border: 2px solid rgba(255, 255, 255, 0.7);
+            border-radius: 3px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+        
+        .subtask-checkbox.completed {
+            background: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+        
+        .subtask-checkbox.completed::after {
+            content: '✓';
+            color: white;
+            font-size: 10px;
+        }
+        
+        .subtask-text {
+            flex: 1;
+            font-size: var(--text-sm);
+            transition: all 0.3s ease;
+        }
+        
+        .subtask-text.completed {
+            text-decoration: line-through;
+            opacity: 0.6;
+        }
+        
+        .subtask-input {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: var(--radius-sm);
+            padding: var(--space-sm);
+            color: white;
+            font-size: var(--text-sm);
+            margin-top: var(--space-sm);
+            width: 100%;
+        }
+        
+        .subtask-input:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .subtask-input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
 
         /* Emergency Button */
         .emergency-btn {
@@ -2262,20 +2378,44 @@
                     return;
                 }
                 
-                container.innerHTML = this.tasks.map(task => `
-                    <div class="task-item">
-                        <div class="task-checkbox ${task.completed ? 'completed' : ''}" data-task-id="${task.id}"></div>
-                        <div class="task-text ${task.completed ? 'completed' : ''}">${task.text}</div>
-                    </div>
-                `).join('');
+                container.innerHTML = this.tasks.map(task => {
+                    const subtasksExpanded = task.subtasksExpanded ? 'expanded' : '';
+                    const subtasksHtml = (task.subtasks || []).map(subtask => `
+                        <div class="subtask-item">
+                            <div class="subtask-checkbox ${subtask.completed ? 'completed' : ''}" 
+                                 data-task-id="${task.id}" data-subtask-id="${subtask.id}"></div>
+                            <div class="subtask-text ${subtask.completed ? 'completed' : ''}">${subtask.text}</div>
+                        </div>
+                    `).join('');
+            
+                    return `
+                        <div class="task-item">
+                            <div class="task-checkbox ${task.completed ? 'completed' : ''}" data-task-id="${task.id}"></div>
+                            <div class="task-content">
+                                <div class="task-header">
+                                    <div class="task-text ${task.completed ? 'completed' : ''}">${task.text}</div>
+                                    <div class="task-actions">
+                                        ${(task.subtasks && task.subtasks.length > 0) ? 
+                                            `<button class="task-expand-btn" data-task-id="${task.id}">
+                                                ${task.subtasksExpanded ? '▼' : '▶'}
+                                            </button>` : ''
+                                        }
+                                        <button class="add-subtask-btn" data-task-id="${task.id}">+</button>
+                                    </div>
+                                </div>
+                                <div class="subtasks ${subtasksExpanded}" data-task-id="${task.id}">
+                                    ${subtasksHtml}
+                                    <input type="text" class="subtask-input" data-task-id="${task.id}" 
+                                           placeholder="Add subtask..." style="display: none;">
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
                 
-                // Add click listeners to checkboxes
-                container.querySelectorAll('.task-checkbox').forEach(checkbox => {
-                    checkbox.addEventListener('click', () => {
-                        this.toggleTask(parseInt(checkbox.dataset.taskId));
-                    });
-                });
+                this.addTaskEventListeners();
             }
+            
 
             addTask() {
                 const input = document.getElementById('taskInput');
@@ -2287,7 +2427,9 @@
                     id: this.nextTaskId++,
                     text: text,
                     completed: false,
-                    createdAt: new Date().toISOString()
+                    createdAt: new Date().toISOString(),
+                    subtasks: [],              
+                    subtasksExpanded: false    
                 };
                 
                 this.tasks.push(task);
@@ -2306,6 +2448,129 @@
                     localStorage.setItem('tasks', JSON.stringify(this.tasks));
                     this.loadTasks();
                     this.announce(task.completed ? 'Task completed' : 'Task uncompleted');
+                }
+            }
+            addTaskEventListeners() {
+                // Main task checkboxes
+                document.querySelectorAll('.task-checkbox').forEach(checkbox => {
+                    checkbox.addEventListener('click', () => {
+                        const taskId = parseInt(checkbox.dataset.taskId);
+                        if (!checkbox.dataset.subtaskId) {
+                            this.toggleTask(taskId);
+                        }
+                    });
+                });
+            
+                // Subtask checkboxes
+                document.querySelectorAll('.subtask-checkbox').forEach(checkbox => {
+                    checkbox.addEventListener('click', () => {
+                        const taskId = parseInt(checkbox.dataset.taskId);
+                        const subtaskId = parseInt(checkbox.dataset.subtaskId);
+                        this.toggleSubtask(taskId, subtaskId);
+                    });
+                });
+            
+                // Expand/collapse buttons
+                document.querySelectorAll('.task-expand-btn').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const taskId = parseInt(btn.dataset.taskId);
+                        this.toggleTaskExpansion(taskId);
+                    });
+                });
+            
+                // Add subtask buttons
+                document.querySelectorAll('.add-subtask-btn').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const taskId = parseInt(btn.dataset.taskId);
+                        this.showSubtaskInput(taskId);
+                    });
+                });
+            
+                // Subtask inputs
+                document.querySelectorAll('.subtask-input').forEach(input => {
+                    input.addEventListener('keypress', (e) => {
+                        if (e.key === 'Enter') {
+                            const taskId = parseInt(input.dataset.taskId);
+                            const text = input.value.trim();
+                            if (text) {
+                                this.addSubtask(taskId, text);
+                                input.value = '';
+                                input.style.display = 'none';
+                            }
+                        } else if (e.key === 'Escape') {
+                            input.style.display = 'none';
+                            input.value = '';
+                        }
+                    });
+            
+                    input.addEventListener('blur', () => {
+                        setTimeout(() => {
+                            input.style.display = 'none';
+                            input.value = '';
+                        }, 150);
+                    });
+                });
+            }
+            
+            toggleSubtask(taskId, subtaskId) {
+                const task = this.tasks.find(t => t.id === taskId);
+                if (task && task.subtasks) {
+                    const subtask = task.subtasks.find(s => s.id === subtaskId);
+                    if (subtask) {
+                        subtask.completed = !subtask.completed;
+                        
+                        // Check if all subtasks are completed to mark main task as completed
+                        const allSubtasksCompleted = task.subtasks.every(s => s.completed);
+                        if (allSubtasksCompleted && task.subtasks.length > 0) {
+                            task.completed = true;
+                        } else if (task.completed && !subtask.completed) {
+                            task.completed = false;
+                        }
+                        
+                        localStorage.setItem('tasks', JSON.stringify(this.tasks));
+                        this.loadTasks();
+                        this.announce(subtask.completed ? 'Subtask completed' : 'Subtask uncompleted');
+                    }
+                }
+            }
+            
+            toggleTaskExpansion(taskId) {
+                const task = this.tasks.find(t => t.id === taskId);
+                if (task) {
+                    task.subtasksExpanded = !task.subtasksExpanded;
+                    localStorage.setItem('tasks', JSON.stringify(this.tasks));
+                    this.loadTasks();
+                }
+            }
+            
+            showSubtaskInput(taskId) {
+                const input = document.querySelector(`.subtask-input[data-task-id="${taskId}"]`);
+                if (input) {
+                    input.style.display = 'block';
+                    input.focus();
+                }
+            }
+            
+            addSubtask(taskId, text) {
+                const task = this.tasks.find(t => t.id === taskId);
+                if (task) {
+                    if (!task.subtasks) {
+                        task.subtasks = [];
+                    }
+                    
+                    const subtask = {
+                        id: Date.now(),
+                        text: text,
+                        completed: false,
+                        createdAt: new Date().toISOString()
+                    };
+                    
+                    task.subtasks.push(subtask);
+                    task.subtasksExpanded = true;
+                    
+                    localStorage.setItem('tasks', JSON.stringify(this.tasks));
+                    this.loadTasks();
+                    this.announce('Subtask added');
                 }
             }
 
