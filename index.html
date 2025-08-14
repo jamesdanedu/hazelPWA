@@ -2526,12 +2526,32 @@
             }
             
             showSubtaskInput(taskId) {
-                console.log('Showing subtask input for task:', taskId); // Debug line
+                console.log('Showing subtask input for task:', taskId);
                 const input = document.querySelector(`.subtask-input[data-task-id="${taskId}"]`);
-                console.log('Found input:', input); // Debug line
+                console.log('Found input:', input);
                 if (input) {
+                    // More aggressive styling
                     input.style.display = 'block';
-                    input.focus();
+                    input.style.visibility = 'visible';
+                    input.style.opacity = '1';
+                    input.style.height = 'auto';
+                    input.style.minHeight = '32px';
+                    input.style.background = 'rgba(255, 255, 255, 0.2)';
+                    input.style.border = '1px solid rgba(194, 171, 249, 0.8)';
+                    input.style.borderRadius = '4px';
+                    input.style.padding = '8px';
+                    input.style.color = 'white';
+                    input.style.fontSize = '14px';
+                    input.style.marginTop = '8px';
+                    input.style.width = '100%';
+                    input.style.position = 'relative';
+                    input.style.zIndex = '10';
+                    
+                    // Force focus and scroll into view
+                    setTimeout(() => {
+                        input.focus();
+                        input.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    }, 100);
                 }
             }
             
