@@ -1693,6 +1693,30 @@
                 this.isEditingEntry = false;
                 this.editingEntryId = null;
 
+                // In your constructor, add this property:
+                this.foodMenus = {
+                    breakfast: [
+                        { name: "Chocolate Chip Pancakes", description: "Fluffy, golden pancakes studded with melty chocolate chips.", calories: "450 cal" },
+                        { name: "Avocado Toast Supreme", description: "Multigrain bread topped with smashed avocado, cherry tomatoes, feta cheese.", calories: "380 cal" },
+                        { name: "Berry Protein Smoothie Bowl", description: "Thick smoothie bowl topped with fresh berries and granola.", calories: "320 cal" }
+                    ],
+                    lunch: [
+                        { name: "Grilled Chicken Caesar Salad", description: "Crisp romaine lettuce, grilled chicken breast, parmesan cheese.", calories: "420 cal" },
+                        { name: "Mediterranean Quinoa Bowl", description: "Fluffy quinoa with cucumber, tomatoes, olives, feta cheese.", calories: "380 cal" },
+                        { name: "BBQ Pulled Pork Sandwich", description: "Slow-cooked pulled pork with tangy BBQ sauce on brioche bun.", calories: "650 cal" }
+                    ],
+                    dinner: [
+                        { name: "Herb-Crusted Salmon", description: "Atlantic salmon with herb crust and roasted vegetables.", calories: "580 cal" },
+                        { name: "Ribeye Steak & Potatoes", description: "Perfectly grilled ribeye with garlic mashed potatoes.", calories: "750 cal" },
+                        { name: "Thai Green Curry", description: "Coconut curry with vegetables served with jasmine rice.", calories: "480 cal" }
+                    ],
+                    snacks: [
+                        { name: "Loaded Nachos", description: "Crispy tortilla chips with melted cheese and guacamole.", calories: "540 cal" },
+                        { name: "Buffalo Chicken Wings", description: "Crispy wings in spicy buffalo sauce with ranch.", calories: "380 cal" },
+                        { name: "Chocolate Brownie Sundae", description: "Warm brownie with vanilla ice cream and chocolate sauce.", calories: "620 cal" }
+                    ]
+                };
+
                 this.init();
             }
 
@@ -1835,6 +1859,13 @@
                     this.hideModal();
                 });
 
+                document.querySelectorAll('.menu-category').forEach(category => {
+                    category.addEventListener('click', (e) => {
+                        this.showFoodItems(category.dataset.category);
+                        this.addHapticFeedback();
+                    });
+                });
+
                 // Hotlines
                 document.querySelectorAll('.hotline-call').forEach(btn => {
                     btn.addEventListener('click', (e) => {
@@ -1938,6 +1969,48 @@
                     this.announce(`Navigated to ${page} page`);
                 }, 100);
             }
+
+            showFoodItems(category) {
+                    // Hide the categories grid
+                    document.querySelector('.menu-categories').style.display = 'none';
+                    
+                    // Create and show food items
+                    const menusPage = document.getElementById('menus');
+                    let foodItemsContainer = document.getElementById('foodItemsContainer');
+                    
+                    if (!foodItemsContainer) {
+                        foodItemsContainer = document.createElement('div');
+                        foodItemsContainer.id = 'foodItemsContainer';
+                        menusPage.appendChild(foodItemsContainer);
+                    }
+                    
+                    const items = this.foodMenus[category] || [];
+                    foodItemsContainer.innerHTML = `
+                        <button onclick="window.hazelApp.showMenuCategories()" style="background: var(--secondary-color); color: white; border: none; padding: var(--space-sm) var(--space-lg); border-radius: var(--radius-full); font-size: var(--text-sm); font-weight: 600; cursor: pointer; margin-bottom: var(--space-lg);">← Back to Categories</button>
+                        <div style="display: flex; flex-direction: column; gap: var(--space-md);">
+                            ${items.map(item => `
+                                <div style="background: var(--surface-color); border-radius: var(--radius-lg); padding: var(--space-lg); box-shadow: var(--shadow-md);">
+                                    <div style="font-size: var(--text-lg); font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-sm);">${item.name}</div>
+                                    <div style="font-size: var(--text-sm); color: var(--text-secondary); line-height: 1.5; margin-bottom: var(--space-sm);">${item.description}</div>
+                                    <div style="font-size: var(--text-xs); color: var(--primary-color); font-weight: 600;">${item.calories}</div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    `;
+                    
+                    foodItemsContainer.style.display = 'block';
+                }
+                
+                showMenuCategories() {
+                    // Show the categories grid
+                    document.querySelector('.menu-categories').style.display = 'grid';
+                    
+                    // Hide food items
+                    const foodItemsContainer = document.getElementById('foodItemsContainer');
+                    if (foodItemsContainer) {
+                        foodItemsContainer.style.display = 'none';
+                    }
+                }
 
             handleMoodSelect(mood) {
                 this.selectedMood = mood;
