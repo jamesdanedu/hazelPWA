@@ -2380,7 +2380,14 @@
                 }
                 
                 const items = this.foodMenus[category] || [];
-                const categoryTitle = category.charAt(0).toUpperCase() + category.slice(0, -1); // Remove 's' and capitalize
+                // Create proper category titles
+                const categoryTitles = {
+                    'breakfasts': 'Breakfast',
+                    'lunches': 'Lunch', 
+                    'dinners': 'Dinner',
+                    'snacks': 'Snack'
+                };
+                const categoryTitle = categoryTitles[category] || category;
                 
                 foodItemsContainer.innerHTML = `
                     <div style="display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg);">
