@@ -1727,27 +1727,399 @@
                 this.isEditingEntry = false;
                 this.editingEntryId = null;
 
-                // Food menus data
+                // Complete food menus data with full recipes
                 this.foodMenus = {
-                    breakfast: [
-                        { name: "Chocolate Chip Pancakes", description: "Fluffy, golden pancakes studded with melty chocolate chips.", calories: "450 cal" },
-                        { name: "Avocado Toast Supreme", description: "Multigrain bread topped with smashed avocado, cherry tomatoes, feta cheese.", calories: "380 cal" },
-                        { name: "Berry Protein Smoothie Bowl", description: "Thick smoothie bowl topped with fresh berries and granola.", calories: "320 cal" }
+                    breakfasts: [
+                        { 
+                            id: 1,
+                            name: "Chocolate Chip Pancakes", 
+                            description: "Fluffy, golden pancakes studded with melty chocolate chips.", 
+                            calories: "450 cal",
+                            prepTime: "15 mins",
+                            cookTime: "10 mins",
+                            servings: "4",
+                            difficulty: "Easy",
+                            ingredients: [
+                                "2 cups all-purpose flour",
+                                "2 tbsp sugar",
+                                "2 tsp baking powder",
+                                "1 tsp salt",
+                                "2 large eggs",
+                                "1¾ cups milk",
+                                "¼ cup melted butter",
+                                "1 cup chocolate chips",
+                                "Butter or oil for cooking"
+                            ],
+                            instructions: [
+                                "In a large bowl, whisk together flour, sugar, baking powder, and salt.",
+                                "In another bowl, beat eggs, then stir in milk and melted butter.",
+                                "Pour wet ingredients into dry ingredients and mix until just combined (don't overmix).",
+                                "Fold in chocolate chips gently.",
+                                "Heat a griddle or large skillet over medium heat and lightly grease.",
+                                "Pour ¼ cup batter for each pancake onto the griddle.",
+                                "Cook until bubbles form on surface and edges look set, about 2-3 minutes.",
+                                "Flip and cook until golden brown on other side, 1-2 minutes more.",
+                                "Serve immediately with syrup and extra chocolate chips if desired."
+                            ]
+                        },
+                        { 
+                            id: 2,
+                            name: "Avocado Toast Supreme", 
+                            description: "Multigrain bread topped with smashed avocado, cherry tomatoes, feta cheese.", 
+                            calories: "380 cal",
+                            prepTime: "10 mins",
+                            cookTime: "5 mins",
+                            servings: "2",
+                            difficulty: "Easy",
+                            ingredients: [
+                                "4 slices multigrain bread",
+                                "2 ripe avocados",
+                                "1 cup cherry tomatoes, halved",
+                                "½ cup crumbled feta cheese",
+                                "2 tbsp olive oil",
+                                "1 tbsp lemon juice",
+                                "Salt and pepper to taste",
+                                "Red pepper flakes (optional)",
+                                "Fresh basil leaves for garnish"
+                            ],
+                            instructions: [
+                                "Toast the multigrain bread slices until golden brown.",
+                                "Cut avocados in half, remove pits, and scoop flesh into a bowl.",
+                                "Mash avocados with lemon juice, salt, and pepper until desired consistency.",
+                                "Spread mashed avocado evenly on toast slices.",
+                                "Top with halved cherry tomatoes and crumbled feta cheese.",
+                                "Drizzle with olive oil and sprinkle with red pepper flakes if using.",
+                                "Garnish with fresh basil leaves and serve immediately."
+                            ]
+                        },
+                        { 
+                            id: 3,
+                            name: "Berry Protein Smoothie Bowl", 
+                            description: "Thick smoothie bowl topped with fresh berries and granola.", 
+                            calories: "320 cal",
+                            prepTime: "10 mins",
+                            cookTime: "0 mins",
+                            servings: "1",
+                            difficulty: "Easy",
+                            ingredients: [
+                                "1 frozen banana",
+                                "½ cup frozen mixed berries",
+                                "1 scoop vanilla protein powder",
+                                "½ cup Greek yogurt",
+                                "¼ cup almond milk",
+                                "1 tbsp honey",
+                                "¼ cup granola",
+                                "Fresh berries for topping",
+                                "Chia seeds",
+                                "Coconut flakes"
+                            ],
+                            instructions: [
+                                "Add frozen banana, frozen berries, protein powder, Greek yogurt, almond milk, and honey to a blender.",
+                                "Blend until thick and creamy (consistency should be thicker than a regular smoothie).",
+                                "Pour into a bowl.",
+                                "Top with granola, fresh berries, chia seeds, and coconut flakes.",
+                                "Serve immediately with a spoon."
+                            ]
+                        }
                     ],
-                    lunch: [
-                        { name: "Grilled Chicken Caesar Salad", description: "Crisp romaine lettuce, grilled chicken breast, parmesan cheese.", calories: "420 cal" },
-                        { name: "Mediterranean Quinoa Bowl", description: "Fluffy quinoa with cucumber, tomatoes, olives, feta cheese.", calories: "380 cal" },
-                        { name: "BBQ Pulled Pork Sandwich", description: "Slow-cooked pulled pork with tangy BBQ sauce on brioche bun.", calories: "650 cal" }
+                    lunches: [
+                        { 
+                            id: 4,
+                            name: "Grilled Chicken Caesar Salad", 
+                            description: "Crisp romaine lettuce, grilled chicken breast, parmesan cheese.", 
+                            calories: "420 cal",
+                            prepTime: "15 mins",
+                            cookTime: "15 mins",
+                            servings: "2",
+                            difficulty: "Medium",
+                            ingredients: [
+                                "2 chicken breasts",
+                                "1 large head romaine lettuce, chopped",
+                                "½ cup grated Parmesan cheese",
+                                "1 cup croutons",
+                                "¼ cup Caesar dressing",
+                                "2 tbsp olive oil",
+                                "1 tsp garlic powder",
+                                "Salt and pepper",
+                                "Lemon wedges for serving"
+                            ],
+                            instructions: [
+                                "Season chicken breasts with olive oil, garlic powder, salt, and pepper.",
+                                "Heat a grill pan or outdoor grill to medium-high heat.",
+                                "Grill chicken for 6-7 minutes per side until internal temperature reaches 165°F.",
+                                "Let chicken rest for 5 minutes, then slice into strips.",
+                                "In a large bowl, toss romaine lettuce with Caesar dressing.",
+                                "Divide salad between plates and top with sliced chicken.",
+                                "Sprinkle with Parmesan cheese and croutons.",
+                                "Serve with lemon wedges."
+                            ]
+                        },
+                        { 
+                            id: 5,
+                            name: "Mediterranean Quinoa Bowl", 
+                            description: "Fluffy quinoa with cucumber, tomatoes, olives, feta cheese.", 
+                            calories: "380 cal",
+                            prepTime: "15 mins",
+                            cookTime: "15 mins",
+                            servings: "2",
+                            difficulty: "Easy",
+                            ingredients: [
+                                "1 cup quinoa",
+                                "2 cups vegetable broth",
+                                "1 cucumber, diced",
+                                "2 tomatoes, diced",
+                                "½ cup Kalamata olives, pitted",
+                                "½ cup crumbled feta cheese",
+                                "¼ red onion, thinly sliced",
+                                "¼ cup olive oil",
+                                "2 tbsp lemon juice",
+                                "1 tsp dried oregano",
+                                "Fresh parsley, chopped"
+                            ],
+                            instructions: [
+                                "Rinse quinoa under cold water until water runs clear.",
+                                "In a saucepan, bring vegetable broth to a boil, add quinoa.",
+                                "Reduce heat, cover, and simmer for 15 minutes until liquid is absorbed.",
+                                "Fluff quinoa with a fork and let cool slightly.",
+                                "In a large bowl, combine quinoa, cucumber, tomatoes, olives, and red onion.",
+                                "Whisk together olive oil, lemon juice, and oregano for dressing.",
+                                "Pour dressing over quinoa mixture and toss to combine.",
+                                "Top with crumbled feta and fresh parsley before serving."
+                            ]
+                        },
+                        { 
+                            id: 6,
+                            name: "BBQ Pulled Pork Sandwich", 
+                            description: "Slow-cooked pulled pork with tangy BBQ sauce on brioche bun.", 
+                            calories: "650 cal",
+                            prepTime: "20 mins",
+                            cookTime: "6 hours",
+                            servings: "6",
+                            difficulty: "Medium",
+                            ingredients: [
+                                "3 lbs pork shoulder",
+                                "2 tbsp brown sugar",
+                                "2 tbsp paprika",
+                                "1 tbsp garlic powder",
+                                "1 tbsp onion powder",
+                                "2 tsp salt",
+                                "1 tsp black pepper",
+                                "1 tsp cayenne pepper",
+                                "1 cup BBQ sauce",
+                                "6 brioche buns",
+                                "Coleslaw for serving"
+                            ],
+                            instructions: [
+                                "Mix brown sugar, paprika, garlic powder, onion powder, salt, pepper, and cayenne in a bowl.",
+                                "Rub spice mixture all over pork shoulder.",
+                                "Place pork in slow cooker and cook on low for 6-8 hours until tender.",
+                                "Remove pork and shred with two forks.",
+                                "Mix shredded pork with BBQ sauce.",
+                                "Toast brioche buns lightly.",
+                                "Fill buns with pulled pork and top with coleslaw if desired."
+                            ]
+                        }
                     ],
-                    dinner: [
-                        { name: "Herb-Crusted Salmon", description: "Atlantic salmon with herb crust and roasted vegetables.", calories: "580 cal" },
-                        { name: "Ribeye Steak & Potatoes", description: "Perfectly grilled ribeye with garlic mashed potatoes.", calories: "750 cal" },
-                        { name: "Thai Green Curry", description: "Coconut curry with vegetables served with jasmine rice.", calories: "480 cal" }
+                    dinners: [
+                        { 
+                            id: 7,
+                            name: "Herb-Crusted Salmon", 
+                            description: "Atlantic salmon with herb crust and roasted vegetables.", 
+                            calories: "580 cal",
+                            prepTime: "15 mins",
+                            cookTime: "25 mins",
+                            servings: "4",
+                            difficulty: "Medium",
+                            ingredients: [
+                                "4 salmon fillets (6 oz each)",
+                                "2 tbsp olive oil",
+                                "1 cup panko breadcrumbs",
+                                "¼ cup fresh parsley, chopped",
+                                "2 tbsp fresh dill, chopped",
+                                "2 cloves garlic, minced",
+                                "Zest of 1 lemon",
+                                "2 cups broccoli florets",
+                                "1 bell pepper, sliced",
+                                "1 zucchini, sliced",
+                                "Salt and pepper to taste"
+                            ],
+                            instructions: [
+                                "Preheat oven to 400°F (200°C).",
+                                "Mix breadcrumbs, parsley, dill, garlic, and lemon zest in a bowl.",
+                                "Season salmon fillets with salt and pepper.",
+                                "Brush salmon with 1 tbsp olive oil, then press herb mixture on top.",
+                                "Toss vegetables with remaining olive oil, salt, and pepper.",
+                                "Place salmon and vegetables on a baking sheet.",
+                                "Bake for 20-25 minutes until salmon flakes easily and vegetables are tender.",
+                                "Serve immediately with lemon wedges."
+                            ]
+                        },
+                        { 
+                            id: 8,
+                            name: "Ribeye Steak & Potatoes", 
+                            description: "Perfectly grilled ribeye with garlic mashed potatoes.", 
+                            calories: "750 cal",
+                            prepTime: "15 mins",
+                            cookTime: "30 mins",
+                            servings: "2",
+                            difficulty: "Medium",
+                            ingredients: [
+                                "2 ribeye steaks (8 oz each)",
+                                "2 lbs Yukon Gold potatoes",
+                                "4 tbsp butter",
+                                "¼ cup heavy cream",
+                                "3 cloves garlic, minced",
+                                "2 tbsp olive oil",
+                                "Salt and pepper",
+                                "Fresh thyme sprigs",
+                                "Asparagus spears for serving"
+                            ],
+                            instructions: [
+                                "Peel and cube potatoes, boil in salted water until tender, about 15 minutes.",
+                                "Let steaks come to room temperature and season generously with salt and pepper.",
+                                "Heat olive oil in a cast-iron skillet over high heat.",
+                                "Sear steaks 3-4 minutes per side for medium-rare, adding thyme in last minute.",
+                                "Let steaks rest for 5 minutes.",
+                                "Drain potatoes and mash with butter, cream, minced garlic, salt, and pepper.",
+                                "Grill asparagus for 3-4 minutes until tender-crisp.",
+                                "Serve steaks with mashed potatoes and asparagus."
+                            ]
+                        },
+                        { 
+                            id: 9,
+                            name: "Thai Green Curry", 
+                            description: "Coconut curry with vegetables served with jasmine rice.", 
+                            calories: "480 cal",
+                            prepTime: "20 mins",
+                            cookTime: "25 mins",
+                            servings: "4",
+                            difficulty: "Medium",
+                            ingredients: [
+                                "2 tbsp green curry paste",
+                                "1 can coconut milk (400ml)",
+                                "1 lb chicken breast, sliced",
+                                "1 eggplant, cubed",
+                                "1 bell pepper, sliced",
+                                "1 cup green beans, trimmed",
+                                "2 tbsp fish sauce",
+                                "1 tbsp brown sugar",
+                                "Thai basil leaves",
+                                "Jasmine rice for serving",
+                                "Lime wedges"
+                            ],
+                            instructions: [
+                                "Cook jasmine rice according to package directions.",
+                                "Heat 2 tbsp of thick coconut cream in a wok over medium heat.",
+                                "Add green curry paste and fry for 2 minutes until fragrant.",
+                                "Add chicken and cook until no longer pink, about 5 minutes.",
+                                "Pour in remaining coconut milk and bring to a simmer.",
+                                "Add eggplant and simmer for 10 minutes.",
+                                "Add bell pepper and green beans, cook for 5 minutes more.",
+                                "Season with fish sauce and brown sugar.",
+                                "Stir in Thai basil leaves just before serving.",
+                                "Serve over jasmine rice with lime wedges."
+                            ]
+                        }
                     ],
                     snacks: [
-                        { name: "Loaded Nachos", description: "Crispy tortilla chips with melted cheese and guacamole.", calories: "540 cal" },
-                        { name: "Buffalo Chicken Wings", description: "Crispy wings in spicy buffalo sauce with ranch.", calories: "380 cal" },
-                        { name: "Chocolate Brownie Sundae", description: "Warm brownie with vanilla ice cream and chocolate sauce.", calories: "620 cal" }
+                        { 
+                            id: 10,
+                            name: "Loaded Nachos", 
+                            description: "Crispy tortilla chips with melted cheese and guacamole.", 
+                            calories: "540 cal",
+                            prepTime: "15 mins",
+                            cookTime: "10 mins",
+                            servings: "4",
+                            difficulty: "Easy",
+                            ingredients: [
+                                "1 bag tortilla chips",
+                                "2 cups shredded Mexican cheese blend",
+                                "1 can black beans, drained",
+                                "1 jalapeño, sliced",
+                                "2 avocados",
+                                "1 lime, juiced",
+                                "¼ cup sour cream",
+                                "2 tomatoes, diced",
+                                "¼ cup cilantro, chopped",
+                                "Salt to taste"
+                            ],
+                            instructions: [
+                                "Preheat oven to 375°F (190°C).",
+                                "Spread tortilla chips on a large baking sheet.",
+                                "Sprinkle cheese evenly over chips, then add black beans and jalapeño slices.",
+                                "Bake for 8-10 minutes until cheese is melted and bubbly.",
+                                "Meanwhile, mash avocados with lime juice and salt to make guacamole.",
+                                "Remove nachos from oven and top with dollops of sour cream and guacamole.",
+                                "Sprinkle with diced tomatoes and cilantro.",
+                                "Serve immediately while hot and cheese is still melted."
+                            ]
+                        },
+                        { 
+                            id: 11,
+                            name: "Buffalo Chicken Wings", 
+                            description: "Crispy wings in spicy buffalo sauce with ranch.", 
+                            calories: "380 cal",
+                            prepTime: "10 mins",
+                            cookTime: "45 mins",
+                            servings: "4",
+                            difficulty: "Medium",
+                            ingredients: [
+                                "2 lbs chicken wings",
+                                "½ cup hot sauce",
+                                "4 tbsp butter",
+                                "1 tbsp white vinegar",
+                                "¼ tsp garlic powder",
+                                "⅛ tsp cayenne pepper",
+                                "Salt and pepper",
+                                "Ranch dressing for serving",
+                                "Celery sticks for serving"
+                            ],
+                            instructions: [
+                                "Preheat oven to 425°F (220°C).",
+                                "Pat chicken wings dry and season with salt and pepper.",
+                                "Place wings on a baking rack set over a baking sheet.",
+                                "Bake for 45-50 minutes, flipping halfway through, until crispy.",
+                                "Meanwhile, melt butter in a small saucepan.",
+                                "Whisk in hot sauce, vinegar, garlic powder, and cayenne.",
+                                "Toss cooked wings in buffalo sauce until well coated.",
+                                "Serve immediately with ranch dressing and celery sticks."
+                            ]
+                        },
+                        { 
+                            id: 12,
+                            name: "Chocolate Brownie Sundae", 
+                            description: "Warm brownie with vanilla ice cream and chocolate sauce.", 
+                            calories: "620 cal",
+                            prepTime: "15 mins",
+                            cookTime: "35 mins",
+                            servings: "8",
+                            difficulty: "Easy",
+                            ingredients: [
+                                "½ cup butter",
+                                "2 oz dark chocolate, chopped",
+                                "1 cup sugar",
+                                "2 large eggs",
+                                "1 tsp vanilla extract",
+                                "⅓ cup all-purpose flour",
+                                "¼ cup cocoa powder",
+                                "¼ tsp salt",
+                                "Vanilla ice cream",
+                                "Chocolate sauce",
+                                "Chopped nuts (optional)"
+                            ],
+                            instructions: [
+                                "Preheat oven to 350°F (175°C). Line an 8x8 inch pan with parchment paper.",
+                                "Melt butter and chocolate in a double boiler until smooth.",
+                                "Remove from heat and whisk in sugar until combined.",
+                                "Beat in eggs one at a time, then vanilla extract.",
+                                "Sift together flour, cocoa powder, and salt.",
+                                "Fold dry ingredients into chocolate mixture until just combined.",
+                                "Pour batter into prepared pan and smooth top.",
+                                "Bake for 30-35 minutes until a toothpick comes out with a few moist crumbs.",
+                                "Cool completely, then cut into squares.",
+                                "Serve warm brownie squares topped with vanilla ice cream, chocolate sauce, and nuts if desired."
+                            ]
+                        }
                     ]
                 };
 
@@ -2008,31 +2380,177 @@
                 }
                 
                 const items = this.foodMenus[category] || [];
+                const categoryTitle = category.charAt(0).toUpperCase() + category.slice(0, -1); // Remove 's' and capitalize
+                
                 foodItemsContainer.innerHTML = `
-                    <button onclick="window.hazelApp.showMenuCategories()" style="background: var(--secondary-color); color: white; border: none; padding: var(--space-sm) var(--space-lg); border-radius: var(--radius-full); font-size: var(--text-sm); font-weight: 600; cursor: pointer; margin-bottom: var(--space-lg);">← Back to Categories</button>
+                    <div style="display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg);">
+                        <button onclick="window.hazelApp.showMenuCategories()" style="background: var(--secondary-color); color: white; border: none; padding: var(--space-sm) var(--space-md); border-radius: var(--radius-full); font-size: var(--text-sm); font-weight: 600; cursor: pointer;">← Back</button>
+                        <h2 style="font-size: var(--text-2xl); font-weight: 700; color: white; margin: 0;">${categoryTitle} Recipes</h2>
+                    </div>
                     <div style="display: flex; flex-direction: column; gap: var(--space-md);">
                         ${items.map(item => `
-                            <div style="background: var(--surface-color); border-radius: var(--radius-lg); padding: var(--space-lg); box-shadow: var(--shadow-md);">
-                                <div style="font-size: var(--text-lg); font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-sm);">${item.name}</div>
-                                <div style="font-size: var(--text-sm); color: var(--text-secondary); line-height: 1.5; margin-bottom: var(--space-sm);">${item.description}</div>
-                                <div style="font-size: var(--text-xs); color: var(--primary-color); font-weight: 600;">${item.calories}</div>
+                            <div class="recipe-card" data-recipe-id="${item.id}" style="background: var(--surface-color); border-radius: var(--radius-lg); padding: var(--space-lg); box-shadow: var(--shadow-md); cursor: pointer; transition: all 0.2s ease;">
+                                <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: var(--space-sm);">
+                                    <div style="font-size: var(--text-lg); font-weight: 600; color: var(--text-primary);">${item.name}</div>
+                                    <div style="background: var(--primary-color); color: white; padding: var(--space-xs) var(--space-sm); border-radius: var(--radius-full); font-size: var(--text-xs); font-weight: 600;">${item.difficulty}</div>
+                                </div>
+                                <div style="font-size: var(--text-sm); color: var(--text-secondary); line-height: 1.5; margin-bottom: var(--space-md);">${item.description}</div>
+                                <div style="display: flex; justify-content: space-between; align-items: center; font-size: var(--text-xs); color: var(--text-secondary);">
+                                    <span>🔥 ${item.calories}</span>
+                                    <span>⏱️ ${item.prepTime}</span>
+                                    <span>👥 ${item.servings} servings</span>
+                                </div>
                             </div>
                         `).join('')}
                     </div>
                 `;
                 
+                // Add click listeners to recipe cards
+                foodItemsContainer.querySelectorAll('.recipe-card').forEach(card => {
+                    card.addEventListener('click', () => {
+                        const recipeId = parseInt(card.dataset.recipeId);
+                        this.showRecipeDetail(recipeId);
+                    });
+                    
+                    // Add hover effect
+                    card.addEventListener('mouseenter', () => {
+                        card.style.transform = 'translateY(-2px)';
+                        card.style.boxShadow = 'var(--shadow-lg)';
+                    });
+                    
+                    card.addEventListener('mouseleave', () => {
+                        card.style.transform = 'translateY(0)';
+                        card.style.boxShadow = 'var(--shadow-md)';
+                    });
+                });
+                
                 foodItemsContainer.style.display = 'block';
+            }
+
+            showRecipeDetail(recipeId) {
+                // Find the recipe across all categories
+                let recipe = null;
+                let category = null;
+                
+                for (const [cat, recipes] of Object.entries(this.foodMenus)) {
+                    const found = recipes.find(r => r.id === recipeId);
+                    if (found) {
+                        recipe = found;
+                        category = cat;
+                        break;
+                    }
+                }
+                
+                if (!recipe) return;
+                
+                // Hide food items container
+                const foodItemsContainer = document.getElementById('foodItemsContainer');
+                if (foodItemsContainer) {
+                    foodItemsContainer.style.display = 'none';
+                }
+                
+                // Create and show recipe detail
+                const menusPage = document.getElementById('menus');
+                let recipeDetailContainer = document.getElementById('recipeDetailContainer');
+                
+                if (!recipeDetailContainer) {
+                    recipeDetailContainer = document.createElement('div');
+                    recipeDetailContainer.id = 'recipeDetailContainer';
+                    menusPage.appendChild(recipeDetailContainer);
+                }
+                
+                recipeDetailContainer.innerHTML = `
+                    <div style="display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg);">
+                        <button onclick="window.hazelApp.showFoodItems('${category}')" style="background: var(--secondary-color); color: white; border: none; padding: var(--space-sm) var(--space-md); border-radius: var(--radius-full); font-size: var(--text-sm); font-weight: 600; cursor: pointer;">← Back</button>
+                        <h1 style="font-size: var(--text-xl); font-weight: 700; color: white; margin: 0;">${recipe.name}</h1>
+                    </div>
+                    
+                    <div style="background: var(--surface-color); border-radius: var(--radius-lg); padding: var(--space-xl); box-shadow: var(--shadow-lg); margin-bottom: var(--space-lg);">
+                        <!-- Recipe Header -->
+                        <div style="text-align: center; margin-bottom: var(--space-xl);">
+                            <h2 style="font-size: var(--text-2xl); font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-sm);">${recipe.name}</h2>
+                            <p style="font-size: var(--text-base); color: var(--text-secondary); line-height: 1.6; margin-bottom: var(--space-lg);">${recipe.description}</p>
+                        </div>
+                        
+                        <!-- Recipe Stats -->
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: var(--space-md); margin-bottom: var(--space-xl); text-align: center;">
+                            <div style="padding: var(--space-md); background: rgba(162, 174, 131, 0.1); border-radius: var(--radius-md);">
+                                <div style="font-size: var(--text-xs); color: var(--text-secondary); margin-bottom: var(--space-xs);">PREP TIME</div>
+                                <div style="font-size: var(--text-sm); font-weight: 600; color: var(--text-primary);">${recipe.prepTime}</div>
+                            </div>
+                            <div style="padding: var(--space-md); background: rgba(162, 174, 131, 0.1); border-radius: var(--radius-md);">
+                                <div style="font-size: var(--text-xs); color: var(--text-secondary); margin-bottom: var(--space-xs);">COOK TIME</div>
+                                <div style="font-size: var(--text-sm); font-weight: 600; color: var(--text-primary);">${recipe.cookTime}</div>
+                            </div>
+                            <div style="padding: var(--space-md); background: rgba(162, 174, 131, 0.1); border-radius: var(--radius-md);">
+                                <div style="font-size: var(--text-xs); color: var(--text-secondary); margin-bottom: var(--space-xs);">SERVINGS</div>
+                                <div style="font-size: var(--text-sm); font-weight: 600; color: var(--text-primary);">${recipe.servings}</div>
+                            </div>
+                            <div style="padding: var(--space-md); background: rgba(162, 174, 131, 0.1); border-radius: var(--radius-md);">
+                                <div style="font-size: var(--text-xs); color: var(--text-secondary); margin-bottom: var(--space-xs);">CALORIES</div>
+                                <div style="font-size: var(--text-sm); font-weight: 600; color: var(--text-primary);">${recipe.calories}</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Ingredients Section -->
+                        <div style="margin-bottom: var(--space-xl);">
+                            <h3 style="font-size: var(--text-lg); font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-md); padding-bottom: var(--space-sm); border-bottom: 2px solid var(--primary-color);">Ingredients</h3>
+                            <ul style="list-style: none; padding: 0; margin: 0;">
+                                ${recipe.ingredients.map(ingredient => `
+                                    <li style="padding: var(--space-sm) 0; border-bottom: 1px solid rgba(0,0,0,0.1); display: flex; align-items: center; gap: var(--space-sm);">
+                                        <div style="width: 8px; height: 8px; background: var(--primary-color); border-radius: 50%; flex-shrink: 0;"></div>
+                                        <span style="font-size: var(--text-sm); color: var(--text-primary); line-height: 1.5;">${ingredient}</span>
+                                    </li>
+                                `).join('')}
+                            </ul>
+                        </div>
+                        
+                        <!-- Instructions Section -->
+                        <div>
+                            <h3 style="font-size: var(--text-lg); font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-md); padding-bottom: var(--space-sm); border-bottom: 2px solid var(--primary-color);">Instructions</h3>
+                            <ol style="list-style: none; padding: 0; margin: 0; counter-reset: step-counter;">
+                                ${recipe.instructions.map(instruction => `
+                                    <li style="counter-increment: step-counter; padding: var(--space-md) 0; border-bottom: 1px solid rgba(0,0,0,0.1); position: relative;">
+                                        <div style="display: flex; gap: var(--space-md); align-items: flex-start;">
+                                            <div style="width: 32px; height: 32px; background: var(--primary-color); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: var(--text-sm); flex-shrink: 0; margin-top: 2px;">
+                                                <span style="content: counter(step-counter);">${recipe.instructions.indexOf(instruction) + 1}</span>
+                                            </div>
+                                            <p style="font-size: var(--text-sm); color: var(--text-primary); line-height: 1.6; margin: 0; flex: 1;">${instruction}</p>
+                                        </div>
+                                    </li>
+                                `).join('')}
+                            </ol>
+                        </div>
+                    </div>
+                `;
+                
+                recipeDetailContainer.style.display = 'block';
+                
+                // Scroll to top of recipe
+                setTimeout(() => {
+                    document.getElementById('menus').scrollTop = 0;
+                }, 100);
             }
                 
             showMenuCategories() {
                 // Show the categories grid
                 document.querySelector('.menu-categories').style.display = 'grid';
                 
-                // Hide food items
+                // Hide food items and recipe detail containers
                 const foodItemsContainer = document.getElementById('foodItemsContainer');
                 if (foodItemsContainer) {
                     foodItemsContainer.style.display = 'none';
                 }
+                
+                const recipeDetailContainer = document.getElementById('recipeDetailContainer');
+                if (recipeDetailContainer) {
+                    recipeDetailContainer.style.display = 'none';
+                }
+                
+                // Scroll to top
+                setTimeout(() => {
+                    document.getElementById('menus').scrollTop = 0;
+                }, 100);
             }
 
             handleMoodSelect(mood) {
