@@ -680,10 +680,6 @@
             margin-bottom: var(--space-lg);
         }
 
-        #todo.active {
-            display: flex;
-            flex-direction: column;
-        }
         
         .new-entry-btn {
             background: var(--surface-color);
@@ -773,12 +769,22 @@
         }
 
         /* To-Do List Styles */
+        #todo {
+            display: none;
+        }
+        
+        #todo.active {
+            display: flex !important;
+            flex-direction: column !important;
+            height: 100% !important;
+            padding: var(--space-md);
+        }
+        
         .todo-container {
             display: flex;
             flex-direction: column;
             height: 100%;
-            gap: var(--space-lg);
-            padding: var(--space-md);
+            min-height: 0;
         }
         
         .todo-title {
@@ -787,8 +793,20 @@
             color: white;
             text-align: center;
             margin-bottom: var(--space-lg);
+            flex-shrink: 0;
         }
-
+        
+        .tasks-container {
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: var(--radius-xl);
+            padding: var(--space-lg);
+            color: white;
+            backdrop-filter: blur(10px);
+            flex: 1;
+            min-height: 200px;
+            overflow-y: auto;
+        }
+        
         .add-task-container {
             display: flex;
             gap: var(--space-md);
