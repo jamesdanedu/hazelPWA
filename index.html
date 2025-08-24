@@ -772,18 +772,17 @@
         #todo {
             display: none;
         }
-        
         #todo.active {
             display: flex !important;
             flex-direction: column !important;
-            height: 100% !important;
+            height: calc(100vh - 120px) !important; /* Account for nav bar */
             padding: var(--space-md);
         }
-        
+
         .todo-container {
             display: flex;
             flex-direction: column;
-            height: 100%;
+            flex: 1;
             min-height: 0;
         }
         
