@@ -1,1 +1,43 @@
-
+// Update your dynamic manifest generation
+window.addEventListener('load', () => {
+    const icon192 = createHazelnutIcon(192);
+    const icon512 = createHazelnutIcon(512);
+    
+    // Create updated manifest with proper URLs
+    const manifest = {
+        "name": "Hazel - Mental Health Support",
+        "short_name": "Hazel",
+        "description": "Mental health support app with journaling, resources, and crisis support",
+        "start_url": "/",  // Changed from "./" to "/"
+        "display": "standalone",
+        "orientation": "portrait",
+        "background_color": "#A2AE83",
+        "theme_color": "#A2AE83",
+        "icons": [
+            {
+                "src": icon192,
+                "type": "image/png",
+                "sizes": "192x192",
+                "purpose": "any maskable"
+            },
+            {
+                "src": icon512,
+                "type": "image/png", 
+                "sizes": "512x512",
+                "purpose": "any maskable"
+            }
+        ]
+    };
+    
+    // Replace manifest
+    const manifestBlob = new Blob([JSON.stringify(manifest)], {type: 'application/json'});
+    const manifestURL = URL.createObjectURL(manifestBlob);
+    
+    const oldManifest = document.querySelector('link[rel="manifest"]');
+    if (oldManifest) oldManifest.remove();
+    
+    const newManifest = document.createElement('link');
+    newManifest.rel = 'manifest';
+    newManifest.href = manifestURL;
+    document.head.appendChild(newManifest);
+});
