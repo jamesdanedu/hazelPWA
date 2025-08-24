@@ -122,17 +122,17 @@
         /* UPDATED WITH iOS FIX */
         .container {
             width: 100%;
-            min-height: 100vh !important;
-            height: 100vh !important;
+            height: 100vh;
+            height: 100dvh;
             position: relative;
-            display: flex !important;
-            flex-direction: column !important;
+            display: flex;
+            flex-direction: column;
             overflow: hidden;
         }
-
+    
         /* Mobile-First Navigation Bar */
         .nav-bar {
-            position: relative;
+            flex-shrink: 0; /* Prevent shrinking */
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
@@ -142,8 +142,7 @@
             box-shadow: 0 -2px 20px rgba(0,0,0,0.1);
             z-index: var(--z-fixed);
             border-top: 1px solid rgba(0,0,0,0.1);
-            flex-shrink: 0 !important;
-            margin-top: auto !important;
+            position: relative;
         }
 
         .nav-item {
@@ -205,17 +204,17 @@
         /* UPDATED WITH iOS FIX */
         .page {
             display: none;
-            flex: 1 !important;
+            flex: 1;
             padding: var(--space-md);
-            overflow-y: auto !important;
+            overflow-y: auto;
             overflow-x: hidden;
             -webkit-overflow-scrolling: touch;
             width: 100%;
-            flex-direction: column !important;
+            min-height: 0; /* This is crucial - allows flex shrinking */
         }
-
+        
         .page.active {
-            display: flex !important;
+            display: flex;
             flex-direction: column;
             animation: fadeIn 0.3s ease;
         }
@@ -230,11 +229,11 @@
         .home-header {
             text-align: center;
             margin-bottom: var(--space-lg);
-            display: flex !important;
-            flex-direction: column !important;
-            flex: 1 !important;
-            justify-content: space-around !important;
-            min-height: 0 !important;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            justify-content: space-around;
+            min-height: 0;
         }
 
         .logo {
