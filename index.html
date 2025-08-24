@@ -761,11 +761,11 @@
         .todo-container {
             display: flex;
             flex-direction: column;
-            flex: 1;
+            height: 100%; /* Change from flex: 1 to height: 100% */
             gap: var(--space-lg);
             min-height: 0;
         }
-
+        
         .todo-title {
             font-size: var(--text-3xl);
             font-weight: 700;
@@ -1261,7 +1261,14 @@
             }
 
             .page {
-                padding: var(--space-sm);
+                display: none;
+                flex: 1;
+                padding: var(--space-md);
+                overflow-y: auto;
+                overflow-x: hidden;
+                -webkit-overflow-scrolling: touch;
+                width: 100%;
+                min-height: 0;
             }
         }
 
@@ -1582,7 +1589,7 @@
                 <div class="nav-text">Menus</div>
             </div>
             <div class="nav-item" data-page="dashboard" role="tab" aria-label="Mental health resources">
-                <div class="nav-icon">📊</div>
+                <div class="nav-icon">🛠️</div>
                 <div class="nav-text">Resources</div>
             </div>
             <div class="nav-item active" data-page="home" role="tab" aria-label="Home page">
