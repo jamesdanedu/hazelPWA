@@ -83,6 +83,9 @@
             --safe-area-inset-right: env(safe-area-inset-right);
             --safe-area-inset-bottom: env(safe-area-inset-bottom);
             --safe-area-inset-left: env(safe-area-inset-left);
+            
+            /* NAVIGATION HEIGHT FIX */
+            --nav-height: 80px;
         }
 
         /* Reset and Base Styles */
@@ -118,8 +121,7 @@
             position: relative;
         }
 
-        /* Enhanced Container System */
-        /* UPDATED WITH iOS FIX */
+        /* FIXED Container System - CRITICAL CHANGE */
         .container {
             width: 100%;
             height: 100vh;
@@ -130,19 +132,23 @@
             overflow: hidden;
         }
     
-        /* Mobile-First Navigation Bar */
+        /* FIXED Navigation Bar - CRITICAL CHANGES */
         .nav-bar {
-            flex-shrink: 0; /* Prevent shrinking */
+            position: fixed; /* CHANGED FROM relative */
+            bottom: 0; /* ADDED */
+            left: 0; /* ADDED */
+            right: 0; /* ADDED */
+            height: var(--nav-height); /* ADDED HEIGHT */
+            flex-shrink: 0;
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             display: grid;
             grid-template-columns: repeat(5, 1fr);
-            padding: var(--space-sm) 0;
+            padding: var(--space-sm) 0 calc(var(--space-sm) + var(--safe-area-inset-bottom));
             box-shadow: 0 -2px 20px rgba(0,0,0,0.1);
             z-index: var(--z-fixed);
             border-top: 1px solid rgba(0,0,0,0.1);
-            position: relative;
         }
 
         .nav-item {
@@ -201,20 +207,22 @@
         }
 
         #menus {
-                padding-top: var(--space-xl);
+            padding-top: var(--space-xl);
         }       
         
-        /* Enhanced Page System */
-        /* UPDATED WITH iOS FIX */
+        /* FIXED Page System - CRITICAL CHANGES */
         .page {
             display: none;
             flex: 1;
             padding: var(--space-md);
+            padding-bottom: calc(var(--nav-height) + var(--space-md)); /* ADDED BOTTOM PADDING */
             overflow-y: auto;
             overflow-x: hidden;
             -webkit-overflow-scrolling: touch;
             width: 100%;
-            min-height: 0; /* This is crucial - allows flex shrinking */
+            height: calc(100vh - var(--nav-height)); /* FIXED HEIGHT */
+            height: calc(100dvh - var(--nav-height)); /* FIXED HEIGHT */
+            min-height: 0;
         }
         
         .page.active {
@@ -229,7 +237,6 @@
         }
 
         /* Home Page Styles */
-        /* UPDATED WITH iOS FIX */
         .home-header {
             text-align: center;
             margin-bottom: var(--space-lg);
@@ -546,21 +553,21 @@
             gap: var(--space-md);
             margin-top: var(--space-lg);
             height: 100%;
-            max-height: calc(100vh - 200px); /* Account for header and nav */
-            overflow: hidden; /* Remove scrolling */
+            max-height: calc(100vh - 200px);
+            overflow: hidden;
         }
         
         .menu-category {
             background: var(--surface-color);
             border-radius: var(--radius-lg);
-            padding: var(--space-lg); /* Reduced from var(--space-xl) */
+            padding: var(--space-lg);
             text-align: center;
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: var(--shadow-md);
             position: relative;
             overflow: hidden;
-            height: 100%; /* Fill grid cell */
+            height: 100%;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -589,8 +596,8 @@
         }
 
         .category-icon {
-            font-size: clamp(2.5rem, 6vw, 4rem); /* Reduced from clamp(3rem, 8vw, 5rem) */
-            margin-bottom: var(--space-sm); /* Reduced spacing */
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            margin-bottom: var(--space-sm);
             display: block;
         }
 
@@ -680,7 +687,6 @@
             margin-bottom: var(--space-lg);
         }
 
-        
         .new-entry-btn {
             background: var(--surface-color);
             color: #435334;
@@ -775,7 +781,7 @@
         #todo.active {
             display: flex !important;
             flex-direction: column !important;
-            height: calc(100vh - 120px) !important; /* Account for nav bar */
+            height: calc(100vh - var(--nav-height)) !important;
             padding: var(--space-md);
         }
 
@@ -848,18 +854,6 @@
             transform: scale(1.05);
         }
 
-        .tasks-container {
-            background: rgba(0, 0, 0, 0.7);
-            border-radius: var(--radius-xl);
-            padding: var(--space-lg);
-            color: white;
-            backdrop-filter: blur(10px);
-            flex: 1;
-            overflow-y: auto;
-            -webkit-overflow-scrolling: touch;
-            min-height: 200px; /* Ensure minimum height */
-        }
-        
         .task-item {
             display: flex;
             align-items: center;
@@ -906,6 +900,127 @@
         .task-text.completed {
             text-decoration: line-through;
             opacity: 0.6;
+        }
+
+        .task-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+        }
+        
+        .task-header {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            width: 100%;
+        }
+        
+        .task-actions {
+            display: flex;
+            gap: var(--space-xs);
+            opacity: 0.7;
+        }
+        
+        .task-expand-btn,
+        .add-subtask-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: var(--text-sm);
+            cursor: pointer;
+            padding: var(--space-xs);
+            border-radius: var(--radius-sm);
+            transition: all 0.2s ease;
+        }
+        
+        .task-expand-btn:hover,
+        .add-subtask-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            opacity: 1;
+        }
+          
+        .subtask-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: var(--space-sm) 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .subtask-item:last-child {
+            border-bottom: none;
+        }
+        
+        .subtask-checkbox {
+            width: 16px;
+            height: 16px;
+            border: 2px solid rgba(255, 255, 255, 0.7);
+            border-radius: 3px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+        
+        .subtask-checkbox.completed {
+            background: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+        
+        .subtask-checkbox.completed::after {
+            content: '✓';
+            color: white;
+            font-size: 10px;
+        }
+        
+        .subtask-text {
+            flex: 1;
+            font-size: var(--text-sm);
+            transition: all 0.3s ease;
+        }
+        
+        .subtask-text.completed {
+            text-decoration: line-through;
+            opacity: 0.6;
+        }
+        
+        .subtask-input {
+            background: rgba(255, 255, 255, 0.1) !important;
+            border: 1px solid rgba(255, 255, 255, 0.3) !important;
+            border-radius: var(--radius-sm) !important;
+            padding: var(--space-sm) !important;
+            color: white !important;
+            font-size: var(--text-sm) !important;
+            margin-top: var(--space-sm) !important;
+            width: 100% !important;
+            position: relative !important;
+            z-index: 10 !important;
+            min-height: 32px !important;
+        }
+        
+        .subtask-input:focus {
+            outline: none !important;
+            border-color: var(--secondary-color) !important;
+            background: rgba(255, 255, 255, 0.2) !important;
+        }
+        
+        .subtask-input::placeholder {
+            color: rgba(255, 255, 255, 0.5) !important;
+        }
+        
+        .subtasks {
+            margin-left: var(--space-lg) !important;
+            padding-left: var(--space-md) !important;
+            border-left: 2px solid rgba(255, 255, 255, 0.2) !important;
+            display: none !important;
+            margin-top: var(--space-sm) !important;
+        }
+        
+        .subtasks.expanded {
+            display: block !important;
         }
 
         /* Form Styles */
@@ -1085,127 +1200,7 @@
             margin-top: var(--space-lg);
             min-height: 48px;
         }
-                .task-content {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: var(--space-sm);
-        }
-        
-        .task-header {
-            display: flex;
-            align-items: center;
-            gap: var(--space-sm);
-            width: 100%;
-        }
-        
-        .task-actions {
-            display: flex;
-            gap: var(--space-xs);
-            opacity: 0.7;
-        }
-        
-        .task-expand-btn,
-        .add-subtask-btn {
-            background: none;
-            border: none;
-            color: white;
-            font-size: var(--text-sm);
-            cursor: pointer;
-            padding: var(--space-xs);
-            border-radius: var(--radius-sm);
-            transition: all 0.2s ease;
-        }
-        
-        .task-expand-btn:hover,
-        .add-subtask-btn:hover {
-            background: rgba(255, 255, 255, 0.1);
-            opacity: 1;
-        }
-          
-        .subtask-item {
-            display: flex;
-            align-items: center;
-            gap: var(--space-sm);
-            padding: var(--space-sm) 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .subtask-item:last-child {
-            border-bottom: none;
-        }
-        
-        .subtask-checkbox {
-            width: 16px;
-            height: 16px;
-            border: 2px solid rgba(255, 255, 255, 0.7);
-            border-radius: 3px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            flex-shrink: 0;
-        }
-        
-        .subtask-checkbox.completed {
-            background: var(--secondary-color);
-            border-color: var(--secondary-color);
-        }
-        
-        .subtask-checkbox.completed::after {
-            content: '✓';
-            color: white;
-            font-size: 10px;
-        }
-        
-        .subtask-text {
-            flex: 1;
-            font-size: var(--text-sm);
-            transition: all 0.3s ease;
-        }
-        
-        .subtask-text.completed {
-            text-decoration: line-through;
-            opacity: 0.6;
-        }
-        
-        .subtask-input {
-            background: rgba(255, 255, 255, 0.1) !important;
-            border: 1px solid rgba(255, 255, 255, 0.3) !important;
-            border-radius: var(--radius-sm) !important;
-            padding: var(--space-sm) !important;
-            color: white !important;
-            font-size: var(--text-sm) !important;
-            margin-top: var(--space-sm) !important;
-            width: 100% !important;
-            position: relative !important;
-            z-index: 10 !important;
-            min-height: 32px !important;
-        }
-        
-        .subtask-input:focus {
-            outline: none !important;
-            border-color: var(--secondary-color) !important;
-            background: rgba(255, 255, 255, 0.2) !important;
-        }
-        
-        .subtask-input::placeholder {
-            color: rgba(255, 255, 255, 0.5) !important;
-        }
-        
-        /* Make sure the subtasks container is visible */
-        .subtasks {
-            margin-left: var(--space-lg) !important;
-            padding-left: var(--space-md) !important;
-            border-left: 2px solid rgba(255, 255, 255, 0.2) !important;
-            display: none !important;
-            margin-top: var(--space-sm) !important;
-        }
-        
-        .subtasks.expanded {
-            display: block !important;
-        }
+
         /* Emergency Button */
         .emergency-btn {
             position: absolute;
@@ -1238,52 +1233,45 @@
             100% { box-shadow: 0 4px 12px rgba(255, 68, 68, 0.4); }
         }
 
-        /* Updated Responsive Design - KEEPS VERTICAL TABS */
+        /* Responsive Design - KEEPS VERTICAL TABS */
         @media (max-width: 768px) {
-            /* Keep dashboard container as horizontal flex (vertical tabs) */
-            .dashboard-container {
-                /* Keep default flex-direction: row */
-                /* Keep default height: 100% */
+            :root {
+                --nav-height: 70px;
             }
             
-            /* Make tab-sidebar narrower on mobile but keep vertical */
+            .dashboard-container {
+                /* Keep default flex-direction: row */
+            }
+            
             .tab-sidebar {
-                width: 60px; /* Narrower than desktop (80px) */
-                /* Keep flex-direction: column (default) */
-                /* Keep default order */
+                width: 60px;
                 flex-shrink: 0;
             }
             
-            /* Make tab items smaller but keep vertical orientation */
             .tab-item {
-                font-size: 10px; /* Smaller text for mobile */
-                padding: 4px; /* Less padding */
-                /* Keep writing-mode: vertical-rl (default) */
-                /* Keep text-orientation: mixed (default) */
-                min-height: 50px; /* Slightly smaller min-height */
+                font-size: 10px;
+                padding: 4px;
+                min-height: 50px;
             }
             
-            /* Keep tab content layout */
             .tab-content {
                 flex: 1;
                 min-height: 0;
                 overflow-y: auto;
             }
             
-            /* Keep vertical indicator positioning */
             .tab-item::before {
                 left: 0;
                 top: 0;
                 bottom: 0;
                 width: 3px;
-                transform: scaleY(0); /* Keep Y scale for vertical indicator */
+                transform: scaleY(0);
             }
             
             .tab-item.active::before {
-                transform: scaleY(1); /* Keep Y scale for vertical indicator */
+                transform: scaleY(1);
             }
 
-            /* Keep all other responsive functionality */
             .form-actions {
                 flex-direction: column;
             }
@@ -1296,16 +1284,22 @@
                 display: none;
                 flex: 1;
                 padding: var(--space-md);
+                padding-bottom: calc(var(--nav-height) + var(--space-md));
                 overflow-y: auto;
                 overflow-x: hidden;
                 -webkit-overflow-scrolling: touch;
                 width: 100%;
+                height: calc(100vh - var(--nav-height));
+                height: calc(100dvh - var(--nav-height));
                 min-height: 0;
             }
         }
 
         @media (max-width: 480px) {
-            /* Make tabs even narrower on very small screens but still vertical */
+            :root {
+                --nav-height: 65px;
+            }
+            
             .tab-sidebar {
                 width: 50px;
             }
@@ -1318,6 +1312,7 @@
             
             .page {
                 padding: var(--space-xs);
+                padding-bottom: calc(var(--nav-height) + var(--space-xs));
             }
             
             .emoji-container {
@@ -1453,7 +1448,6 @@
             }
         }
 
-        /* iOS Safari fullscreen adjustments */
         /* iOS-specific safe area handling */
         @supports (-webkit-touch-callout: none) {
             .container {
@@ -1616,7 +1610,7 @@
             </div>
         </div>
 
-        <!-- Navigation Bar -->
+        <!-- FIXED Navigation Bar - Now properly positioned at bottom -->
         <nav class="nav-bar" role="navigation" aria-label="Main navigation">
             <div class="nav-item" data-page="menus" role="tab" aria-label="Food menus">
                 <div class="nav-icon">🍽️</div>
@@ -1718,6 +1712,7 @@
         newManifest.href = manifestURL;
         document.head.appendChild(newManifest);
     });
+
         // Enhanced PWA App with Mobile-First Features and Fullscreen Support
         class HazelApp {
             constructor() {
@@ -1732,7 +1727,7 @@
                 this.isEditingEntry = false;
                 this.editingEntryId = null;
 
-                // In your constructor, add this property:
+                // Food menus data
                 this.foodMenus = {
                     breakfast: [
                         { name: "Chocolate Chip Pancakes", description: "Fluffy, golden pancakes studded with melty chocolate chips.", calories: "450 cal" },
@@ -1771,7 +1766,6 @@
                 this.loadTasks();
                 this.initSobrietyTracker();
                 this.setupAccessibility();
-                // this.setupEmergencyButton();
                 this.preventZoom();
             }
 
@@ -1954,11 +1948,6 @@
                 });
             }
 
-            setupEmergencyButton() {
-                // Show emergency button based on mood state
-                //this.toggleEmergencyButton();
-            }
-
             addHapticFeedback() {
                 if ('vibrate' in navigator) {
                     navigator.vibrate(10);
@@ -2005,46 +1994,46 @@
             }
 
             showFoodItems(category) {
-                    // Hide the categories grid
-                    document.querySelector('.menu-categories').style.display = 'none';
-                    
-                    // Create and show food items
-                    const menusPage = document.getElementById('menus');
-                    let foodItemsContainer = document.getElementById('foodItemsContainer');
-                    
-                    if (!foodItemsContainer) {
-                        foodItemsContainer = document.createElement('div');
-                        foodItemsContainer.id = 'foodItemsContainer';
-                        menusPage.appendChild(foodItemsContainer);
-                    }
-                    
-                    const items = this.foodMenus[category] || [];
-                    foodItemsContainer.innerHTML = `
-                        <button onclick="window.hazelApp.showMenuCategories()" style="background: var(--secondary-color); color: white; border: none; padding: var(--space-sm) var(--space-lg); border-radius: var(--radius-full); font-size: var(--text-sm); font-weight: 600; cursor: pointer; margin-bottom: var(--space-lg);">← Back to Categories</button>
-                        <div style="display: flex; flex-direction: column; gap: var(--space-md);">
-                            ${items.map(item => `
-                                <div style="background: var(--surface-color); border-radius: var(--radius-lg); padding: var(--space-lg); box-shadow: var(--shadow-md);">
-                                    <div style="font-size: var(--text-lg); font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-sm);">${item.name}</div>
-                                    <div style="font-size: var(--text-sm); color: var(--text-secondary); line-height: 1.5; margin-bottom: var(--space-sm);">${item.description}</div>
-                                    <div style="font-size: var(--text-xs); color: var(--primary-color); font-weight: 600;">${item.calories}</div>
-                                </div>
-                            `).join('')}
-                        </div>
-                    `;
-                    
-                    foodItemsContainer.style.display = 'block';
+                // Hide the categories grid
+                document.querySelector('.menu-categories').style.display = 'none';
+                
+                // Create and show food items
+                const menusPage = document.getElementById('menus');
+                let foodItemsContainer = document.getElementById('foodItemsContainer');
+                
+                if (!foodItemsContainer) {
+                    foodItemsContainer = document.createElement('div');
+                    foodItemsContainer.id = 'foodItemsContainer';
+                    menusPage.appendChild(foodItemsContainer);
                 }
                 
-                showMenuCategories() {
-                    // Show the categories grid
-                    document.querySelector('.menu-categories').style.display = 'grid';
-                    
-                    // Hide food items
-                    const foodItemsContainer = document.getElementById('foodItemsContainer');
-                    if (foodItemsContainer) {
-                        foodItemsContainer.style.display = 'none';
-                    }
+                const items = this.foodMenus[category] || [];
+                foodItemsContainer.innerHTML = `
+                    <button onclick="window.hazelApp.showMenuCategories()" style="background: var(--secondary-color); color: white; border: none; padding: var(--space-sm) var(--space-lg); border-radius: var(--radius-full); font-size: var(--text-sm); font-weight: 600; cursor: pointer; margin-bottom: var(--space-lg);">← Back to Categories</button>
+                    <div style="display: flex; flex-direction: column; gap: var(--space-md);">
+                        ${items.map(item => `
+                            <div style="background: var(--surface-color); border-radius: var(--radius-lg); padding: var(--space-lg); box-shadow: var(--shadow-md);">
+                                <div style="font-size: var(--text-lg); font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-sm);">${item.name}</div>
+                                <div style="font-size: var(--text-sm); color: var(--text-secondary); line-height: 1.5; margin-bottom: var(--space-sm);">${item.description}</div>
+                                <div style="font-size: var(--text-xs); color: var(--primary-color); font-weight: 600;">${item.calories}</div>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+                
+                foodItemsContainer.style.display = 'block';
+            }
+                
+            showMenuCategories() {
+                // Show the categories grid
+                document.querySelector('.menu-categories').style.display = 'grid';
+                
+                // Hide food items
+                const foodItemsContainer = document.getElementById('foodItemsContainer');
+                if (foodItemsContainer) {
+                    foodItemsContainer.style.display = 'none';
                 }
+            }
 
             handleMoodSelect(mood) {
                 this.selectedMood = mood;
@@ -2532,8 +2521,8 @@
                     text: text,
                     completed: false,
                     createdAt: new Date().toISOString(),
-                    subtasks: [],              // Make sure this line is added
-                    subtasksExpanded: false    // Make sure this line is added
+                    subtasks: [],
+                    subtasksExpanded: false
                 };
                 
                 this.tasks.push(task);
@@ -2589,13 +2578,12 @@
                     });
                 });
             
-                // Add subtask buttons - THIS IS THE KEY ONE
+                // Add subtask buttons
                 document.querySelectorAll('.add-subtask-btn').forEach(btn => {
                     btn.addEventListener('click', (e) => {
                         e.preventDefault();
                         e.stopPropagation();
                         const taskId = parseInt(btn.dataset.taskId);
-                        console.log('Add subtask clicked for task:', taskId); // Debug line
                         this.showSubtaskInput(taskId);
                     });
                 });
@@ -2628,20 +2616,15 @@
             }
 
             showSubtaskInput(taskId) {
-                console.log('Showing subtask input for task:', taskId);
-                
                 // First, make sure the subtasks container is visible
                 const subtasksContainer = document.querySelector(`.subtasks[data-task-id="${taskId}"]`);
-                console.log('Found subtasks container:', subtasksContainer);
                 if (subtasksContainer) {
                     subtasksContainer.style.display = 'block';
                     subtasksContainer.classList.add('expanded');
                 }
                 
                 const input = document.querySelector(`.subtask-input[data-task-id="${taskId}"]`);
-                console.log('Found input:', input);
                 if (input) {
-                    // More aggressive styling
                     input.style.display = 'block';
                     input.style.visibility = 'visible';
                     input.style.opacity = '1';
@@ -2658,7 +2641,6 @@
                     input.style.position = 'relative';
                     input.style.zIndex = '10';
                     
-                    // Force focus and scroll into view
                     setTimeout(() => {
                         input.focus();
                         input.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -2667,7 +2649,6 @@
             }
             
             addSubtask(taskId, text) {
-                console.log('Adding subtask:', text, 'to task:', taskId); // Debug line
                 const task = this.tasks.find(t => t.id === taskId);
                 if (task) {
                     if (!task.subtasks) {
