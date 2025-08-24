@@ -2480,7 +2480,7 @@
                 
                 recipeDetailContainer.innerHTML = `
                     <div style="display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg);">
-                        <button onclick="window.hazelApp.showFoodItems('${category}')" style="background: var(--secondary-color); color: white; border: none; padding: var(--space-sm) var(--space-md); border-radius: var(--radius-full); font-size: var(--text-sm); font-weight: 600; cursor: pointer;">← Back</button>
+                        <button id="backToRecipeList" data-category="${category}" style="background: var(--secondary-color); color: white; border: none; padding: var(--space-sm) var(--space-md); border-radius: var(--radius-full); font-size: var(--text-sm); font-weight: 600; cursor: pointer;">← Back</button>
                         <h1 style="font-size: var(--text-xl); font-weight: 700; color: white; margin: 0;">${recipe.name}</h1>
                     </div>
                     
@@ -2542,6 +2542,15 @@
                         </div>
                     </div>
                 `;
+                
+                // Add event listener for back button
+                const backBtn = recipeDetailContainer.querySelector('#backToRecipeList');
+                if (backBtn) {
+                    backBtn.addEventListener('click', () => {
+                        const categoryToShow = backBtn.dataset.category;
+                        this.showFoodItems(categoryToShow);
+                    });
+                }
                 
                 recipeDetailContainer.style.display = 'block';
                 
