@@ -2450,19 +2450,31 @@
                 
                 if (!recipe) return;
                 
-                // Hide food items container
+                // Hide ALL other content completely
+                document.querySelector('.menu-categories').style.display = 'none';
+                document.querySelector('#menus h2').style.display = 'none';
+                
                 const foodItemsContainer = document.getElementById('foodItemsContainer');
                 if (foodItemsContainer) {
                     foodItemsContainer.style.display = 'none';
                 }
                 
-                // Create and show recipe detail
+                // Create and show recipe detail as full-screen overlay
                 const menusPage = document.getElementById('menus');
                 let recipeDetailContainer = document.getElementById('recipeDetailContainer');
                 
                 if (!recipeDetailContainer) {
                     recipeDetailContainer = document.createElement('div');
                     recipeDetailContainer.id = 'recipeDetailContainer';
+                    recipeDetailContainer.style.position = 'absolute';
+                    recipeDetailContainer.style.top = '0';
+                    recipeDetailContainer.style.left = '0';
+                    recipeDetailContainer.style.right = '0';
+                    recipeDetailContainer.style.bottom = '0';
+                    recipeDetailContainer.style.background = 'var(--background-color)';
+                    recipeDetailContainer.style.padding = 'var(--space-md)';
+                    recipeDetailContainer.style.overflowY = 'auto';
+                    recipeDetailContainer.style.zIndex = '20';
                     menusPage.appendChild(recipeDetailContainer);
                 }
                 
@@ -2535,7 +2547,7 @@
                 
                 // Scroll to top of recipe
                 setTimeout(() => {
-                    document.getElementById('menus').scrollTop = 0;
+                    recipeDetailContainer.scrollTop = 0;
                 }, 100);
             }
                 
