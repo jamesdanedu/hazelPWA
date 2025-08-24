@@ -680,6 +680,11 @@
             margin-bottom: var(--space-lg);
         }
 
+        #todo.active {
+            display: flex;
+            flex-direction: column;
+        }
+        
         .new-entry-btn {
             background: var(--surface-color);
             color: #435334;
@@ -771,9 +776,9 @@
         .todo-container {
             display: flex;
             flex-direction: column;
-            height: 100%; /* Change from flex: 1 to height: 100% */
+            height: 100%;
             gap: var(--space-lg);
-            min-height: 0;
+            padding: var(--space-md);
         }
         
         .todo-title {
@@ -835,9 +840,9 @@
             flex: 1;
             overflow-y: auto;
             -webkit-overflow-scrolling: touch;
-            min-height: 0;
+            min-height: 200px; /* Ensure minimum height */
         }
-
+        
         .task-item {
             display: flex;
             align-items: center;
