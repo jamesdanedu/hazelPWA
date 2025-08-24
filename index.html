@@ -610,7 +610,7 @@
             padding: var(--space-2xl);
             border-radius: var(--radius-xl);
             box-shadow: var(--shadow-xl);
-            z-index: var(--z-modal);
+            z-index: 9000; 
             display: none;
             max-width: min(90vw, 320px);
             width: 100%;
@@ -983,7 +983,7 @@
             height: 100%;
             background: rgba(0,0,0,0.8);
             backdrop-filter: blur(5px);
-            z-index: var(--z-modal);
+            z-index: 10000; 
             display: none;
             align-items: center;
             justify-content: center;
@@ -2067,7 +2067,19 @@
             }
 
             showHotlines() {
-                document.getElementById('hotlinesModal').classList.add('show');
+                const modal = document.getElementById('hotlinesModal');
+                if (modal) {
+                        modal.style.display = 'flex';
+                        modal.style.zIndex = '10000';
+                        modal.classList.add('show');
+                        
+                        // Force a repaint
+                        modal.offsetHeight;
+                        
+                        console.log('Hotlines modal shown'); // Debug line
+                } else {
+                        console.error('Hotlines modal not found'); // Debug line
+                }
             }
 
             hideModal() {
