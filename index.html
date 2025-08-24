@@ -1428,9 +1428,6 @@
 </head>
 <body>
     <div class="container">
-        <!-- Emergency Button -->
-        <button id="emergencyBtn" class="emergency-btn" aria-label="Emergency crisis support">🆘</button>
-
         <!-- Home Page -->
         <div id="home" class="page active">
             <div class="home-header">
@@ -1850,11 +1847,6 @@
                     }
                 });
 
-                // Emergency button
-                document.getElementById('emergencyBtn').addEventListener('click', () => {
-                    this.showHotlines();
-                });
-
                 // Modal
                 document.getElementById('closeModalBtn').addEventListener('click', () => {
                     this.hideModal();
@@ -2019,11 +2011,7 @@
                 // Show support panel for sad moods
                 if (mood === 'very-sad' || mood === 'sad') {
                     this.showSupportPanel();
-                    this.toggleEmergencyButton(true);
-                } else {
-                    this.toggleEmergencyButton(false);
-                }
-                
+                } 
                 this.announce(`Mood selected: ${mood}`);
             }
 
@@ -2034,20 +2022,7 @@
             hideSupportPanel() {
                 document.getElementById('supportPanel').classList.remove('show');
             }
-
-            toggleEmergencyButton(show = null) {
-                const btn = document.getElementById('emergencyBtn');
-                if (show === null) {
-                    show = this.selectedMood === 'very-sad' || this.selectedMood === 'sad';
-                }
-                
-                if (show) {
-                    btn.classList.add('show');
-                } else {
-                    btn.classList.remove('show');
-                }
-            }
-
+            
             handleSupportAction(action) {
                 switch(action) {
                     case 'journal':
