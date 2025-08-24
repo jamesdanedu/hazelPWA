@@ -1496,27 +1496,28 @@
 
         <!-- Menus Page -->
         <div id="menus" class="page">
-            <h2 style="text-align: center; margin-bottom: var(--space-lg); font-size: var(--text-2xl); font-weight: 700;">Food Menus</h2>
-            <div class="menu-categories">
-                <div class="menu-category" data-category="breakfast">
-                    <div class="category-icon">🥞</div>
-                    <div class="category-title">Breakfasts</div>
-                </div>
-                <div class="menu-category" data-category="lunch">
-                    <div class="category-icon">🥗</div>
-                    <div class="category-title">Lunches</div>
-                </div>
-                <div class="menu-category" data-category="dinner">
-                    <div class="category-icon">🍽️</div>
-                    <div class="category-title">Dinners</div>
-                </div>
-                <div class="menu-category" data-category="snacks">
-                    <div class="category-icon">🍪</div>
-                    <div class="category-title">Snacks</div>
+             <div id="menu-categories-view" class="menu-view active">
+                <h2 style="text-align: center; margin-bottom: var(--space-lg); font-size: var(--text-2xl); font-weight: 700;">Food Menus</h2>
+                <div class="menu-categories" id="menuCategories">
+                    <div class="menu-category" data-category="breakfasts">
+                        <div class="category-icon">🥞</div>
+                        <div class="category-title">Breakfasts</div>
+                    </div>
+                    <div class="menu-category" data-category="lunches">
+                        <div class="category-icon">🥗</div>
+                        <div class="category-title">Lunches</div>
+                    </div>
+                    <div class="menu-category" data-category="dinners">
+                        <div class="category-icon">🍽️</div>
+                        <div class="category-title">Dinners</div>
+                    </div>
+                    <div class="menu-category" data-category="snacks">
+                        <div class="category-icon">🍪</div>
+                        <div class="category-title">Snacks</div>
+                    </div>
                 </div>
             </div>
-        </div>
-
+          
         <!-- To-Do List Page -->
         <div id="todo" class="page">
             <div class="todo-container">
@@ -1578,7 +1579,7 @@
         <!-- Navigation Bar -->
         <nav class="nav-bar" role="navigation" aria-label="Main navigation">
             <div class="nav-item" data-page="menus" role="tab" aria-label="Food menus">
-                <div class="nav-icon">🍕</div>
+                <div class="nav-icon">🍽️</div>
                 <div class="nav-text">Menus</div>
             </div>
             <div class="nav-item" data-page="dashboard" role="tab" aria-label="Mental health resources">
