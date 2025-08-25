@@ -2243,16 +2243,44 @@
                     this.editSobrietyDate();
                 });
 
-                // Tasks
-                document.getElementById('addTaskBtn').addEventListener('click', () => {
-                    this.addTask();
-                });
-
-                document.getElementById('taskInput').addEventListener('keypress', (e) => {
-                    if (e.key === 'Enter') {
+                // Tasks - Enhanced for iOS
+                const taskInput = document.getElementById('taskInput');
+                const addTaskBtn = document.getElementById('addTaskBtn');
+                
+                if (taskInput && addTaskBtn) {
+                    // iOS-friendly task input
+                    taskInput.setAttribute('autocomplete', 'off');
+                    taskInput.setAttribute('autocorrect', 'off');
+                    taskInput.setAttribute('autocapitalize', 'off');
+                    taskInput.setAttribute('spellcheck', 'false');
+                    
+                    const handleAddTask = (e) => {
+                        e.preventDefault();
                         this.addTask();
+                    };
+                    
+                    addTaskBtn.addEventListener('click', handleAddTask);
+                    addTaskBtn.addEventListener('touchend', handleAddTask);
+                    
+                    taskInput.addEventListener('keypress', (e) => {
+                        if (e.key === 'Enter' || e.keyCode === 13) {
+                            e.preventDefault();
+                            this.addTask();
+                        }
+                    });
+                    
+                    // iOS keyboard handling
+                    if (this.isIOS()) {
+                        taskInput.addEventListener('focus', () => {
+                            setTimeout(() => {
+                                taskInput.scrollIntoView({ 
+                                    behavior: 'smooth', 
+                                    block: 'center' 
+                                });
+                            }, 300);
+                        });
                     }
-                });
+                }
 
                 // Modal
                 document.getElementById('closeModalBtn').addEventListener('click', () => {
@@ -3099,45 +3127,81 @@
             
                 // Main task checkboxes
                 document.querySelectorAll('.task-checkbox').forEach(checkbox => {
-                    checkbox.addEventListener('click', () => {
+                    // Add both touch and click events for iOS compatibility
+                    const handleTaskToggle = (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
                         const taskId = parseInt(checkbox.dataset.taskId);
                         if (!checkbox.dataset.subtaskId) {
                             this.toggleTask(taskId);
                         }
+                    };
+                    
+                    checkbox.addEventListener('click', handleTaskToggle);
+                    checkbox.addEventListener('touchend', handleTaskToggle);
+                    
+                    // Prevent iOS double-tap zoom
+                    checkbox.addEventListener('touchstart', (e) => {
+                        e.preventDefault();
                     });
                 });
             
                 // Subtask checkboxes
                 document.querySelectorAll('.subtask-checkbox').forEach(checkbox => {
-                    checkbox.addEventListener('click', () => {
+                    const handleSubtaskToggle = (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
                         const taskId = parseInt(checkbox.dataset.taskId);
                         const subtaskId = parseInt(checkbox.dataset.subtaskId);
                         this.toggleSubtask(taskId, subtaskId);
+                    };
+                    
+                    checkbox.addEventListener('click', handleSubtaskToggle);
+                    checkbox.addEventListener('touchend', handleSubtaskToggle);
+                    
+                    checkbox.addEventListener('touchstart', (e) => {
+                        e.preventDefault();
                     });
                 });
             
                 // Expand/collapse buttons
                 document.querySelectorAll('.task-expand-btn').forEach(btn => {
-                    btn.addEventListener('click', () => {
-                        const taskId = parseInt(btn.dataset.taskId);
-                        this.toggleTaskExpansion(taskId);
-                    });
-                });
-            
-                // Add subtask buttons
-                document.querySelectorAll('.add-subtask-btn').forEach(btn => {
-                    btn.addEventListener('click', (e) => {
+                    const handleExpand = (e) => {
                         e.preventDefault();
                         e.stopPropagation();
                         const taskId = parseInt(btn.dataset.taskId);
+                        this.toggleTaskExpansion(taskId);
+                    };
+                    
+                    btn.addEventListener('click', handleExpand);
+                    btn.addEventListener('touchend', handleExpand);
+                });
+            
+                // Add subtask buttons - iOS FIX
+                document.querySelectorAll('.add-subtask-btn').forEach(btn => {
+                    const handleAddSubtask = (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        const taskId = parseInt(btn.dataset.taskId);
+                        console.log('Add subtask clicked for task:', taskId);
                         this.showSubtaskInput(taskId);
+                    };
+                    
+                    // Add multiple event listeners for iOS compatibility
+                    btn.addEventListener('click', handleAddSubtask);
+                    btn.addEventListener('touchend', handleAddSubtask);
+                    
+                    // Prevent iOS scroll issues
+                    btn.addEventListener('touchstart', (e) => {
+                        e.stopPropagation();
                     });
                 });
             
-                // Subtask inputs
+                // Subtask inputs - Enhanced for iOS
                 document.querySelectorAll('.subtask-input').forEach(input => {
+                    // iOS-specific input handling
                     input.addEventListener('keypress', (e) => {
-                        if (e.key === 'Enter') {
+                        if (e.key === 'Enter' || e.keyCode === 13) {
                             e.preventDefault();
                             const taskId = parseInt(input.dataset.taskId);
                             const text = input.value.trim();
@@ -3145,18 +3209,44 @@
                                 this.addSubtask(taskId, text);
                                 input.value = '';
                                 input.style.display = 'none';
+                                // Remove focus to close iOS keyboard
+                                input.blur();
                             }
-                        } else if (e.key === 'Escape') {
+                        } else if (e.key === 'Escape' || e.keyCode === 27) {
                             input.style.display = 'none';
                             input.value = '';
+                            input.blur();
                         }
                     });
-            
+                    
+                    // iOS keyboard handling
                     input.addEventListener('blur', () => {
                         setTimeout(() => {
-                            input.style.display = 'none';
-                            input.value = '';
-                        }, 150);
+                            // Only hide if input is empty on iOS
+                            if (!input.value.trim()) {
+                                input.style.display = 'none';
+                                input.value = '';
+                            }
+                        }, 200); // Longer delay for iOS
+                    });
+                    
+                    // iOS focus handling
+                    input.addEventListener('focus', () => {
+                        // Scroll input into view on iOS
+                        setTimeout(() => {
+                            input.scrollIntoView({ 
+                                behavior: 'smooth', 
+                                block: 'center',
+                                inline: 'nearest'
+                            });
+                        }, 300); // Delay for iOS keyboard animation
+                    });
+                    
+                    // Add done button functionality for iOS
+                    input.addEventListener('input', (e) => {
+                        // Auto-resize input on iOS if needed
+                        input.style.height = 'auto';
+                        input.style.height = input.scrollHeight + 'px';
                     });
                 });
             }
